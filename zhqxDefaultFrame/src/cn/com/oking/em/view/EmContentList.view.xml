@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container>
+      <ToolBar>
+        <DataPilot>
+          <Property name="dataSet">dsContentList</Property>
+          <Property name="itemCodes">+,-,pages</Property>
+        </DataPilot>
+        <ToolBarButton>
+          <Property name="caption">保存</Property>
+          <Property name="action">saveListAction</Property>
+        </ToolBarButton>
+      </ToolBar>
+      <DataSet id="dsContentList">
+        <Property name="pageSize">12</Property>
+        <Property name="dataProvider">emContentListAction#getData</Property>
+        <Property name="dataType">[dtEmContentList]</Property>
+      </DataSet>
+      <DataGrid id="dgContentList">
+        <Property name="dataSet">dsContentList</Property>
+        <DataColumn name="clNum">
+          <Property name="property">clNum</Property>
+        </DataColumn>
+        <DataColumn name="description">
+          <Property name="property">description</Property>
+        </DataColumn>
+        <DataColumn name="url">
+          <Property name="property">url</Property>
+        </DataColumn>
+        <DataColumn name="displaySize">
+          <Property name="property">displaySize</Property>
+        </DataColumn>
+        <DataColumn name="imgSrc">
+          <Property name="property">imgSrc</Property>
+        </DataColumn>
+      </DataGrid>
+      <UpdateAction id="saveListAction">
+        <Property name="dataResolver">emContentListAction#save</Property>
+        <Property name="confirmMessage">是否保存结果</Property>
+        <Property name="successMessage">保存成功</Property>
+        <Property name="executingMessage">被保存中</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsContentList</Property>
+        </UpdateItem>
+      </UpdateAction>
+    </Container>
+  </View>
+</ViewConfig>

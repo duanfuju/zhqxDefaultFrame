@@ -1,0 +1,174 @@
+@CHARSET "UTF-8";
+
+.body,html{background:#28baf4; overflow-x:hidden;} 
+#GZnashui_top{ height:73px; width:100%; background:url(images/topbg.jpg) left top no-repeat;}
+#GZnashui_top .logo{width:689px; height:73px; float:left; background:url(images/logo.png) no-repeat;}
+#GZnashui_top .admin{ padding-left:150px;height:41px;position:absolute; right:0px; top:0px; overflow:hidden;zoom:1; background:url(images/topmini.png) left top no-repeat;}
+#GZnashui_top .admin .i01{width:19px;height:19px;float:left;margin-top:9px;;margin-right:6px;}
+#GZnashui_top .admin .skin{width:19px;height:19px;float:left;margin-top:9px; margin-left:1px;}
+#GZnashui_top .admin .gou01{position:absolute;width:19px;height:19px; top:9px;}
+#GZnashui_top .admin .gou02{position:absolute;width:19px;height:19px; top:9px;left:21px;}
+#GZnashui_top .admin .gou03{position:absolute;width:19px;height:19px; top:9px;left:43px;}
+#GZnashui_top .admin .name{ height:41px;padding-top:9px; display:block;float:left;margin-right:10px;}
+#GZnashui_top .admin .name01{height:41px;padding-top:9px; float:left;margin-right:150px;}
+
+/* iframe */
+.d-iframe {
+	border: 0px solid;
+}
+
+/* split-panel */
+.d-split-panel{
+	background:#28baf4;
+}
+
+.d-split-panel .splitter-left,.d-split-panel .splitter-right {
+	background: #28baf4;
+}
+
+
+
+/* tabbar */
+.d-tabbar-top {
+	background: transparent url(images/dorado/tab-top-all.png) repeat-x 0 -234px;
+}
+
+.d-tabbar-bottom {
+	background: transparent url(images/dorado/tab-bottom-all.gif) repeat-x 0 -234px;
+}
+
+.d-tabbar .tab-disabled {
+	color: gray;
+}
+
+.d-tabbar-top .tab {
+	background: transparent url(images/dorado/tab-top-all.png) no-repeat 0 -26px;
+}
+
+.d-tabbar-top .tab-hover {
+	background-position: 0 -52px;
+}
+
+.d-tabbar-top .tab-selected {
+	background-position: 0 0;
+}
+
+.d-tabbar-bottom .tab {
+	background: transparent url(images/dorado/tab-bottom-all.gif) no-repeat 0 -26px;
+}
+
+.d-tabbar-bottom .tab-hover {
+	background-position: 0 -52px;
+}
+
+.d-tabbar-bottom .tab-selected {
+	background-position: 0 0;
+}
+
+.d-tabbar-top .tab .tab-left {
+	background: url(images/dorado/tab-top-all.png) repeat-x 0 -104px;
+}
+
+.d-tabbar-bottom .tab .tab-left {
+	background: url(images/dorado/tab-bottom-all.gif) repeat-x 0 -104px;
+}
+
+.d-tabbar .tab-hover .tab-left {
+	background-position: 0 -130px;
+}
+
+.d-tabbar .tab-selected .tab-left {
+	background-position: 0 -78px;
+}
+
+.d-tabbar .tab .icon {
+	background: transparent no-repeat 0px center;
+}
+
+.d-tabbar-top .tab .tab-right {
+	background: url(images/dorado/tab-top-all.png) no-repeat 0 -182px;
+}
+
+.d-tabbar-bottom .tab .tab-right {
+	background: url(images/dorado/tab-bottom-all.gif) no-repeat 0 -182px;
+}
+
+.d-tabbar-top .tab-hover .tab-right {
+	background-position: 0 -208px;
+}
+
+.d-tabbar-top .tab-selected .tab-right {
+	background-position: 0 -156px;
+}
+
+.d-tabbar-bottom .tab-hover .tab-right {
+	background-position: 0 -208px;
+}
+
+.d-tabbar-bottom .tab-selected .tab-right {
+	background-position: 0 -156px;
+}
+
+.d-tabbar .tab .close,.d-tabbar .tab-selected .close {
+	background: url(images/dorado/tab-buttons.gif) no-repeat 0 -63px;
+}
+
+.d-tabbar .tab .close-hover,.d-tabbar .tab-selected .close-hover {
+	background-position: -18px -63px;
+}
+
+.d-tabbar .tab .close-click,.d-tabbar .tab-selected .close-click {
+	background-position: -36px -63px;
+}
+
+.d-tabbar .left-button {
+	background: url(images/dorado/tab-buttons.gif) 0 0 no-repeat;
+}
+
+.d-tabbar .left-button-hover {
+	background-position: -20px 0;
+}
+
+.d-tabbar .left-button-click {
+	background-position: -40px 0;
+}
+
+.d-tabbar .left-button-disabled {
+	opacity: 0.5;
+	filter: alpha(opacity =                 50);
+}
+
+.d-tabbar .right-button {
+	background: url(images/dorado/tab-buttons.gif) 0 -21px no-repeat;
+}
+
+.d-tabbar .right-button-hover {
+	background-position: -20px -21px;
+}
+
+.d-tabbar .right-button-click {
+	background-position: -40px -21px;
+}
+
+.d-tabbar .right-button-disabled {
+	opacity: 0.5;
+	filter: alpha(opacity =                 50);
+}
+
+.d-tabbar .menu-button {
+	height: 21px;
+	background: url(images/dorado/tab-buttons.gif) 0 -42px no-repeat;
+}
+
+.d-tabbar .menu-button-hover {
+	background-position: -20px -42px;
+}
+
+.d-tabbar .menu-button-disabled {
+	opacity: 0.5;
+	filter: alpha(opacity =                 50);
+}
+
+.d-tabbar .menu-button-toggled {
+	background-position: -40px -42px;
+}

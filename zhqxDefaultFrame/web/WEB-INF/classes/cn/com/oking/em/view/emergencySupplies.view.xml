@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View id="viewShow">
+    <TabControl id="tcShow">
+      <ControlTab>
+        <Property name="caption">显示</Property>
+        <SplitPanel>
+          <Property name="position">18%</Property>
+          <Property name="direction">right</Property>
+          <MainControl>
+            <IFrame id="ifShow">
+              <Property name="path">em/Map.jsp</Property>
+            </IFrame>
+          </MainControl>
+          <SideControl>
+            <Container>
+              <Container layout="hbox">
+                <Property name="height">12%</Property>
+                <Label layoutConstraint="align:bottom">
+                  <Property name="text">物资名称</Property>
+                  <Property name="style">
+                    <Property name="line-height">45px</Property>
+                  </Property>
+                  <Property name="height">45px</Property>
+                </Label>
+                <TextEditor id="txtSearch">
+                  <Property name="width">100px</Property>
+                </TextEditor>
+                <SimpleIconButton id="btnSearch">
+                  <Property name="icon">url(>skin>common/icons.gif) -40px -100px</Property>
+                </SimpleIconButton>
+              </Container>
+              <DataTreeGrid id="dtgGrid">
+                <Property name="dataSet">dsTree</Property>
+                <Property name="treeColumn">description</Property>
+                <Property name="selectionMode">none</Property>
+                <BindingConfigs>
+                  <BindingConfig>
+                    <Property name="checkable">false</Property>
+                    <Property name="recursive">true</Property>
+                    <Property name="labelProperty">description</Property>
+                  </BindingConfig>
+                </BindingConfigs>
+                <Columns>
+                  <DataColumn>
+                    <Property name="property">description</Property>
+                    <Property name="readOnly">true</Property>
+                    <Property name="caption">物资</Property>
+                    <Editor/>
+                  </DataColumn>
+                  <DataColumn>
+                    <Property name="name">location</Property>
+                    <Property name="property">location</Property>
+                    <Property name="readOnly">true</Property>
+                    <Editor/>
+                  </DataColumn>
+                </Columns>
+              </DataTreeGrid>
+              <DataSet id="dsTree">
+                <Property name="dataType">[dtEmSupplies]</Property>
+                <Property name="dataProvider">emSuppliesAction#getDataTree</Property>
+                <Property name="parameter">%</Property>
+              </DataSet>
+            </Container>
+          </SideControl>
+        </SplitPanel>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">维护</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsmaintain</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction1</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <Container layout="hbox align:center">
+            <Property name="height">30px</Property>
+            <Label layoutConstraint="align:center">
+              <Property name="text">物资名称</Property>
+              <Property name="style">
+                <Property name="line-height">30px</Property>
+              </Property>
+              <Property name="height">30px</Property>
+            </Label>
+            <TextEditor id="txtDescription" layoutConstraint="align:center"/>
+            <Label layoutConstraint="align:center">
+              <Property name="text">负责人</Property>
+              <Property name="style">
+                <Property name="line-height">30px</Property>
+              </Property>
+              <Property name="height">30px</Property>
+            </Label>
+            <TextEditor id="txtContraces" layoutConstraint="align:center"/>
+            <SimpleIconButton id="btnLikeSearch">
+              <Property name="icon">url(>skin>common/icons.gif) -40px -100px</Property>
+            </SimpleIconButton>
+          </Container>
+          <DataGrid id="dgShow">
+            <Property name="dataSet">dsmaintain</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="description">
+              <Property name="property">description</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+            <DataColumn name="quantity">
+              <Property name="property">quantity</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+            <DataColumn name="unit">
+              <Property name="property">unit</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+            <DataColumn name="location">
+              <Property name="property">location</Property>
+              <Property name="trigger">dataSetDropDown1</Property>
+            </DataColumn>
+            <DataColumn name="contraces">
+              <Property name="property">contraces</Property>
+              <Editor/>
+            </DataColumn>
+            <DataColumn id="dcPhone" name="phone">
+              <Property name="property">phone</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsmaintain">
+            <Property name="dataType">[dtEmSupplies]</Property>
+            <Property name="dataProvider">emSuppliesAction#getData</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction1">
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <Property name="dataResolver">emSuppliesAction#save</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsmaintain</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <DataSetDropDown id="dataSetDropDown1">
+            <Property name="dataSet">dsList</Property>
+            <Property name="property">storename</Property>
+          </DataSetDropDown>
+          <DataSet id="dsList">
+            <Property name="dataType">[dtEmStore]</Property>
+            <Property name="dataProvider">emStoreAction#getDataTree</Property>
+          </DataSet>
+        </Container>
+      </ControlTab>
+    </TabControl>
+    <AjaxAction id="saveListAction">
+      <Property name="service">emSuppliesAction#saveList</Property>
+    </AjaxAction>
+  </View>
+</ViewConfig>

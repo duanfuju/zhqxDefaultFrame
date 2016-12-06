@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab>
+        <Property name="caption">数据列表</Property>
+        <Container>
+          <ToolBar>
+            <Container layout="hbox align:center">
+              <Property name="height">30px</Property>
+              <Label layoutConstraint="align:center">
+                <Property name="text">灾害类型</Property>
+                <Property name="style">
+                  <Property name="line-height">30px</Property>
+                </Property>
+                <Property name="height">30px</Property>
+              </Label>
+              <TextEditor id="txtzhlx" layoutConstraint="align:center"/>
+              <Label layoutConstraint="align:center">
+                <Property name="text">紧急通知内容</Property>
+                <Property name="style">
+                  <Property name="line-height">30px</Property>
+                </Property>
+                <Property name="height">30px</Property>
+              </Label>
+              <TextEditor id="txtjjtznr" layoutConstraint="align:center"/>
+              <SimpleIconButton id="btnLikeSearch">
+                <Property name="icon">url(>skin>common/icons.gif) -40px -100px</Property>
+              </SimpleIconButton>
+            </Container>
+            <DataPilot>
+              <Property name="dataSet">dsInformList</Property>
+              <Property name="itemCodes">pages</Property>
+            </DataPilot>
+            <Fill/>
+          </ToolBar>
+          <DataGrid id="dgShow">
+            <Property name="dataSet">dsInformList</Property>
+            <Property name="readOnly">true</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="zhlx">
+              <Property name="property">zhlx</Property>
+            </DataColumn>
+            <DataColumn name="status">
+              <Property name="property">status</Property>
+            </DataColumn>
+            <DataColumn name="content">
+              <Property name="property">content</Property>
+            </DataColumn>
+            <DataColumn name="bzId">
+              <Property name="property">bzId</Property>
+            </DataColumn>
+            <DataColumn name="createby">
+              <Property name="property">createby</Property>
+            </DataColumn>
+            <DataColumn name="createdate">
+              <Property name="property">createdate</Property>
+            </DataColumn>
+            <DataColumn name="appby">
+              <Property name="property">appby</Property>
+            </DataColumn>
+            <DataColumn name="appdate">
+              <Property name="property">appdate</Property>
+            </DataColumn>
+            <DataColumn name="pubby">
+              <Property name="property">pubby</Property>
+            </DataColumn>
+            <DataColumn name="pubdate">
+              <Property name="property">pubdate</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsInformList">
+            <Property name="dataType">[dtEmXymlFb]</Property>
+            <Property name="dataProvider">emXymlFbfwAction#getData</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctinfo">
+        <Property name="caption">详细信息</Property>
+        <Container>
+          <Container layout="hbox align:center">
+            <Button id="btnCreate">
+              <Property name="caption">发布通知</Property>
+            </Button>
+            <Button id="btnPrintPreview">
+              <Property name="caption">预览打印</Property>
+              <Property name="hideMode">display</Property>
+              <Property name="visible">false</Property>
+            </Button>
+          </Container>
+          <Container>
+            <DataSet id="dsInformSingle">
+              <Property name="dataType">dtEmXymlFb</Property>
+              <Property name="dataProvider">emXymlFbAction#getDataById</Property>
+              <Property name="loadMode">manual</Property>
+            </DataSet>
+            <AutoForm>
+              <Property name="dataSet">dsInformSingle</Property>
+              <Property name="cols">*,*</Property>
+              <Property name="labelWidth">120</Property>
+              <Property name="labelAlign">left</Property>
+              <Property name="stretchWidth">true</Property>
+              <AutoFormElement>
+                <Property name="name">id</Property>
+                <Property name="property">id</Property>
+                <Property name="hideMode">display</Property>
+                <Property name="visible">false</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">jjtzId</Property>
+                <Property name="property">jjtzId</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">zlbhId</Property>
+                <Property name="property">zlbhId</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">zhlx</Property>
+                <Property name="property">zhlx</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">status</Property>
+                <Property name="property">status</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">relatedNotice</Property>
+                <Property name="property">relatedNotice</Property>
+                <Property name="label">紧急通知主题</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">content</Property>
+                <Property name="property">content</Property>
+                <Property name="visible">false</Property>
+                <Property name="hideMode">display</Property>
+                <Editor>
+                  <TextArea/>
+                </Editor>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">bzId</Property>
+                <Property name="property">bzId</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">createby</Property>
+                <Property name="property">createby</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">createdate</Property>
+                <Property name="property">createdate</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">appby</Property>
+                <Property name="property">appby</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">appdate</Property>
+                <Property name="property">appdate</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">pubby</Property>
+                <Property name="property">pubby</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">pubdate</Property>
+                <Property name="property">pubdate</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+            </AutoForm>
+            <GroupBox>
+              <Property name="caption">打印预览</Property>
+              <Property name="height">500</Property>
+              <Property name="collapsed">false</Property>
+              <Buttons/>
+              <Children>
+                <IFrame id="iframeEmbed"/>
+              </Children>
+            </GroupBox>
+            <UpdateAction id="doSomeThingAction">
+              <Property name="dataResolver">emXymlFbfwAction#publish</Property>
+              <Property name="successMessage">生成通知成功！！！</Property>
+              <UpdateItem>
+                <Property name="dataSet">dsInformSingle</Property>
+              </UpdateItem>
+            </UpdateAction>
+            <Container/>
+          </Container>
+          <GroupBox>
+            <Property name="caption">发布范围</Property>
+            <Buttons/>
+            <Children>
+              <Container>
+                <Property name="width">100%</Property>
+                <ToolBar>
+                  <DataPilot id="dpBtn">
+                    <Property name="dataSet">dsContact</Property>
+                    <Property name="itemCodes">pages,-,x</Property>
+                  </DataPilot>
+                  <ToolBarButton id="tbbAdd">
+                    <Property name="caption">新增</Property>
+                    <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+                  </ToolBarButton>
+                  <Fill/>
+                </ToolBar>
+                <DataGrid id="dgContact">
+                  <ClientEvent name="onCreate">MyCheckBoxCellRenderer = $extend(dorado.widget.grid.CheckBoxCellRenderer,{&#xD;
+            createSubControl: function(arg) {&#xD;
+                var checkbox = $invokeSuper.call(this, arguments);&#xD;
+                checkbox.set({&#xD;
+                    offValue: &quot;0&quot;,&#xD;
+                    onValue: &quot;1&quot;,&#xD;
+                });&#xD;
+                return checkbox;&#xD;
+            }&#xD;
+    });&#xD;
+    self.getColumn(&quot;isphone&quot;).set(&quot;renderer&quot;, new MyCheckBoxCellRenderer());&#xD;
+    self.getColumn(&quot;isemail&quot;).set(&quot;renderer&quot;, new MyCheckBoxCellRenderer());</ClientEvent>
+                  <Property name="dataSet">dsContact</Property>
+                  <DataColumn name="content">
+                    <Property name="property">content</Property>
+                  </DataColumn>
+                  <DataColumn name="dept">
+                    <Property name="property">dept</Property>
+                  </DataColumn>
+                  <DataColumn name="contact">
+                    <Property name="property">contact</Property>
+                  </DataColumn>
+                  <DataColumn name="telnum">
+                    <Property name="property">telnum</Property>
+                  </DataColumn>
+                  <DataColumn name="phone">
+                    <Property name="property">phone</Property>
+                  </DataColumn>
+                  <DataColumn name="email">
+                    <Property name="property">email</Property>
+                    <Editor/>
+                  </DataColumn>
+                  <DataColumn name="isphone">
+                    <Property name="property">isphone</Property>
+                    <Property name="editorType">TextEditor</Property>
+                    <Editor/>
+                  </DataColumn>
+                  <DataColumn name="isemail">
+                    <Property name="property">isemail</Property>
+                    <Property name="editorType">TextEditor</Property>
+                    <Editor/>
+                  </DataColumn>
+                  <DataColumn name="zlbhId">
+                    <Property name="property">zlbhId</Property>
+                  </DataColumn>
+                </DataGrid>
+                <UpdateAction id="saveAction">
+                  <Property name="dataResolver">emXymlFbfwAction#save</Property>
+                  <UpdateItem>
+                    <Property name="dataSet">dsContact</Property>
+                  </UpdateItem>
+                </UpdateAction>
+                <DataSet id="dsContact">
+                  <Property name="dataType">[dtEmXymlFbfw]</Property>
+                  <Property name="loadMode">manual</Property>
+                  <Property name="dataProvider">emXymlFbfwAction#getData</Property>
+                </DataSet>
+              </Container>
+            </Children>
+          </GroupBox>
+        </Container>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

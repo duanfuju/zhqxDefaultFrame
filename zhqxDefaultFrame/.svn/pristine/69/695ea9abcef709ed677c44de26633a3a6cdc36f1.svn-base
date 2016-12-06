@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <ToolBar>
+      <Container id="cBtns" layout="hbox"/>
+      <Fill/>
+      <Label id="lbShow"/>
+    </ToolBar>
+    <DataSet id="dsESData">
+      <Property name="dataProvider">SEDataAction#getData</Property>
+    </DataSet>
+    <HtmlContainer id="hcShow"/>
+  </View>
+</ViewConfig>

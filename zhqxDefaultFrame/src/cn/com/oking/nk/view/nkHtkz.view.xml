@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab id="ctFirst">
+        <Property name="caption">项目记录</Property>
+        <Container>
+          <Container>
+            <Dialog id="fileDialog">
+              <Property name="caption">文件上传</Property>
+              <Property name="width">480</Property>
+              <Property name="height">300</Property>
+              <Buttons/>
+              <Children>
+                <IFrame id="fileIFrame">
+                  <Property name="path">cn.com.oking.em.view.upload.upload.d</Property>
+                </IFrame>
+              </Children>
+              <Tools/>
+            </Dialog>
+          </Container>
+          <DataSet id="dsRecord">
+            <Property name="dataType">[dtNkHtkzRecord]</Property>
+            <Property name="dataProvider">nkHtkzRecordAction#getData</Property>
+            <Property name="loadMode">lazy</Property>
+            <Property name="pageSize">10</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton id="btnAdd">
+              <Property name="caption">新增</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">-,x</Property>
+              <Property name="dataSet">dsRecord</Property>
+            </DataPilot>
+            <ToolBarButton id="tbbUpdate">
+              <Property name="caption">修改</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -200px -0px</Property>
+            </ToolBarButton>
+            <ToolBarButton id="tbbSave">
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">pages</Property>
+              <Property name="dataSet">dsRecord</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataGrid id="dgRecord">
+            <Property name="dataSet">dsRecord</Property>
+            <Property name="readOnly">true</Property>
+            <DataColumn name="nkNum">
+              <Property name="property">nkNum</Property>
+            </DataColumn>
+            <DataColumn name="htExplain">
+              <Property name="property">htExplain</Property>
+            </DataColumn>
+            <DataColumn name="htType">
+              <Property name="property">htType</Property>
+            </DataColumn>
+            <DataColumn name="htMoney">
+              <Property name="property">htMoney</Property>
+            </DataColumn>
+            <DataColumn name="htDate">
+              <Property name="property">htDate</Property>
+            </DataColumn>
+            <DataColumn name="agent">
+              <Property name="property">agent</Property>
+            </DataColumn>
+          </DataGrid>
+          <UpdateAction id="updateAction2">
+            <Property name="dataResolver">nkHtkzRecordAction#save</Property>
+            <Property name="confirmMessage">是否保存</Property>
+            <Property name="successMessage">保存成功</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsRecord</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctSecond">
+        <Property name="caption">过程控制</Property>
+        <Container>
+          <ToolBar>
+            <ToolBarButton id="tbbAdd1">
+              <Property name="caption">新增</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">-,x</Property>
+              <Property name="dataSet">dsGckz</Property>
+            </DataPilot>
+            <ToolBarButton id="tbbSave1">
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+            </ToolBarButton>
+            <Button id="btnFile" layoutConstraint="align:center;vAlign:center">
+              <Property name="caption">上传文件</Property>
+              <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+            </Button>
+            <DataPilot>
+              <Property name="itemCodes">pages</Property>
+              <Property name="dataSet">dsGckz</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataGrid id="dgGckz">
+            <Property name="dataSet">dsGckz</Property>
+            <DataColumn name="upDate">
+              <Property name="property">upDate</Property>
+            </DataColumn>
+            <DataColumn name="content">
+              <Property name="property">content</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+            <DataColumn name="details">
+              <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+if(!data.get('fileid')){&#xD;
+	return;&#xD;
+}&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;BalanceOfPaymentServlet?id=&quot;+data.get('fileid'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+              <Property name="property">details</Property>
+              <Property name="readOnly">true</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+              <Property name="caption">查看</Property>
+              <Editor/>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsGckz">
+            <Property name="dataType">[dtNkHtkzGckz]</Property>
+            <Property name="dataProvider">nkHtkzGckzAction#getData</Property>
+            <Property name="loadMode">manual</Property>
+            <Property name="pageSize">10</Property>
+          </DataSet>
+          <UpdateAction id="updateAction0">
+            <Property name="dataResolver">nkHtkzGckzAction#save</Property>
+            <Property name="confirmMessage">是否保存</Property>
+            <Property name="successMessage">保存成功</Property>
+            <Property name="executingMessage">保存中</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsGckz</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">政策文件</Property>
+        <Container>
+          <DataSet id="dsZcwj">
+            <Property name="dataProvider">nkAllZcwjAction#getData</Property>
+            <Property name="dataType">[dtNkAllZcwj]</Property>
+            <Property name="loadMode">onReady</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton id="tbbZcwj">
+              <Property name="caption">新增</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">-,x</Property>
+              <Property name="dataSet">dsZcwj</Property>
+            </DataPilot>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+              <Property name="action">updateAction1</Property>
+            </ToolBarButton>
+            <Button id="btnFileWithZcwj" layoutConstraint="align:center;vAlign:center">
+              <Property name="caption">上传文件</Property>
+              <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+            </Button>
+            <DataPilot>
+              <Property name="itemCodes">pages</Property>
+              <Property name="dataSet">dsZcwj</Property>
+            </DataPilot>
+          </ToolBar>
+          <UpdateAction id="updateAction1">
+            <Property name="dataResolver">nkAllZcwjAction#save</Property>
+            <Property name="confirmMessage">是否保存</Property>
+            <Property name="successMessage">保存成功</Property>
+            <Property name="executingMessage">保存中</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsZcwj</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <DataGrid id="dgZcwj">
+            <Property name="dataSet">dsZcwj</Property>
+            <DataColumn name="upDate">
+              <Property name="property">upDate</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+            <DataColumn name="content">
+              <Property name="property">content</Property>
+            </DataColumn>
+            <DataColumn name="details">
+              <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+if(!data.get('fileid')){&#xD;
+	return;&#xD;
+}&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;BalanceOfPaymentServlet?id=&quot;+data.get('fileid'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+              <Property name="property">details</Property>
+              <Property name="readOnly">true</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+              <Property name="caption">查看</Property>
+              <Editor/>
+            </DataColumn>
+          </DataGrid>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">流程规定</Property>
+        <IFrame>
+          <Property name="path">images/nkgl/xmkz.png</Property>
+        </IFrame>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

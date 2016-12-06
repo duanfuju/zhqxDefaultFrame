@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab id="ctFirst">
+        <Property name="caption">显示模式</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsDisplayMode</Property>
+              <Property name="itemCodes">pages,-,x</Property>
+            </DataPilot>
+            <ToolBarButton id="tbbAdd">
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+              <Property name="caption">添加</Property>
+            </ToolBarButton>
+            <ToolBarButton id="tbbPreUpdate">
+              <Property name="caption">修改</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -200px -0px</Property>
+            </ToolBarButton>
+            <ToolBarButton id="tbbUpdate">
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+            </ToolBarButton>
+          </ToolBar>
+          <DataSet id="dsDisplayMode">
+            <Property name="pageSize">12</Property>
+            <Property name="dataProvider">emDisplayModeAction#getData</Property>
+            <Property name="dataType">[dtEmDisplayMode]</Property>
+          </DataSet>
+          <DataGrid id="dgDisplayMode">
+            <Property name="dataSet">dsDisplayMode</Property>
+            <Property name="readOnly">true</Property>
+            <DataColumn name="dmNum">
+              <Property name="property">dmNum</Property>
+            </DataColumn>
+            <DataColumn name="description">
+              <Property name="property">description</Property>
+            </DataColumn>
+            <DataColumn name="status">
+              <Property name="property">status</Property>
+            </DataColumn>
+            <DataColumn name="type">
+              <Property name="property">type</Property>
+            </DataColumn>
+            <DataColumn name="dmId">
+              <Property name="property">dmId</Property>
+            </DataColumn>
+          </DataGrid>
+          <UpdateAction id="saveListAction">
+            <Property name="dataResolver">emDisplayModeAction#save</Property>
+            <Property name="confirmMessage">是否保存结果</Property>
+            <Property name="successMessage">保存成功</Property>
+            <Property name="executingMessage">被保存中</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsDisplayMode</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctSecond">
+        <Property name="caption">内容设置</Property>
+        <Container>
+          <DataSet id="dsDisplayModeSingle">
+            <Property name="dataProvider">emDisplayModeAction#findById</Property>
+            <Property name="dataType">dtEmDisplayMode</Property>
+            <Property name="loadMode">manual</Property>
+          </DataSet>
+          <AutoForm>
+            <Property name="cols">*,*</Property>
+            <Property name="dataSet">dsDisplayModeSingle</Property>
+            <Property name="readOnly">true</Property>
+            <AutoFormElement>
+              <Property name="name">dmNum</Property>
+              <Property name="property">dmNum</Property>
+              <Editor/>
+            </AutoFormElement>
+            <AutoFormElement>
+              <Property name="name">description</Property>
+              <Property name="property">description</Property>
+              <Editor/>
+            </AutoFormElement>
+            <AutoFormElement>
+              <Property name="name">status</Property>
+              <Property name="property">status</Property>
+              <Editor/>
+            </AutoFormElement>
+          </AutoForm>
+          <Container>
+            <ToolBar>
+              <DataPilot>
+                <Property name="dataSet">dsModeContent</Property>
+                <Property name="itemCodes">pages,-,x</Property>
+              </DataPilot>
+              <ToolBarButton id="tbbAddc">
+                <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+                <Property name="caption">添加</Property>
+              </ToolBarButton>
+              <ToolBarButton id="tbbUpdatec">
+                <Property name="caption">保存</Property>
+                <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+                <Property name="action">saveListActionc</Property>
+              </ToolBarButton>
+            </ToolBar>
+            <DataSet id="dsModeContent">
+              <Property name="pageSize">12</Property>
+              <Property name="dataProvider">emModeContentAction#getData</Property>
+              <Property name="dataType">[dtEmModeContent]</Property>
+              <Property name="loadMode">manual</Property>
+            </DataSet>
+            <DataGrid id="dgModeContent">
+              <Property name="dataSet">dsModeContent</Property>
+              <Property name="readOnly">false</Property>
+              <DataColumn name="mcId">
+                <Property name="property">mcId</Property>
+              </DataColumn>
+              <DataColumn name="clNum">
+                <Property name="property">clNum</Property>
+              </DataColumn>
+              <DataColumn name="description">
+                <Property name="property">description</Property>
+              </DataColumn>
+              <DataColumn name="displaysize">
+                <Property name="property">displaysize</Property>
+              </DataColumn>
+              <DataColumn name="url">
+                <Property name="property">url</Property>
+              </DataColumn>
+              <DataColumn name="line">
+                <Property name="property">line</Property>
+              </DataColumn>
+              <DataColumn name="col">
+                <Property name="property">col</Property>
+              </DataColumn>
+              <DataColumn name="orderid">
+                <Property name="property">orderid</Property>
+              </DataColumn>
+              <DataColumn name="imgSrc">
+                <Property name="property">imgSrc</Property>
+              </DataColumn>
+              <DataColumn name="dmId">
+                <Property name="property">dmId</Property>
+              </DataColumn>
+            </DataGrid>
+            <UpdateAction id="saveListActionc">
+              <Property name="dataResolver">emModeContentAction#save</Property>
+              <Property name="confirmMessage">是否保存结果</Property>
+              <Property name="successMessage">保存成功</Property>
+              <Property name="executingMessage">被保存中</Property>
+              <UpdateItem>
+                <Property name="dataSet">dsModeContent</Property>
+              </UpdateItem>
+            </UpdateAction>
+          </Container>
+          <Dialog id="dialogShow">
+            <Property name="width">800</Property>
+            <Property name="height">500</Property>
+            <Buttons>
+              <Button id="btnSave">
+                <Property name="icon">url(>skin>common/icons.gif) -20px -0px</Property>
+                <Property name="caption">保存</Property>
+              </Button>
+              <Button id="btnCancel">
+                <Property name="icon">url(>skin>common/icons.gif) -40px -0px</Property>
+                <Property name="caption">关闭</Property>
+              </Button>
+            </Buttons>
+            <Children>
+              <Container>
+                <DataSet id="dsContentList">
+                  <Property name="pageSize">12</Property>
+                  <Property name="dataProvider">emContentListAction#getData</Property>
+                  <Property name="dataType">[dtEmContentList]</Property>
+                </DataSet>
+                <ToolBar>
+                  <DataPilot>
+                    <Property name="dataSet">dsContentList</Property>
+                    <Property name="itemCodes">pages</Property>
+                  </DataPilot>
+                </ToolBar>
+                <DataGrid id="dgContentList">
+                  <Property name="dataSet">dsContentList</Property>
+                  <Property name="readOnly">true</Property>
+                  <DataColumn name="clNum">
+                    <Property name="property">clNum</Property>
+                  </DataColumn>
+                  <DataColumn name="description">
+                    <Property name="property">description</Property>
+                  </DataColumn>
+                  <DataColumn name="url">
+                    <Property name="property">url</Property>
+                  </DataColumn>
+                  <DataColumn name="displaySize">
+                    <Property name="property">displaySize</Property>
+                  </DataColumn>
+                  <DataColumn name="imgSrc">
+                    <Property name="property">imgSrc</Property>
+                  </DataColumn>
+                </DataGrid>
+              </Container>
+            </Children>
+            <Tools/>
+          </Dialog>
+        </Container>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab>
+        <Property name="caption">应急领导小组</Property>
+        <Container>
+          <DataSet id="dsLead">
+            <Property name="dataProvider">emTeamAction#getData</Property>
+            <Property name="dataType">[dtEmTeam]</Property>
+            <Property name="pageSize">15</Property>
+            <Property name="parameter">应急领导小组</Property>
+          </DataSet>
+          <ListDropDown id="listDropDown1">
+            <Property name="items">组长,副组长,成员</Property>
+          </ListDropDown>
+          <ToolBar>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">save1Action</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">+,-,x,pages</Property>
+              <Property name="dataSet">dsLead</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsLead</Property>
+            <Property name="selectionMode">none</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="name">
+              <Property name="property">name</Property>
+            </DataColumn>
+            <DataColumn name="institutions">
+              <Property name="property">institutions</Property>
+              <Property name="caption">单位</Property>
+            </DataColumn>
+            <DataColumn name="duties">
+              <Property name="property">duties</Property>
+              <Property name="trigger">listDropDown1</Property>
+            </DataColumn>
+            <DataColumn name="position">
+              <Property name="property">position</Property>
+            </DataColumn>
+            <DataColumn name="phone">
+              <Property name="property">phone</Property>
+            </DataColumn>
+            <DataColumn name="tel">
+              <Property name="property">tel</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+          </DataGrid>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">镇街分管领导</Property>
+        <Container>
+          <DataSet id="dsStreet">
+            <Property name="dataProvider">emTeamAction#getData</Property>
+            <Property name="dataType">[dtEmTeam]</Property>
+            <Property name="pageSize">15</Property>
+            <Property name="parameter">镇街分管领导</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">save2Action</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">+,-,x,pages</Property>
+              <Property name="dataSet">dsStreet</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsStreet</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="institutions">
+              <Property name="property">institutions</Property>
+              <Property name="caption">镇街场</Property>
+            </DataColumn>
+            <DataColumn name="name">
+              <Property name="property">name</Property>
+            </DataColumn>
+            <DataColumn name="position">
+              <Property name="property">position</Property>
+            </DataColumn>
+            <DataColumn name="phone">
+              <Property name="property">phone</Property>
+            </DataColumn>
+            <DataColumn name="tel">
+              <Property name="property">tel</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+          </DataGrid>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">部门联络员</Property>
+        <Container>
+          <DataSet id="dsDepart">
+            <Property name="dataProvider">emTeamAction#getData</Property>
+            <Property name="dataType">[dtEmTeam]</Property>
+            <Property name="pageSize">15</Property>
+            <Property name="parameter">部门联络员</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">save3Action</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">+,-,x,pages</Property>
+              <Property name="dataSet">dsDepart</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsDepart</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="institutions">
+              <Property name="property">institutions</Property>
+              <Property name="caption">单位</Property>
+            </DataColumn>
+            <DataColumn name="name">
+              <Property name="property">name</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+            </DataColumn>
+            <DataColumn name="position">
+              <Property name="property">position</Property>
+            </DataColumn>
+            <DataColumn name="phone">
+              <Property name="property">phone</Property>
+            </DataColumn>
+            <DataColumn name="tel">
+              <Property name="property">tel</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+          </DataGrid>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">镇街协理员</Property>
+        <Container>
+          <DataSet id="dsManager">
+            <Property name="dataProvider">emTeamAction#getData</Property>
+            <Property name="dataType">[dtEmTeam]</Property>
+            <Property name="pageSize">15</Property>
+            <Property name="parameter">镇街协理员</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">save4Action</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">+,-,x,pages</Property>
+              <Property name="dataSet">dsManager</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsManager</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="name">
+              <Property name="property">name</Property>
+            </DataColumn>
+            <DataColumn name="institutions">
+              <Property name="property">institutions</Property>
+              <Property name="caption">镇街场</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+            </DataColumn>
+            <DataColumn name="position">
+              <Property name="property">position</Property>
+            </DataColumn>
+            <DataColumn name="phone">
+              <Property name="property">phone</Property>
+            </DataColumn>
+            <DataColumn name="tel">
+              <Property name="property">tel</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+          </DataGrid>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">气象信息员</Property>
+        <Container>
+          <DataSet id="dsInfo">
+            <Property name="dataProvider">emTeamAction#getData</Property>
+            <Property name="dataType">[dtEmTeam]</Property>
+            <Property name="pageSize">15</Property>
+            <Property name="parameter">气象信息员</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">save5Action</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">+,-,x,pages</Property>
+              <Property name="dataSet">dsInfo</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsInfo</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="name">
+              <Property name="property">name</Property>
+            </DataColumn>
+            <DataColumn name="institutions">
+              <Property name="property">institutions</Property>
+              <Property name="caption">村(社区）名称</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+            </DataColumn>
+            <DataColumn name="position">
+              <Property name="property">position</Property>
+            </DataColumn>
+            <DataColumn name="phone">
+              <Property name="property">phone</Property>
+            </DataColumn>
+            <DataColumn name="tel">
+              <Property name="property">tel</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+            <DataColumn name="gender">
+              <Property name="property">gender</Property>
+              <Property name="trigger">listDropDown2</Property>
+            </DataColumn>
+            <DataColumn name="age">
+              <Property name="property">age</Property>
+            </DataColumn>
+            <DataColumn name="educations">
+              <Property name="property">educations</Property>
+            </DataColumn>
+          </DataGrid>
+          <ListDropDown id="listDropDown2">
+            <Property name="items">男,女</Property>
+          </ListDropDown>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">单位安全员</Property>
+        <Container>
+          <DataSet id="dsSafety">
+            <Property name="dataProvider">emTeamAction#getData</Property>
+            <Property name="dataType">[dtEmTeam]</Property>
+            <Property name="pageSize">15</Property>
+            <Property name="parameter">单位安全员</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">save6Action</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">+,-,x,pages</Property>
+              <Property name="dataSet">dsSafety</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsSafety</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="name">
+              <Property name="property">name</Property>
+            </DataColumn>
+            <DataColumn name="institutions">
+              <Property name="property">institutions</Property>
+              <Property name="caption">单位</Property>
+            </DataColumn>
+            <DataColumn name="position">
+              <Property name="property">position</Property>
+            </DataColumn>
+            <DataColumn name="phone">
+              <Property name="property">phone</Property>
+            </DataColumn>
+            <DataColumn name="tel">
+              <Property name="property">tel</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+            <DataColumn name="icategory">
+              <Property name="property">icategory</Property>
+            </DataColumn>
+          </DataGrid>
+        </Container>
+      </ControlTab>
+    </TabControl>
+    <UpdateAction id="save1Action">
+      <Property name="dataResolver">emTeamAction#save1</Property>
+      <Property name="confirmMessage">是否保存？？？</Property>
+      <Property name="executingMessage">保存中...</Property>
+      <Property name="successMessage">保存成功！！！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsLead</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <UpdateAction id="save2Action">
+      <Property name="dataResolver">emTeamAction#save2</Property>
+      <Property name="confirmMessage">是否保存？？？</Property>
+      <Property name="executingMessage">保存中...</Property>
+      <Property name="successMessage">保存成功！！！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsStreet</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <UpdateAction id="save3Action">
+      <Property name="dataResolver">emTeamAction#save3</Property>
+      <Property name="confirmMessage">是否保存？？？</Property>
+      <Property name="executingMessage">保存中...</Property>
+      <Property name="successMessage">保存成功！！！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsDepart</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <UpdateAction id="save4Action">
+      <Property name="dataResolver">emTeamAction#save4</Property>
+      <Property name="confirmMessage">是否保存？？？</Property>
+      <Property name="executingMessage">保存中...</Property>
+      <Property name="successMessage">保存成功！！！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsManager</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <UpdateAction id="save5Action">
+      <Property name="dataResolver">emTeamAction#save5</Property>
+      <Property name="confirmMessage">是否保存？？？</Property>
+      <Property name="executingMessage">保存中...</Property>
+      <Property name="successMessage">保存成功！！！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsInfo</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <UpdateAction id="save6Action">
+      <Property name="dataResolver">emTeamAction#save6</Property>
+      <Property name="confirmMessage">是否保存？？？</Property>
+      <Property name="executingMessage">保存中...</Property>
+      <Property name="successMessage">保存成功！！！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsSafety</Property>
+      </UpdateItem>
+    </UpdateAction>
+  </View>
+</ViewConfig>

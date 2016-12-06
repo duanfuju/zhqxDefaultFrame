@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsTabControl">
+      <Property name="dataType">[dtTabControl]</Property>
+      <Property name="pageSize">12</Property>
+      <Property name="dataProvider">tabControlAction#getData</Property>
+    </DataSet>
+    <ToolBar>
+      <DataPilot>
+        <Property name="dataSet">dsTabControl</Property>
+        <Property name="itemCodes">+,-,x</Property>
+      </DataPilot>
+      <ToolBarButton>
+        <Property name="caption">保存</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+        <Property name="action">saveAction</Property>
+      </ToolBarButton>
+      <DataPilot>
+        <Property name="itemCodes">pages</Property>
+        <Property name="dataSet">dsTabControl</Property>
+      </DataPilot>
+    </ToolBar>
+    <DataGrid id="dgTabControl">
+      <Property name="dataSet">dsTabControl</Property>
+      <Property name="showFilterBar">true</Property>
+      <DataColumn name="associateId">
+        <Property name="property">associateId</Property>
+      </DataColumn>
+      <DataColumn name="link">
+        <Property name="property">link</Property>
+      </DataColumn>
+      <DataColumn name="params">
+        <Property name="property">params</Property>
+      </DataColumn>
+      <DataColumn name="tabName">
+        <Property name="property">tabName</Property>
+      </DataColumn>
+      <DataColumn name="orderNum">
+        <Property name="property">orderNum</Property>
+      </DataColumn>
+    </DataGrid>
+    <UpdateAction id="saveAction">
+      <Property name="confirmMessage">是否保存</Property>
+      <Property name="executingMessage">保存中</Property>
+      <Property name="successMessage">保存成功</Property>
+      <Property name="dataResolver">tabControlAction#save</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsTabControl</Property>
+      </UpdateItem>
+    </UpdateAction>
+  </View>
+</ViewConfig>

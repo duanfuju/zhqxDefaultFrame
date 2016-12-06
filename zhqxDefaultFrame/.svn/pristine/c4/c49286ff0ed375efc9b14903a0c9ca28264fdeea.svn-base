@@ -1,0 +1,45 @@
+* { margin:0; padding:0; font-family: "Microsoft Yahei";}
+
+html, body { height:100%; width:100%; background-color: #000;}
+body { margin:0; padding:0; overflow:hidden; }
+#flashContent { width:100%; height:400px;position:absolute; left:0px; width:0px;}
+#info { width:100%; height:400px; background:#FFF url(../images/yingji.jpg) center center no-repeat;position:absolute; left:0px; width:0px; z-index:1000;}
+
+#info div{ position:absolute; overflow:hidden; background:#FFFFFF url(../images/loading.gif) center center no-repeat;}
+#info div img{ border:1px solid #06C; width:100%; height:100%; cursor:pointer;}
+#info div{width:16.6%; height:33.3%; overflow:hidden}
+#info div.s{width:11.1%;}
+#info div.s span{ float:left; width:100%; cursor:pointer; background:#039; text-align:center; line-height:100%; color:#FFF; border-bottom:1px solid #FFF; line-height:100px;}
+#info div.s span.top{height:33.3%;}
+#info div.s span.bottom{height:66.7%;}
+#info div.s span.bottom span{height:100%; width:33.3%; float:left;}
+
+#info div.ss{width:8.3%;}
+#info div.ss span{ float:left; font-weight:bold; height:33.3%; width:100%; cursor:pointer; background:#039; text-align:center; line-height:100%; color:#FFF; border-bottom:1px solid #FFF; border-left:1px solid #FFF; line-height:100px;}
+
+#info div#big{width:33.2%; height:66.6%; background:#FFF}
+#info div#infoContent{width:100%; height:100%;position:absolute;}
+#info div#infoContent div iframe{width:100%; height:100%; border:1px solid #03C;position:absolute;overflow:hidden}
+#info p{width:100%; height:100%;position:absolute; background:#333; z-index:90;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+	cursor:pointer;
+}
+#info #bigIframe{ margin:0px; padding:0px; border:1px solid #03C;}
+
+#info #homeBtn{ width:3%; left:100%; top:100%; z-index:1000; position:absolute; cursor:pointer;}
+
+
+#moreIcon div iframe{width:32%; height:50%;position:absolute;overflow:hidden}
+#moreIcon p{width:32%; height:50%;position:absolute background:#333; z-index:90;
+	filter:alpha(opacity=0);
+	-moz-opacity:0;
+	-khtml-opacity: 0;
+	opacity: 0;
+	cursor:pointer;
+}
+
+
+

@@ -1,0 +1,41 @@
+*,body,ul,h1,h2{ margin:0; padding:0; list-style:none;}
+body{font:14px "宋体"; background:#C8EBFC;/*#053879 url(images/SBFindexBG.jpg) center  bottom no-repeat;*/}
+a{
+	color: #000;
+	border: none;
+}
+#menu {width:182px;text-shadow:0px 1px 0px rgba(255,255,255,0.8);}
+ #menu h1 { font-size:14px; line-height:39px; height:39px; overflow:hidden;background:url(../images/leftbg01.png) no-repeat; margin-left:5px !important;margin-right:4px !important;}
+ #menu h2 {font-size:12px;height:26px; padding-top:10px; padding-left:40px;margin-left:3px !important;margin-right:4px !important;}
+ #menu ul { padding-left:12px; overflow:auto;line-height:30px; font-size:12px;padding-left:49px;}
+ #menu a { display:block; text-decoration:none; overflow:hidden;}
+ #menu .no {display:none;height:26px; padding-top:10px; padding-left:30px }
+ #menu h1 a{color:#004668; font-size:16px;}
+ #menu h2 a{color:#000; font-weight:300;}
+ #menu h2 ul li{ font-size:11px;}
+ #menu h1:hover{background:url(../images/leftbg02.png) no-repeat;}
+ #menu h2:hover{background:#a5def9;}
+ #menu h1 .listico{background:url(../images/list_ico.png) 10px 9px no-repeat; position:absolute;}
+ .ju{width:30px;}
+  
+ #menu .FD{height:73px; width:182px;  margin-top:20px !important;margin:auto; position:relative;}
+ #menu .FD .minico{
+	height: 42px;
+	width: 42px;
+	position: absolute;
+	top: 3px;
+	left: 23px;
+}
+ #menu .FD .titi{
+	width: 110px;
+	position: absolute;
+	padding-top: 15px;
+	text-align: center;
+	left: 48px;
+	font-weight: 600;
+	font-size: 18px;
+	color: #004668;
+	text-shadow: 0px 2px 0px rgba(255,255,255,0);
+}
+
+ #menu .FD .titi img{ height:42px; width:42px;}

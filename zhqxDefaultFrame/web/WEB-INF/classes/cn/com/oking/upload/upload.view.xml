@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="Files">
+      <PropertyDef name="id"/>
+      <PropertyDef name="name">
+        <Property name="label">文件名</Property>
+      </PropertyDef>
+      <PropertyDef name="size">
+        <Property name="label">大小</Property>
+      </PropertyDef>
+      <PropertyDef name="percent">
+        <Property name="label">进度</Property>
+      </PropertyDef>
+      <PropertyDef name="status">
+        <Property name="label">状态</Property>
+        <Property name="mapping">
+          <Property name="mapValues">
+            <Collection>
+              <Entity>
+                <Property name="value">队列中</Property>
+                <Property name="key">0</Property>
+              </Entity>
+              <Entity>
+                <Property name="value">正在上传</Property>
+                <Property name="key">2</Property>
+              </Entity>
+              <Entity>
+                <Property name="value">失败</Property>
+                <Property name="key">4</Property>
+              </Entity>
+              <Entity>
+                <Property name="value">完成</Property>
+                <Property name="key">5</Property>
+              </Entity>
+              <Entity>
+                <Property name="value"></Property>
+                <Property name="key">-1</Property>
+              </Entity>
+            </Collection>
+          </Property>
+        </Property>
+        <Property name="dataType">int</Property>
+        <Property name="defaultValue">-1</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <Property name="packages">font-awesome</Property>
+    <Property name="title">文件上传下载范例</Property>
+    <Panel layout="vbox" layoutConstraint="top:5;left:5">
+      <Property name="width">480</Property>
+      <Property name="height">90</Property>
+      <Property name="ignored">false</Property>
+      <Property name="showCaptionBar">false</Property>
+      <Buttons>
+        <Button layoutConstraint="bottom">
+          <Property name="action">autoUploadAction</Property>
+          <Property name="iconClass">fa fa-upload</Property>
+          <Property name="caption">上传</Property>
+          <Property name="width">80</Property>
+        </Button>
+      </Buttons>
+      <Children>
+        <Label id="labtip" layoutConstraint="align:center"/>
+        <ProgressBar id="autoUploadProgressBar" layoutConstraint="type:top;top:50%;left:10;right:10">
+          <Property name="textPattern">{percent}%</Property>
+        </ProgressBar>
+        <UploadAction id="autoUploadAction">
+          <Property name="maxFileSize">5MB</Property>
+          <Property name="fileResolver">myUploadProcessor#process1</Property>
+          <Filters>
+            <Filter>
+              <Property name="title">图片</Property>
+              <Property name="extensions">jpg,gif,png</Property>
+            </Filter>
+          </Filters>
+        </UploadAction>
+      </Children>
+      <Tools/>
+    </Panel>
+    <DataSet id="dsFiles">
+      <Property name="dataType">Files</Property>
+    </DataSet>
+  </View>
+</ViewConfig>

@@ -1,0 +1,47 @@
+.d-accordion .d-section.current-section .d-section-caption-bar {
+	color: #ffffff;
+	background-color: #39bdf5;
+	height: 30px;
+	font-size: 10pt;
+	font-family: "Microsoft YaHei", Arial, sans-serif;
+	font-weight: bold;
+}
+
+.d-accordion .d-section .d-section-caption-bar {
+	color: #ffffff;
+	background-color: #1ac7fc;
+	height: 30px;
+	font-size: 10pt;
+	font-family: "Microsoft YaHei", Arial, sans-serif;
+	font-weight: bold;
+}
+
+.d-tree .row {
+	color: black;
+	background-color: #eef9fc;
+	height: 20px;
+	font-size: 9pt;
+	font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+
+.d-tree .current-row {
+	color: black;
+	background-color: #97dffd;
+	height: 20px;
+	font-size: 9pt;
+	font-family: "Microsoft YaHei", Arial, sans-serif;
+}
+
+.d-toolbar .d-icon-button,.d-toolbar .d-button {
+	background-color: #bfeafe;
+	font-size: 10pt;
+	font-family: "Microsoft YaHei", Arial, sans-serif;
+	font-weight: bold;
+}
+
+.d-toolbar .d-icon-button-toggled,.d-toolbar .d-button-toggled {
+	background-color: #39bdf5;
+	font-size: 10pt;
+	font-family: "Microsoft YaHei", Arial, sans-serif;
+	font-weight: bold;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsStore">
+      <ClientEvent name="onReady">var parameter=&quot;${request.getParameter('parameter')}&quot;;&#xD;
+self.set(&quot;parameter&quot;,parameter);&#xD;
+self.flushAsync();&#xD;
+</ClientEvent>
+      <Property name="dataType">[dtEmSupplies]</Property>
+      <Property name="dataProvider">emSuppliesAction#getDataByStorename</Property>
+      <Property name="loadMode">manual</Property>
+    </DataSet>
+    <DataGrid id="dgShow">
+      <Property name="dataSet">dsStore</Property>
+      <Property name="readOnly">true</Property>
+      <Property name="showFilterBar">true</Property>
+      <DataColumn name="description">
+        <Property name="property">description</Property>
+      </DataColumn>
+      <DataColumn name="quantity">
+        <Property name="property">quantity</Property>
+      </DataColumn>
+      <DataColumn name="unit">
+        <Property name="property">unit</Property>
+      </DataColumn>
+      <DataColumn name="location">
+        <Property name="property">location</Property>
+      </DataColumn>
+      <DataColumn name="contraces">
+        <Property name="property">contraces</Property>
+      </DataColumn>
+      <DataColumn name="phone">
+        <Property name="property">phone</Property>
+      </DataColumn>
+      <DataColumn name="dept">
+        <Property name="property">dept</Property>
+      </DataColumn>
+    </DataGrid>
+  </View>
+</ViewConfig>

@@ -1,0 +1,72 @@
+
+.righttxt
+{
+    padding-left: 15px;
+    font-size: 14px;
+    line-height: 30px;
+    margin-top:12px;
+
+}
+
+#divtxt p
+{
+    font-size: 14px;
+    line-height: 30px;
+    width: 700px;
+}
+.conTitle
+{
+    width: 100%;
+}
+.ctbottom
+{
+    width: 756px;
+    border: 1px solid #EBEFF8;
+    float: left;
+    margin: 0 0 10px 0;
+    padding-left: 15px;
+    background-color: #EBEFF8;
+}
+.ctbottom li
+{
+    margin-right: 10px;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    white-space: nowrap;
+}
+* html .ctbottom
+{
+    margin-bottom: 5px;
+}
+.ctbottom li a
+{
+    color: #0001FB;
+    text-decoration: underline;
+}
+.ctbottom li a:visited
+{
+    color: #0001FB;
+}
+.hasmore
+{
+    background: url(../images/hasmore.gif) no-repeat left 10px;
+    padding-left: 15px;
+}
+.nomore
+{
+    background: url(../images/nomore.gif) no-repeat left 10px;
+    padding-left: 15px;
+}
+#pop_Week
+{
+    width: 680px;
+    font-size: 12px;
+    z-index: 10002;
+    display: none;
+    position: absolute;
+    background-color: #D3CECA;
+    border: 1px solid #D1EAFF;
+}
+.pagecContxt{ width: 100%;height: 430px;}
+.pagecPageindex{height: 35px; float: left; _height: 35px; width: 550px; text-align: center;}

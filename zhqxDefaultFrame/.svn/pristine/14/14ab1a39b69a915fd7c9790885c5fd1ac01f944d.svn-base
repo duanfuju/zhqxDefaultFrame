@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dtTJsObt10minAwsAllele">
+      <PropertyDef name="obtid">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="ddatetime">
+        <Property name="dataType">DateTime</Property>
+      </PropertyDef>
+      <PropertyDef name="bj_datetime">
+        <Property name="dataType">DateTime</Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="dtSelect">
+      <PropertyDef name="obtid"/>
+      <PropertyDef name="bjdatetime">
+        <Property name="dataType">DateTime</Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="dtPage">
+      <PropertyDef name="allpage"/>
+      <PropertyDef name="allcount"/>
+      <PropertyDef name="pagesize"/>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsSelect">
+      <Property name="dataType">dtSelect</Property>
+    </DataSet>
+    <DataSet id="dsPage">
+      <Property name="dataType">dtPage</Property>
+      <Property name="dataProvider">tjsObtMinAction#getPageInfo</Property>
+      <Property name="loadMode">onReady</Property>
+    </DataSet>
+    <TabControl>
+      <ControlTab>
+        <Property name="caption">省局分钟数据</Property>
+        <FieldSet>
+          <Buttons/>
+          <Children>
+            <DataSet id="dsTOAA">
+              <Property name="dataType">[dtTJsObt10minAwsAllele]</Property>
+              <Property name="dataProvider">tjsObtMinAction#getList</Property>
+            </DataSet>
+            <AutoForm id="afSelect">
+              <Property name="dataSet">dsSelect</Property>
+              <Property name="createPrivateDataSet">false</Property>
+              <Property name="cols">*,*,*,*,*</Property>
+              <AutoFormElement layoutConstraint="colSpan:2">
+                <Property name="name">obtid</Property>
+                <Property name="property">obtid</Property>
+                <Property name="label">区站名：</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement layoutConstraint="colSpan:2">
+                <Property name="name">bjdatetime</Property>
+                <Property name="property">bjdatetime</Property>
+                <Property name="label">北京时间：</Property>
+                <Editor>
+                  <TextEditor id="teEt"/>
+                </Editor>
+              </AutoFormElement>
+              <Container layout="hbox">
+                <Button id="btQuery">
+                  <Property name="caption">查询</Property>
+                  <Property name="width">80</Property>
+                  <Property name="icon"> url(>skin>common/icons.gif) -40px -100px</Property>
+                </Button>
+                <Button id="btReset">
+                  <ClientEvent name="onClick" signature="self,arg,dsSelect">dsSelect.clear();&#xD;
+dsSelect.insert();&#xD;
+</ClientEvent>
+                  <Property name="width">80</Property>
+                  <Property name="caption">重置</Property>
+                  <Property name="icon"> url(>skin>common/icons.gif) -280px -220px</Property>
+                </Button>
+              </Container>
+            </AutoForm>
+            <ToolBar>
+              <Button id="btUp">
+                <Property name="width">80</Property>
+                <Property name="caption">上一页</Property>
+              </Button>
+              <Button id="btDown">
+                <Property name="caption">下一页</Property>
+                <Property name="width">80</Property>
+              </Button>
+              <ToolBarLabel>
+                <Property name="text">跳转至：</Property>
+                <Property name="width">60</Property>
+              </ToolBarLabel>
+              <TextEditor id="tePage">
+                <Property name="width">60</Property>
+              </TextEditor>
+              <ToolBarLabel id="lPage">
+                <Property name="text">无数据</Property>
+                <Property name="width">300</Property>
+              </ToolBarLabel>
+            </ToolBar>
+            <DataGrid id="dgTOAA">
+              <Property name="dataSet">dsTOAA</Property>
+              <Property name="readOnly">true</Property>
+              <DataColumn name="obtid">
+                <Property name="property">obtid</Property>
+                <Property name="align">center</Property>
+                <Property name="caption">区站号</Property>
+              </DataColumn>
+              <DataColumn name="ddatetime">
+                <Property name="property">ddatetime</Property>
+                <Property name="caption">数据时间</Property>
+                <Property name="align">center</Property>
+              </DataColumn>
+              <DataColumn name="bjDatetime">
+                <Property name="property">bj_datetime</Property>
+                <Property name="align">center</Property>
+                <Property name="caption">北京时间</Property>
+              </DataColumn>
+            </DataGrid>
+          </Children>
+        </FieldSet>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">卫星分钟数据</Property>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

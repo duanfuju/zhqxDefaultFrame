@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dtMonitorAdmin">
+      <Property name="creationType">cn.com.oking.dataInterface.entity.MonitorAdmin</Property>
+      <PropertyDef name="dataid">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="adminname">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="phonenum">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="ephonenum">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="id">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="admintype">
+        <Property/>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsMonitorAdmin">
+      <Property name="dataType">[dtMonitorAdmin]</Property>
+      <Property name="dataProvider">monitorAdminAction#method</Property>
+      <Property name="pageSize">15</Property>
+    </DataSet>
+    <ToolBar>
+      <DataPilot>
+        <Property name="itemCodes">pages,+,-,x</Property>
+        <Property name="dataSet">dsMonitorAdmin</Property>
+      </DataPilot>
+      <ToolBarButton>
+        <Property name="caption">保存</Property>
+        <Property name="action">actionUpdate1</Property>
+        <Property name="icon"> url(>skin>common/icons.gif) -140px -20px</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <DataGrid>
+      <Property name="dataSet">dsMonitorAdmin</Property>
+      <Property name="showFilterBar">true</Property>
+      <DataColumn name="adminname">
+        <Property name="property">adminname</Property>
+        <Property name="caption">管理员姓名</Property>
+      </DataColumn>
+      <DataColumn name="phonenum">
+        <Property name="property">phonenum</Property>
+        <Property name="caption">电话</Property>
+      </DataColumn>
+      <DataColumn name="ephonenum">
+        <Property name="property">ephonenum</Property>
+        <Property name="caption">紧急电话</Property>
+      </DataColumn>
+      <DataColumn name="admintype">
+        <Property name="property">admintype</Property>
+        <Property name="trigger">listDropDown1</Property>
+        <Property name="caption">管理员类型</Property>
+      </DataColumn>
+    </DataGrid>
+    <UpdateAction id="actionUpdate1">
+      <Property name="executingMessage">正在保存。。。。</Property>
+      <Property name="successMessage">保存成功。。。。</Property>
+      <Property name="dataResolver">monitorAdminAction#saveAll</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsMonitorAdmin</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <ListDropDown id="listDropDown1">
+      <Property name="items">数据,设备,系统,终端</Property>
+    </ListDropDown>
+  </View>
+</ViewConfig>

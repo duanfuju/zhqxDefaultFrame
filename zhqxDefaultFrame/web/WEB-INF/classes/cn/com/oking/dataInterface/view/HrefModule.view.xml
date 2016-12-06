@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dtHrefModule">
+      <Property name="creationType">cn.com.oking.dataInterface.entity.HrefModule</Property>
+      <PropertyDef name="id">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="modulename">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="description">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="colnum">
+        <Property name="dataType">BigDecimal</Property>
+      </PropertyDef>
+      <PropertyDef name="ordernum">
+        <Property name="dataType">BigDecimal</Property>
+      </PropertyDef>
+      <PropertyDef name="menuid">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="moduletype">
+        <Property/>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsHrefModule">
+      <Property name="dataProvider">hrefModuleAction#method</Property>
+      <Property name="pageSize">15</Property>
+      <Property name="dataType">[dtHrefModule]</Property>
+    </DataSet>
+    <ToolBar>
+      <DataPilot>
+        <Property name="dataSet">dsHrefModule</Property>
+        <Property name="itemCodes">pages,+,-,x</Property>
+      </DataPilot>
+      <ToolBarButton>
+        <Property name="caption">保存</Property>
+        <Property name="action">actionUpdate1</Property>
+        <Property name="icon"> url(>skin>common/icons.gif) -140px -20px</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <DataGrid>
+      <Property name="dataSet">dsHrefModule</Property>
+      <Property name="showFilterBar">true</Property>
+      <DataColumn name="id">
+        <Property name="property">id</Property>
+        <Property name="caption">模块ID</Property>
+      </DataColumn>
+      <DataColumn name="modulename">
+        <Property name="property">modulename</Property>
+        <Property name="caption">模块名称</Property>
+      </DataColumn>
+      <DataColumn name="description">
+        <Property name="property">description</Property>
+        <Property name="caption">详细描述</Property>
+      </DataColumn>
+      <DataColumn name="ordernum">
+        <Property name="property">ordernum</Property>
+        <Property name="caption">序号</Property>
+      </DataColumn>
+      <DataColumn name="menuid">
+        <Property name="property">menuid</Property>
+        <Property name="caption">菜单ID</Property>
+      </DataColumn>
+      <DataColumn name="moduletype">
+        <Property name="property">moduletype</Property>
+        <Property name="caption">模块类型</Property>
+      </DataColumn>
+    </DataGrid>
+    <UpdateAction id="actionUpdate1">
+      <Property name="executingMessage">正在保存。。。。</Property>
+      <Property name="successMessage">保存成功。。。。</Property>
+      <Property name="dataResolver">hrefModuleAction#saveAll</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsHrefModule</Property>
+      </UpdateItem>
+    </UpdateAction>
+  </View>
+</ViewConfig>

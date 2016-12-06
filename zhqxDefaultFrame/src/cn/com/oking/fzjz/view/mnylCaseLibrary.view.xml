@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container>
+      <ToolBar>
+        <DataPilot>
+          <Property name="dataSet">dsCaseLibrary</Property>
+          <Property name="itemCodes">pages,pages+,-,x</Property>
+        </DataPilot>
+        <ToolBarButton id="tbSave">
+          <Property name="action">updateAction1</Property>
+          <Property name="caption">保存</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+        </ToolBarButton>
+      </ToolBar>
+      <DataSet id="dsCaseLibrary">
+        <Property name="dataType">[dtMnylCaselibrary]</Property>
+        <Property name="dataProvider">mnylCaselibraryAction#getAll</Property>
+        <Property name="pageSize">12</Property>
+      </DataSet>
+      <DataGrid id="dgCaseLibrary">
+        <Property name="dataSet">dsCaseLibrary</Property>
+        <DataColumn name="zhCase">
+          <Property name="property">zhCase</Property>
+        </DataColumn>
+        <DataColumn name="zhLx">
+          <Property name="property">zhLx</Property>
+        </DataColumn>
+        <DataColumn name="zhStartTime">
+          <Property name="property">zhStartTime</Property>
+        </DataColumn>
+        <DataColumn name="zhEndTime">
+          <Property name="property">zhEndTime</Property>
+        </DataColumn>
+        <DataColumn name="zhContinuedTime">
+          <Property name="property">zhContinuedTime</Property>
+        </DataColumn>
+      </DataGrid>
+      <UpdateAction id="updateAction1">
+        <Property name="dataResolver">mnylCaselibraryAction#saveAll</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsCaseLibrary</Property>
+        </UpdateItem>
+      </UpdateAction>
+    </Container>
+  </View>
+</ViewConfig>

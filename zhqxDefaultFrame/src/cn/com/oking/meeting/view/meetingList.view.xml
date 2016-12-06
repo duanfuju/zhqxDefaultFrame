@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="meetingEntity">
+      <Property name="creationType">cn.com.oking.meeting.entity.meetingEntity</Property>
+      <PropertyDef name="confKey">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="subject">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="hostName">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="startTime">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="endTime">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="timeZoneId">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="status">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="duringTime">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="confType">
+        <Property></Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="meetingSumList">
+      <Property name="dataType">[meetingEntity]</Property>
+      <Property name="dataProvider">meetingListAction#getMeetingSumList</Property>
+    </DataSet>
+    <FieldSet>
+      <Buttons>
+        <Button>
+          <ClientEvent name="onClick">window.location(&quot;cn.com.oking.meeting.view.ReserveMeeting.d&quot;);&#xD;
+</ClientEvent>
+          <Property name="caption">安排即时会议</Property>
+        </Button>
+        <Button>
+          <ClientEvent name="onClick">window.location(&quot;cn.com.oking.meeting.view.FixedMeeting.d&quot;);</ClientEvent>
+          <Property name="caption">安排固定会议</Property>
+        </Button>
+      </Buttons>
+      <Children/>
+    </FieldSet>
+    <FieldSet>
+      <Property name="height">50%</Property>
+      <Property name="caption">视频会商列表</Property>
+      <Buttons/>
+      <Children>
+        <DataGrid>
+          <Property name="dataSet">meetingSumList</Property>
+          <Property name="readOnly">true</Property>
+          <DataColumn name="confKey">
+            <Property name="property">confKey</Property>
+            <Property name="caption">会议号</Property>
+          </DataColumn>
+          <DataColumn name="subject">
+            <Property name="property">subject</Property>
+            <Property name="caption">会议主题</Property>
+          </DataColumn>
+          <DataColumn name="startTime">
+            <Property name="property">startTime</Property>
+            <Property name="caption">开始时间</Property>
+          </DataColumn>
+          <DataColumn name="endTime">
+            <Property name="property">endTime</Property>
+            <Property name="caption">结束时间</Property>
+          </DataColumn>
+          <DataColumn>
+            <Property name="property">hostName</Property>
+            <Property name="caption">会议发起人</Property>
+            <Property name="name">hostName</Property>
+            <Property name="editable">false</Property>
+          </DataColumn>
+          <DataColumn name="status">
+            <Property name="property">status</Property>
+            <Property name="caption">状态</Property>
+          </DataColumn>
+          <DataColumn name="confType">
+            <Property name="property">confType</Property>
+            <Property name="caption">会议类型</Property>
+          </DataColumn>
+          <DataColumn>
+            <ClientEvent name="onRenderCell">//获取当前行的&#xD;
+var entity = arg.data;&#xD;
+$(arg.dom).empty().xCreate(&#xD;
+			{				&#xD;
+				tagName : &quot;IMG&quot;,&#xD;
+				src : $url(&quot;images/meeting/start.png&quot;),&#xD;
+				style : &quot;margin: 2px;height:20px;width:50px&quot;,&#xD;
+				onclick:function(self,arg){&#xD;
+					//将当前行给dsMeetingEntity&#xD;
+&#xD;
+					var dsMeetingEntity = view.get(&quot;#dsMeetingEntity&quot;);&#xD;
+					dsMeetingEntity.setData(entity);&#xD;
+					var subEntity = dsMeetingEntity.getData();&#xD;
+					subEntity.setState(dorado.Entity.STATE_MODIFIED);							&#xD;
+					//未开始&#xD;
+					if(dsMeetingEntity.getData(&quot;status&quot;)==&quot;未开始&quot;){	&#xD;
+						var startAction = view.get(&quot;#startAction&quot;);&#xD;
+						startAction.execute(function(rv){&#xD;
+						if(rv!=&quot;FFAILURE&quot;)&#xD;
+							window.location = &quot;startMeeting.jsp?rv=&quot;+rv;&#xD;
+						});&#xD;
+					}&#xD;
+					//已开始&#xD;
+					if(dsMeetingEntity.getData(&quot;status&quot;)==&quot;已开始&quot;){&#xD;
+						var joinAction = view.get(&quot;#joinAction&quot;);&#xD;
+						joinAction.execute(function(rv){&#xD;
+						if(rv!=&quot;FFAILURE&quot;)&#xD;
+							window.location = &quot;startMeeting.jsp?rv=&quot;+rv;&#xD;
+						});&#xD;
+					}&#xD;
+&#xD;
+					&#xD;
+				}&#xD;
+			});&#xD;
+			&#xD;
+</ClientEvent>
+            <Property name="name">操作</Property>
+            <Property name="width">80</Property>
+            <Property name="align">center</Property>
+            <Property name="property">confKey</Property>
+            <Property name="caption">操作</Property>
+            <Property name="editable">false</Property>
+            <Property name="readOnly">true</Property>
+            <Editor/>
+          </DataColumn>
+        </DataGrid>
+        <DataSet id="dsMeetingEntity">
+          <Property name="dataType">meetingEntity</Property>
+        </DataSet>
+        <UpdateAction id="startAction">
+          <Property name="dataResolver">meetingListAction#startMeeting</Property>
+          <UpdateItem>
+            <Property name="dataSet">dsMeetingEntity</Property>
+          </UpdateItem>
+        </UpdateAction>
+        <UpdateAction id="joinAction">
+          <Property name="dataResolver">meetingListAction#joinMeeting</Property>
+          <UpdateItem>
+            <Property name="dataSet">dsMeetingEntity</Property>
+          </UpdateItem>
+        </UpdateAction>
+      </Children>
+    </FieldSet>
+    <DataSet id="meetingPrivateList">
+      <Property name="dataType">[meetingEntity]</Property>
+      <Property name="dataProvider">meetingListAction#getMeetingPrivateList</Property>
+    </DataSet>
+    <FieldSet>
+      <Property name="caption">我安排的视频会商</Property>
+      <Buttons/>
+      <Children>
+        <DataGrid>
+          <Property name="dataSet">meetingPrivateList</Property>
+          <Property name="readOnly">true</Property>
+          <DataColumn name="confKey">
+            <Property name="property">confKey</Property>
+            <Property name="caption">会议号</Property>
+          </DataColumn>
+          <DataColumn name="subject">
+            <Property name="property">subject</Property>
+            <Property name="caption">会议主题</Property>
+          </DataColumn>
+          <DataColumn name="startTime">
+            <Property name="property">startTime</Property>
+            <Property name="caption">开始时间</Property>
+          </DataColumn>
+          <DataColumn name="endTime">
+            <Property name="property">endTime</Property>
+            <Property name="caption">结束时间</Property>
+          </DataColumn>
+          <DataColumn name="status">
+            <Property name="property">status</Property>
+            <Property name="caption">状态</Property>
+          </DataColumn>
+          <DataColumn name="duringTime">
+            <Property name="property">duringTime</Property>
+            <Property name="caption">持续时间</Property>
+          </DataColumn>
+          <DataColumn name="confType">
+            <Property name="property">confType</Property>
+            <Property name="caption">会议类型</Property>
+          </DataColumn>
+          <DataColumn>
+            <ClientEvent name="onRenderCell">//获取当前行的&#xD;
+var entity = arg.data;&#xD;
+$(arg.dom).empty().xCreate(&#xD;
+			{				&#xD;
+				tagName : &quot;IMG&quot;,&#xD;
+				src : $url(&quot;images/meeting/start.png&quot;),&#xD;
+				style : &quot;margin: 2px;height:20px;width:50px&quot;,&#xD;
+				onclick:function(self,arg){&#xD;
+					//将当前行给dsMyMeetingEntity&#xD;
+					var dsMyMeetingEntity = view.get(&quot;#dsMyMeetingEntity&quot;);&#xD;
+					dsMyMeetingEntity.setData(entity);&#xD;
+					var subEntity = dsMyMeetingEntity.getData();&#xD;
+					subEntity.setState(dorado.Entity.STATE_MODIFIED);						&#xD;
+					//未开始&#xD;
+					if(dsMyMeetingEntity.getData(&quot;status&quot;)==&quot;未开始&quot;){&#xD;
+						var startAction1 = view.get(&quot;#startAction1&quot;);&#xD;
+						startAction1.execute(function(rv){&#xD;
+						if(rv!=&quot;FFAILURE&quot;)&#xD;
+							window.location = &quot;startMeeting.jsp?rv=&quot;+rv;&#xD;
+						});&#xD;
+					}&#xD;
+					//已开始&#xD;
+					if(dsMyMeetingEntity.getData(&quot;status&quot;)==&quot;已开始&quot;){&#xD;
+						var joinAction1 = view.get(&quot;#joinAction1&quot;);&#xD;
+						joinAction1.execute(function(rv){&#xD;
+						if(rv!=&quot;FFAILURE&quot;)&#xD;
+							window.location = &quot;startMeeting.jsp?rv=&quot;+rv;&#xD;
+						});&#xD;
+					}&#xD;
+&#xD;
+					&#xD;
+				}&#xD;
+			});&#xD;
+			&#xD;
+</ClientEvent>
+            <Property name="name">操作</Property>
+            <Property name="width">80</Property>
+            <Property name="align">center</Property>
+            <Property name="property">confKey</Property>
+            <Property name="readOnly">true</Property>
+            <Property name="caption">操作</Property>
+            <Editor/>
+          </DataColumn>
+        </DataGrid>
+        <DataSet id="dsMyMeetingEntity">
+          <Property name="dataType">meetingEntity</Property>
+        </DataSet>
+        <UpdateAction id="startAction1">
+          <Property name="dataResolver">meetingListAction#startMeeting</Property>
+          <UpdateItem>
+            <Property name="dataSet">dsMyMeetingEntity</Property>
+          </UpdateItem>
+        </UpdateAction>
+        <UpdateAction id="joinAction1">
+          <Property name="dataResolver">meetingListAction#joinMeeting</Property>
+          <UpdateItem>
+            <Property name="dataSet">dsMyMeetingEntity</Property>
+          </UpdateItem>
+        </UpdateAction>
+      </Children>
+    </FieldSet>
+  </View>
+</ViewConfig>

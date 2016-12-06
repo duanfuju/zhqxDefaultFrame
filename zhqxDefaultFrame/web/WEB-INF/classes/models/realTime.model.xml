@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+  <DataType name="dtWaterData">
+    <Property name="matchType">cn.com.oking.entity.WaterData</Property>
+    <PropertyDef name="wdId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="wdDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">日期</Property>
+    </PropertyDef>
+    <PropertyDef name="wdResults">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">深度</Property>
+    </PropertyDef>
+    <PropertyDef name="siteid">
+      <Property></Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtWaterPicture" meta="x:180;y:30">
+    <Property name="matchType">cn.com.oking.entity.WaterPicture</Property>
+    <PropertyDef name="filename">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="filedir">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="filetime">
+      <Property name="dataType">DateTime</Property>
+    </PropertyDef>
+    <PropertyDef name="siteid">
+      <Property></Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtRain">
+    <Property name="matchType">cn.com.oking.entity.TJsObtMinRain</Property>
+    <PropertyDef name="ddatetime">
+      <Property name="dataType">DateTime</Property>
+    </PropertyDef>
+    <PropertyDef name="bjDatetime">
+      <Property name="dataType">DateTime</Property>
+    </PropertyDef>
+    <PropertyDef name="year">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="month">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="day">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="hour">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="minute">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="obtid">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="hourr">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="hour3r">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="hour6r">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="hour12r">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="hour24r">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="rmdz">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="rmjm">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="rmzf">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="r202n">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="r52n">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="hour1r">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmTeam">
+    <Property name="matchType">cn.com.oking.em.entity.EmTeam</Property>
+    <PropertyDef name="duties">
+      <Property></Property>
+      <Property name="label">项目</Property>
+    </PropertyDef>
+    <PropertyDef name="name">
+      <Property></Property>
+      <Property name="label">姓名</Property>
+    </PropertyDef>
+    <PropertyDef name="institutions">
+      <Property></Property>
+      <Property name="label">单位或镇街场</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="position">
+      <Property></Property>
+      <Property name="label">职务</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">手机号码</Property>
+    </PropertyDef>
+    <PropertyDef name="tel">
+      <Property></Property>
+      <Property name="label">办公电话</Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+    <PropertyDef name="teamtype">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="isdefault">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="ordernum">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="emId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="gender">
+      <Property></Property>
+      <Property name="label">性别</Property>
+    </PropertyDef>
+    <PropertyDef name="age">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">年龄</Property>
+    </PropertyDef>
+    <PropertyDef name="educations">
+      <Property></Property>
+      <Property name="label">学历</Property>
+    </PropertyDef>
+    <PropertyDef name="icategory">
+      <Property></Property>
+      <Property name="label">行业类别</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmStore">
+    <Property name="matchType">cn.com.oking.em.entity.EmStore</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="storenum">
+      <Property></Property>
+      <Property name="label">仓库编号</Property>
+    </PropertyDef>
+    <PropertyDef name="storename">
+      <Property></Property>
+      <Property name="label">仓库名称</Property>
+    </PropertyDef>
+    <PropertyDef name="details">
+      <Property></Property>
+      <Property name="label">详细说明</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">主管部门</Property>
+    </PropertyDef>
+    <PropertyDef name="contraces">
+      <Property></Property>
+      <Property name="label">联系人姓名</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">联系人电话</Property>
+    </PropertyDef>
+    <PropertyDef name="location">
+      <Property></Property>
+      <Property name="label">位置</Property>
+    </PropertyDef>
+    <PropertyDef name="longitude">
+      <Property></Property>
+      <Property name="label">经度</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="latitude">
+      <Property></Property>
+      <Property name="label">纬度</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="photo">
+      <Property></Property>
+      <Property name="label">图片上传</Property>
+    </PropertyDef>
+    <PropertyDef name="x">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="y">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmShelter">
+    <Property name="matchType">cn.com.oking.em.entity.EmShelter</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="placename">
+      <Property></Property>
+      <Property name="label">避难场所</Property>
+    </PropertyDef>
+    <PropertyDef name="location">
+      <Property></Property>
+      <Property name="label">位置</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="contraces">
+      <Property></Property>
+      <Property name="label">负责人</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">联系电话</Property>
+    </PropertyDef>
+    <PropertyDef name="parentid">
+      <Property></Property>
+      <Property name="label">父编号</Property>
+    </PropertyDef>
+    <PropertyDef name="longitude">
+      <Property></Property>
+      <Property name="label">经度</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="latitude">
+      <Property></Property>
+      <Property name="label">纬度</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="res1">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="res2">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="x">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="y">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmHospital">
+    <Property name="matchType">cn.com.oking.em.entity.EmHospital</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="placename">
+      <Property></Property>
+      <Property name="label">医疗机构</Property>
+    </PropertyDef>
+    <PropertyDef name="location">
+      <Property></Property>
+      <Property name="label">位置</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="contraces">
+      <Property></Property>
+      <Property name="label">负责人</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">联系电话</Property>
+    </PropertyDef>
+    <PropertyDef name="parentid">
+      <Property></Property>
+      <Property name="label">父编号</Property>
+    </PropertyDef>
+    <PropertyDef name="longitude">
+      <Property></Property>
+      <Property name="label">经度</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="latitude">
+      <Property></Property>
+      <Property name="label">纬度</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="res1">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="res2">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="x">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="y">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmMonitoring">
+    <Property name="matchType">cn.com.oking.em.entity.EmMonitoring</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="sname">
+      <Property></Property>
+      <Property name="label">视频监控</Property>
+    </PropertyDef>
+    <PropertyDef name="equipmentnum">
+      <Property></Property>
+      <Property name="label">设备编号</Property>
+    </PropertyDef>
+    <PropertyDef name="location">
+      <Property></Property>
+      <Property name="label">安装位置</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">主管部门</Property>
+    </PropertyDef>
+    <PropertyDef name="contraces">
+      <Property></Property>
+      <Property name="label">负责人</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">联系电话</Property>
+    </PropertyDef>
+    <PropertyDef name="parentid">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="longitude">
+      <Property></Property>
+      <Property name="label">经度</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="latitude">
+      <Property></Property>
+      <Property name="label">纬度</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="x">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="y">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+    </PropertyDef>
+    <PropertyDef name="path">
+      <Property></Property>
+      <Property name="label">路径地址</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmAlarmstandard">
+    <Property name="matchType">cn.com.oking.em.entity.EmAlarmstandard</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="anumber">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="disastertype">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="disastername">
+      <Property></Property>
+      <Property name="label">名称</Property>
+    </PropertyDef>
+    <PropertyDef name="disasterlevel">
+      <Property></Property>
+      <Property name="label">等级</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="alarmstandard">
+      <Property></Property>
+      <Property name="label">标准</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="condition">
+      <Property></Property>
+      <Property name="label">条件表达式</Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmResponses">
+    <Property name="matchType">cn.com.oking.em.entity.EmResponses</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="alarmstandardnum">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="disastertype">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="disasterlevel">
+      <Property></Property>
+      <Property name="label">预警等级</Property>
+      <Property name="required">true</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider(&quot;dropDownMappingDao#getLevelMapping&quot;).getResult()}</Property>
+      </Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="response">
+      <Property></Property>
+      <Property name="label">应对措施</Property>
+    </PropertyDef>
+    <PropertyDef name="relevantplans">
+      <Property></Property>
+      <Property name="label">相关预案</Property>
+    </PropertyDef>
+    <PropertyDef name="measurestype">
+      <Property></Property>
+      <Property name="label">措施类型</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmSupplies">
+    <Property name="matchType">cn.com.oking.em.entity.EmSupplies</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="itemnum">
+      <Property></Property>
+      <Property name="label">物资编码</Property>
+    </PropertyDef>
+    <PropertyDef name="description">
+      <Property></Property>
+      <Property name="label">物资名称</Property>
+    </PropertyDef>
+    <PropertyDef name="model">
+      <Property></Property>
+      <Property name="label">物资型号</Property>
+    </PropertyDef>
+    <PropertyDef name="quantity">
+      <Property></Property>
+      <Property name="label">数量</Property>
+    </PropertyDef>
+    <PropertyDef name="unit">
+      <Property></Property>
+      <Property name="label">计量单位</Property>
+    </PropertyDef>
+    <PropertyDef name="itemtype">
+      <Property></Property>
+      <Property name="label">物资分类</Property>
+    </PropertyDef>
+    <PropertyDef name="location">
+      <Property></Property>
+      <Property name="label">仓库</Property>
+    </PropertyDef>
+    <PropertyDef name="contraces">
+      <Property></Property>
+      <Property name="label">负责人</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">负责部门</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">电话</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmResponsesPlan">
+    <Property name="matchType">cn.com.oking.em.entity.EmResponsesPlan</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="plannum">
+      <Property></Property>
+      <Property name="label">编号</Property>
+    </PropertyDef>
+    <PropertyDef name="planname">
+      <Property></Property>
+      <Property name="label">预案名称</Property>
+    </PropertyDef>
+    <PropertyDef name="issuedate">
+      <Property name="dataType">Date</Property>
+      <Property name="label">签发日期</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">预案内容</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+    </PropertyDef>
+    <PropertyDef name="fileid">
+      <Property></Property>
+      <Property name="label">文件编号</Property>
+    </PropertyDef>
+    <PropertyDef name="filename">
+      <Property></Property>
+      <Property name="label">文件名称</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="SysFileInformation" meta="x:165;y:15">
+    <Property name="matchType">cn.com.oking.entity.SysFileInformation</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="showPath">
+      <Property></Property>
+      <Property name="label">显示路径</Property>
+    </PropertyDef>
+    <PropertyDef name="fileName">
+      <Property></Property>
+      <Property name="label">文件名称(上传前名称)</Property>
+    </PropertyDef>
+    <PropertyDef name="associationId">
+      <Property></Property>
+      <Property name="label">文件关联编号</Property>
+    </PropertyDef>
+    <PropertyDef name="sort">
+      <Property></Property>
+      <Property name="label">顺序</Property>
+    </PropertyDef>
+    <PropertyDef name="savaPath">
+      <Property></Property>
+      <Property name="label">保存路径</Property>
+    </PropertyDef>
+    <PropertyDef name="realName">
+      <Property></Property>
+      <Property name="label">实际名称</Property>
+    </PropertyDef>
+    <PropertyDef name="upPeople">
+      <Property></Property>
+      <Property name="label">上传人</Property>
+    </PropertyDef>
+    <PropertyDef name="upTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">上传时间</Property>
+    </PropertyDef>
+    <PropertyDef name="delPeople">
+      <Property></Property>
+      <Property name="label">删除人</Property>
+    </PropertyDef>
+    <PropertyDef name="delState">
+      <Property></Property>
+      <Property name="label">删除状态</Property>
+    </PropertyDef>
+    <PropertyDef name="delTime">
+      <Property name="dataType">Date</Property>
+      <Property name="label">删除时间</Property>
+    </PropertyDef>
+    <PropertyDef name="delWjstate">
+      <Property></Property>
+      <Property name="label">文件删除状态</Property>
+    </PropertyDef>
+    <PropertyDef name="delWjtime">
+      <Property name="dataType">Date</Property>
+      <Property name="label">文件删除时间</Property>
+    </PropertyDef>
+    <PropertyDef name="upType">
+      <Property></Property>
+      <Property name="label">更新类型</Property>
+    </PropertyDef>
+    <PropertyDef name="projectApproval">
+      <Property></Property>
+      <Property name="label">立项批文</Property>
+    </PropertyDef>
+    <PropertyDef name="paHave">
+      <Property></Property>
+      <Property name="label">立项批文有否</Property>
+    </PropertyDef>
+    <PropertyDef name="geologicalExplorationReport">
+      <Property></Property>
+      <Property name="label">地勘报告</Property>
+    </PropertyDef>
+    <PropertyDef name="gerHave">
+      <Property></Property>
+      <Property name="label">地勘报告有否</Property>
+    </PropertyDef>
+    <PropertyDef name="drawings">
+      <Property></Property>
+      <Property name="label">图纸资料</Property>
+    </PropertyDef>
+    <PropertyDef name="dHave">
+      <Property></Property>
+      <Property name="label">图纸资料有否</Property>
+    </PropertyDef>
+    <PropertyDef name="feasibilityReport">
+      <Property></Property>
+      <Property name="label">可行性报告</Property>
+    </PropertyDef>
+    <PropertyDef name="frHave">
+      <Property></Property>
+      <Property name="label">可行性报告有否</Property>
+    </PropertyDef>
+    <PropertyDef name="otherInformation">
+      <Property></Property>
+      <Property name="label">其他资料</Property>
+    </PropertyDef>
+    <PropertyDef name="oiHave">
+      <Property></Property>
+      <Property name="label">其他资料有否</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmDocdemo">
+    <Property name="matchType">cn.com.oking.em.entity.EmDocdemo</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="docname">
+      <Property></Property>
+      <Property name="label">文档名称</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+    </PropertyDef>
+    <PropertyDef name="fileid">
+      <Property></Property>
+      <Property name="label">文件编号</Property>
+    </PropertyDef>
+    <PropertyDef name="docnum">
+      <Property></Property>
+      <Property name="label">文档编号</Property>
+    </PropertyDef>
+    <PropertyDef name="filename">
+      <Property></Property>
+      <Property name="label">文件名称</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="MonitorSysList">
+    <Property name="matchType">cn.com.oking.entity.MonitorSysList</Property>
+    <PropertyDef name="dataid">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="dataname">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="ipaddress">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="port">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="testurl">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="retmsg">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="loginurl">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="period">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="overtime">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="lastdate">
+      <Property name="dataType">DateTime</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMonitorList">
+    <Property name="matchType">cn.com.oking.dataInterface.entity.MonitorList</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="dataid">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="dataname">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="datasource">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="owneruser">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="objectname">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="objattribute">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="datatype">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="period">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="overtime">
+      <Property name="dataType">BigDecimal</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="nextdate">
+      <Property name="dataType">Date</Property>
+    </PropertyDef>
+    <PropertyDef name="format">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="lastdate">
+      <Property name="dataType">DateTime</Property>
+    </PropertyDef>
+    <PropertyDef name="wheresql">
+      <Property></Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtWaterStationManager">
+    <Property name="matchType">cn.com.oking.entity.WaterStationManager</Property>
+    <PropertyDef name="id">
+      <Property/>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="stationNum">
+      <Property/>
+      <Property name="label">站点编号</Property>
+    </PropertyDef>
+    <PropertyDef name="place">
+      <Property/>
+      <Property name="label">安装地点</Property>
+    </PropertyDef>
+  </DataType>
+</Model>

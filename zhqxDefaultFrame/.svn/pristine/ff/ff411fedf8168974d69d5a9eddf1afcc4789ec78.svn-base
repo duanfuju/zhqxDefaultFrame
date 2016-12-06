@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="ReserveMeetingEntity">
+      <Property name="creationType">cn.com.oking.meeting.entity.ReserveMeetingEntity</Property>
+      <PropertyDef name="confKey">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="confId">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="subject">
+        <Property></Property>
+        <Property name="required">true</Property>
+        <Property name="defaultValue">视频会商</Property>
+      </PropertyDef>
+      <PropertyDef name="hostName">
+        <Property></Property>
+        <Property name="defaultValue">admin</Property>
+      </PropertyDef>
+      <PropertyDef name="startTime">
+        <Property></Property>
+        <Property name="dataType">DateTime</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="endTime">
+        <Property></Property>
+        <Property name="dataType">DateTime</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="timeZoneId">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="status">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="duringTime">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="confType">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="conferenceType">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="openType">
+        <Property></Property>
+        <Property name="defaultValue">true</Property>
+      </PropertyDef>
+      <PropertyDef name="attendeeAmount">
+        <Property></Property>
+        <Property name="defaultValue">2</Property>
+      </PropertyDef>
+      <PropertyDef name="passwd">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="conferencePattern">
+        <Property></Property>
+        <Property name="defaultValue">1</Property>
+      </PropertyDef>
+      <PropertyDef name="agenda">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="webBaseUrl">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="displayName">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="meetingPwd">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="attendeeName">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="systemUser">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="peak_attendee">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="total_attendee">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="ciURL">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="beforehandTime">
+        <Property></Property>
+      </PropertyDef>
+      <PropertyDef name="token">
+        <Property></Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dataSet1">
+      <Property name="dataType">ReserveMeetingEntity</Property>
+    </DataSet>
+    <FieldSet>
+      <Property name="caption">会商安排</Property>
+      <Buttons/>
+      <Children>
+        <AutoForm>
+          <ClientEvent name="onReady">var data = view.get(&quot;#dataSet1&quot;);&#xD;
+&#xD;
+data.insert();&#xD;
+</ClientEvent>
+          <Property name="dataSet">dataSet1</Property>
+          <AutoFormElement layoutConstraint="colSpan:2">
+            <Property name="name">subject</Property>
+            <Property name="property">subject</Property>
+            <Property name="dataSet">dataSet1</Property>
+            <Property name="label">会议主题</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement id="startTime">
+            <Property name="name">startTime</Property>
+            <Property name="property">startTime</Property>
+            <Property name="label">开始时间</Property>
+            <Property name="dataSet">dataSet1</Property>
+            <Editor>
+              <TextEditor/>
+            </Editor>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">endTime</Property>
+            <Property name="property">endTime</Property>
+            <Property name="label">结束时间</Property>
+            <Property name="dataSet">dataSet1</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">hostName</Property>
+            <Property name="property">hostName</Property>
+            <Property name="label">主持人</Property>
+            <Property name="dataSet">dataSet1</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">attendeeAmount</Property>
+            <Property name="property">attendeeAmount</Property>
+            <Property name="dataSet">dataSet1</Property>
+            <Property name="label">参加人数</Property>
+            <Editor/>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="property">conferencePattern</Property>
+            <Property name="label">会议模式</Property>
+            <Editor>
+              <RadioGroup>
+                <Property name="value">1</Property>
+                <RadioButton>
+                  <Property name="text">主持人模式</Property>
+                  <Property name="value">0</Property>
+                </RadioButton>
+                <RadioButton>
+                  <Property name="text">自由模式</Property>
+                  <Property name="value">1</Property>
+                </RadioButton>
+              </RadioGroup>
+            </Editor>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="label">是否公开</Property>
+            <Editor>
+              <CheckBox>
+                <Property name="dataSet">dataSet1</Property>
+                <Property name="property">openType</Property>
+                <Property name="value">true</Property>
+              </CheckBox>
+            </Editor>
+          </AutoFormElement>
+          <AutoFormElement>
+            <Property name="name">passwd</Property>
+            <Property name="property">passwd</Property>
+            <Property name="dataSet">dataSet1</Property>
+            <Property name="label">会议密码</Property>
+            <Editor/>
+          </AutoFormElement>
+        </AutoForm>
+        <UpdateAction id="saveAction">
+          <Property name="confirmMessage">确认提交？</Property>
+          <Property name="executingMessage">会议启动中，请稍后．．．</Property>
+          <Property name="successMessage">执行完成</Property>
+          <Property name="dataResolver">reserveMeetingAction#createReserveMeeting</Property>
+          <UpdateItem>
+            <Property name="dataSet">dataSet1</Property>
+          </UpdateItem>
+        </UpdateAction>
+      </Children>
+    </FieldSet>
+    <FieldSet>
+      <Property name="height">80</Property>
+      <Property name="caption">操作</Property>
+      <Buttons>
+        <Button id="btnStart">
+          <Property name="caption">开始会商</Property>
+        </Button>
+      </Buttons>
+      <Children/>
+    </FieldSet>
+  </View>
+</ViewConfig>

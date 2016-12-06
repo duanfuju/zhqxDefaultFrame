@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container>
+      <AutoForm>
+        <Property name="dataSet">dsPlan</Property>
+        <Property name="cols">*,*,*,*</Property>
+        <AutoFormElement>
+          <Property name="name">plannum</Property>
+          <Property name="property">plannum</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">planname</Property>
+          <Property name="property">planname</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">issuedate</Property>
+          <Property name="property">issuedate</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">status</Property>
+          <Property name="property">status</Property>
+          <Editor/>
+        </AutoFormElement>
+        <Button id="btnFile" layoutConstraint="align:center;vAlign:center">
+          <Property name="caption">上传文件</Property>
+          <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+        </Button>
+        <Button id="btnFileLoad" layoutConstraint="align:center;vAlign:center">
+          <Property name="caption">文件下载</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -160px -120px</Property>
+        </Button>
+      </AutoForm>
+      <Dialog id="fileDialog">
+        <Property name="caption">文件上传</Property>
+        <Property name="width">480</Property>
+        <Property name="height">300</Property>
+        <Buttons/>
+        <Children>
+          <IFrame id="fileIFrame">
+            <Property name="path">cn.com.oking.em.view.upload.upload.d</Property>
+          </IFrame>
+        </Children>
+        <Tools/>
+      </Dialog>
+      <UpdateAction id="autoUpdateAction">
+        <Property name="dataResolver">emResponsesPlanAction#save</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsPlan</Property>
+        </UpdateItem>
+      </UpdateAction>
+      <DataSet id="dsPlan">
+        <Property name="dataType">dtEmResponsesPlan</Property>
+        <Property name="dataProvider">emResponsesPlanAction#getPlanByPlannum</Property>
+      </DataSet>
+    </Container>
+    <Container>
+      <ToolBar>
+        <DataPilot>
+          <Property name="itemCodes">+,-,x,pages</Property>
+          <Property name="dataSet">dsPlanList</Property>
+        </DataPilot>
+        <Separator/>
+        <ToolBarButton>
+          <Property name="caption">保存</Property>
+          <Property name="action">saveAction</Property>
+        </ToolBarButton>
+        <Fill/>
+      </ToolBar>
+      <DataGrid id="dgShow">
+        <Property name="dataSet">dsPlanList</Property>
+        <Property name="showFilterBar">true</Property>
+        <DataColumn name="plannum">
+          <Property name="property">plannum</Property>
+        </DataColumn>
+        <DataColumn name="planname">
+          <Property name="property">planname</Property>
+        </DataColumn>
+        <DataColumn name="issuedate">
+          <Property name="property">issuedate</Property>
+        </DataColumn>
+        <DataColumn name="status">
+          <Property name="property">status</Property>
+          <Property name="trigger">lddStatus</Property>
+        </DataColumn>
+        <DataColumn name="filename">
+          <Property name="property">filename</Property>
+          <Property name="readOnly">false</Property>
+        </DataColumn>
+      </DataGrid>
+      <DataSet id="dsPlanList">
+        <Property name="dataProvider">emResponsesPlanAction#getData</Property>
+        <Property name="dataType">[dtEmResponsesPlan]</Property>
+        <Property name="pageSize">10</Property>
+      </DataSet>
+      <UpdateAction id="saveAction">
+        <Property name="dataResolver">emResponsesPlanAction#save</Property>
+        <Property name="confirmMessage">是否保存？？？</Property>
+        <Property name="successMessage">保存成功！！！</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsPlanList</Property>
+        </UpdateItem>
+      </UpdateAction>
+      <ListDropDown id="lddStatus">
+        <Property name="items">有效,无效</Property>
+      </ListDropDown>
+    </Container>
+  </View>
+</ViewConfig>

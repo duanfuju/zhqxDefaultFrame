@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <HtmlContainer id="hcShow">
+      <ClientEvent name="onReady">self.set(&quot;content&quot;,&quot;&lt;center>&lt;img src='images/building/under-construction.gif' align='center' />&lt;/center>&quot;);</ClientEvent>
+    </HtmlContainer>
+  </View>
+</ViewConfig>

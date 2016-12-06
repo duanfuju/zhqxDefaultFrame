@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+  <DataType name="dtEmJjtzJy">
+    <Property name="matchType">cn.com.oking.em.entity.EmJjtzJy</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="tzjyId">
+      <Property></Property>
+      <Property name="label">紧急通知建议编号</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="subject">
+      <Property></Property>
+      <Property name="label">紧急通知主题</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="zhlx">
+      <Property></Property>
+      <Property name="label">灾害类型</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+      <Property name="defaultValue">拟稿</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">紧急通知内容</Property>
+    </PropertyDef>
+    <PropertyDef name="createby">
+      <Property></Property>
+      <Property name="label">建立人</Property>
+    </PropertyDef>
+    <PropertyDef name="createdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">生成时间</Property>
+    </PropertyDef>
+    <PropertyDef name="updateby">
+      <Property></Property>
+      <Property name="label">操作人</Property>
+    </PropertyDef>
+    <PropertyDef name="updatedate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">操作时间</Property>
+    </PropertyDef>
+    <PropertyDef name="bzId">
+      <Property></Property>
+      <Property name="label">响应级别</Property>
+      <Property name="required">true</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider(&quot;dropDownMappingDao#getLevelMapping&quot;).getResult()}</Property>
+      </Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmJjtzFb" meta="x:450;y:9">
+    <Property name="matchType">cn.com.oking.em.entity.EmJjtzFb</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="jjtzId">
+      <Property></Property>
+      <Property name="label">紧急通知编号</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="subject">
+      <Property></Property>
+      <Property name="label">紧急通知主题</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="zhlx">
+      <Property></Property>
+      <Property name="label">灾害类型</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">紧急通知内容</Property>
+    </PropertyDef>
+    <PropertyDef name="bzId">
+      <Property></Property>
+      <Property name="label">响应级别</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider(&quot;dropDownMappingDao#getLevelMapping&quot;).getResult()}</Property>
+      </Property>
+    </PropertyDef>
+    <PropertyDef name="tzjyId">
+      <Property></Property>
+      <Property name="label">关联的紧急通知建议ID</Property>
+    </PropertyDef>
+    <PropertyDef name="createby">
+      <Property></Property>
+      <Property name="label">建立人</Property>
+    </PropertyDef>
+    <PropertyDef name="createdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">建立时间</Property>
+    </PropertyDef>
+    <PropertyDef name="appby">
+      <Property></Property>
+      <Property name="label">批准人</Property>
+    </PropertyDef>
+    <PropertyDef name="appdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">批准时间</Property>
+    </PropertyDef>
+    <PropertyDef name="pubby">
+      <Property></Property>
+      <Property name="label">发布人</Property>
+    </PropertyDef>
+    <PropertyDef name="pubdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">发布时间</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmJjtzFbfw" meta="x:300;y:0">
+    <Property name="matchType">cn.com.oking.em.entity.EmJjtzFbfw</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="jjtzId">
+      <Property></Property>
+      <Property name="label">紧急通知ID</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">通知内容</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="contact">
+      <Property></Property>
+      <Property name="label">联系人</Property>
+    </PropertyDef>
+    <PropertyDef name="telnum">
+      <Property></Property>
+      <Property name="label">联系电话</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">固定电话</Property>
+    </PropertyDef>
+    <PropertyDef name="email">
+      <Property></Property>
+      <Property name="label">电子邮件地址</Property>
+    </PropertyDef>
+    <PropertyDef name="isphone">
+      <Property></Property>
+      <Property name="label">短信通知</Property>
+    </PropertyDef>
+    <PropertyDef name="isemail">
+      <Property></Property>
+      <Property name="label">邮件通知</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmXymlJy" meta="x:165;y:0">
+    <Property name="matchType">cn.com.oking.em.entity.EmXymlJy</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="xymlId">
+      <Property></Property>
+      <Property name="label">响应命令建议编号</Property>
+    </PropertyDef>
+    <PropertyDef name="subject">
+      <Property></Property>
+      <Property name="label">响应命令建议主题</Property>
+    </PropertyDef>
+    <PropertyDef name="zhlx">
+      <Property></Property>
+      <Property name="label">灾害类型</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+      <Property name="defaultValue">待审核</Property>
+      <Property name="required">true</Property>
+      <Property name="readOnly">false</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">建议内容</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="createby">
+      <Property></Property>
+      <Property name="label">建立人</Property>
+    </PropertyDef>
+    <PropertyDef name="createdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">生成时间</Property>
+    </PropertyDef>
+    <PropertyDef name="updateby">
+      <Property></Property>
+      <Property name="label">操作人</Property>
+    </PropertyDef>
+    <PropertyDef name="updatedate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">操作时间</Property>
+    </PropertyDef>
+    <PropertyDef name="bzId">
+      <Property></Property>
+      <Property name="label">响应级别</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider(&quot;dropDownMappingDao#getLevelMapping&quot;).getResult()}</Property>
+      </Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="conditions">
+      <Property></Property>
+      <Property name="label">启动条件</Property>
+    </PropertyDef>
+    <PropertyDef name="situation">
+      <Property></Property>
+      <Property name="label">实际情况</Property>
+    </PropertyDef>
+    <PropertyDef name="jjtzId">
+      <Property></Property>
+      <Property name="label">紧急通知ID</Property>
+    </PropertyDef>
+    <PropertyDef name="command">
+      <Property></Property>
+      <Property name="label">命令分类</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmXymlFb">
+    <Property name="matchType">cn.com.oking.em.entity.EmXymlFb</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="zlbhId">
+      <Property></Property>
+      <Property name="label">指令编号</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">指令内容</Property>
+    </PropertyDef>
+    <PropertyDef name="zhlx">
+      <Property></Property>
+      <Property name="label">灾害类型</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="bzId">
+      <Property></Property>
+      <Property name="label">响应级别</Property>
+      <Property name="required">true</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider(&quot;dropDownMappingDao#getLevelMapping&quot;).getResult()}</Property>
+      </Property>
+    </PropertyDef>
+    <PropertyDef name="xymlId">
+      <Property></Property>
+      <Property name="label">关联的响应命令建议id</Property>
+    </PropertyDef>
+    <PropertyDef name="jjtzId">
+      <Property></Property>
+      <Property name="label">紧急通知ID</Property>
+    </PropertyDef>
+    <PropertyDef name="createby">
+      <Property></Property>
+      <Property name="label">建立人</Property>
+    </PropertyDef>
+    <PropertyDef name="createdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">建立时间</Property>
+    </PropertyDef>
+    <PropertyDef name="appby">
+      <Property></Property>
+      <Property name="label">批准人</Property>
+    </PropertyDef>
+    <PropertyDef name="appdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">批准时间</Property>
+    </PropertyDef>
+    <PropertyDef name="pubby">
+      <Property></Property>
+      <Property name="label">发布人</Property>
+    </PropertyDef>
+    <PropertyDef name="pubdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">发布时间</Property>
+    </PropertyDef>
+    <PropertyDef name="relatedNotice">
+      <Property></Property>
+      <Property name="label">相关通知</Property>
+    </PropertyDef>
+    <PropertyDef name="sms">
+      <Property></Property>
+      <Property name="label">短信提醒</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmXymlFbfw">
+    <Property name="matchType">cn.com.oking.em.entity.EmXymlFbfw</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="zlbhId">
+      <Property></Property>
+      <Property name="label">指令编号</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">通知内容</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="contact">
+      <Property></Property>
+      <Property name="label">联系人</Property>
+    </PropertyDef>
+    <PropertyDef name="telnum">
+      <Property></Property>
+      <Property name="label">联系电话</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">固定电话</Property>
+    </PropertyDef>
+    <PropertyDef name="email">
+      <Property></Property>
+      <Property name="label">电子邮件地址</Property>
+    </PropertyDef>
+    <PropertyDef name="isphone">
+      <Property></Property>
+      <Property name="label">短信通知</Property>
+    </PropertyDef>
+    <PropertyDef name="isemail">
+      <Property></Property>
+      <Property name="label">邮件通知</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmCzfaJy">
+    <Property name="matchType">cn.com.oking.em.entity.EmCzfaJy</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="jjtzId">
+      <Property></Property>
+      <Property name="label">紧急通知编号</Property>
+    </PropertyDef>
+    <PropertyDef name="zhlx">
+      <Property></Property>
+      <Property name="label">灾害类型</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="bzId">
+      <Property></Property>
+      <Property name="label">响应级别</Property>
+      <Property name="required">true</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider(&quot;dropDownMappingDao#getLevelMapping&quot;).getResult()}</Property>
+      </Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+      <Property name="defaultValue">待审核</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="responseLevel">
+      <Property></Property>
+      <Property name="label">响应级别</Property>
+    </PropertyDef>
+    <PropertyDef name="orderNumber">
+      <Property></Property>
+      <Property name="label">命令编号</Property>
+    </PropertyDef>
+    <PropertyDef name="createby">
+      <Property></Property>
+      <Property name="label">建立人</Property>
+    </PropertyDef>
+    <PropertyDef name="createdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">建立时间</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmCzfaJyAdvice">
+    <Property name="matchType">cn.com.oking.em.entity.EmCzfaJyAdvice</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="responses">
+      <Property></Property>
+      <Property name="label">防范应对</Property>
+    </PropertyDef>
+    <PropertyDef name="type">
+      <Property></Property>
+      <Property name="label">建议类型</Property>
+    </PropertyDef>
+    <PropertyDef name="czfaJyId">
+      <Property></Property>
+      <Property name="label">处置方案建议关联id</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmCzfaMl">
+    <Property name="matchType">cn.com.oking.em.entity.EmCzfaMl</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="jjtzId">
+      <Property></Property>
+      <Property name="label">紧急通知建议ID</Property>
+    </PropertyDef>
+    <PropertyDef name="zhlx">
+      <Property></Property>
+      <Property name="label">灾害类型</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="bzId">
+      <Property></Property>
+      <Property name="label">响应级别</Property>
+      <Property name="required">true</Property>
+      <Property name="mapping">
+        <Property name="mapValues">${dorado.getDataProvider(&quot;dropDownMappingDao#getLevelMapping&quot;).getResult()}</Property>
+      </Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="responseLevel">
+      <Property></Property>
+      <Property name="label">响应级别</Property>
+    </PropertyDef>
+    <PropertyDef name="orderNumber">
+      <Property></Property>
+      <Property name="label">命令编号</Property>
+    </PropertyDef>
+    <PropertyDef name="createby">
+      <Property></Property>
+      <Property name="label">建立人</Property>
+    </PropertyDef>
+    <PropertyDef name="createdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">建立时间</Property>
+    </PropertyDef>
+    <PropertyDef name="appby">
+      <Property></Property>
+      <Property name="label">批准人</Property>
+    </PropertyDef>
+    <PropertyDef name="appdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">批准时间</Property>
+    </PropertyDef>
+    <PropertyDef name="pubby">
+      <Property></Property>
+      <Property name="label">发布人</Property>
+    </PropertyDef>
+    <PropertyDef name="pubdate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">发布时间</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmCzfaMlAdvice">
+    <Property name="matchType">cn.com.oking.em.entity.EmCzfaMlAdvice</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="responses">
+      <Property></Property>
+      <Property name="label">防范应对</Property>
+    </PropertyDef>
+    <PropertyDef name="type">
+      <Property></Property>
+      <Property name="label">建议类型</Property>
+    </PropertyDef>
+    <PropertyDef name="czfaJyId">
+      <Property></Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmCzfaMlfw">
+    <Property name="matchType">cn.com.oking.em.entity.EmCzfaMlfw</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="czfajyid">
+      <Property></Property>
+      <Property name="label">处置方案命令关联id</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">通知内容</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="contact">
+      <Property></Property>
+      <Property name="label">联系人</Property>
+    </PropertyDef>
+    <PropertyDef name="telnum">
+      <Property></Property>
+      <Property name="label">联系电话</Property>
+    </PropertyDef>
+    <PropertyDef name="phone">
+      <Property></Property>
+      <Property name="label">固定电话</Property>
+    </PropertyDef>
+    <PropertyDef name="email">
+      <Property></Property>
+      <Property name="label">电子邮件地址</Property>
+    </PropertyDef>
+    <PropertyDef name="isphone">
+      <Property></Property>
+      <Property name="label">短信通知</Property>
+    </PropertyDef>
+    <PropertyDef name="isemail">
+      <Property></Property>
+      <Property name="label">邮件通知</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmContentList">
+    <Property name="matchType">cn.com.oking.em.entity.EmContentList</Property>
+    <PropertyDef name="clId">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="clNum">
+      <Property></Property>
+      <Property name="label">内容编号</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="description">
+      <Property></Property>
+      <Property name="label">描述</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="url">
+      <Property></Property>
+      <Property name="label">内容URL</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="displaySize">
+      <Property></Property>
+      <Property name="label">显示大小</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="imgSrc">
+      <Property></Property>
+      <Property name="label">图像路径</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmDisplayMode">
+    <Property name="matchType">cn.com.oking.em.entity.EmDisplayMode</Property>
+    <PropertyDef name="dmId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="dmNum">
+      <Property></Property>
+      <Property name="label">模式编号</Property>
+    </PropertyDef>
+    <PropertyDef name="description">
+      <Property></Property>
+      <Property name="label">描述</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+    </PropertyDef>
+    <PropertyDef name="type">
+      <Property></Property>
+      <Property name="label">类型</Property>
+    </PropertyDef>
+    <PropertyDef name="template">
+      <Property></Property>
+      <Property name="label">模板</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtEmModeContent">
+    <Property name="matchType">cn.com.oking.em.entity.EmModeContentDefault</Property>
+    <PropertyDef name="mcId">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="clNum">
+      <Property></Property>
+      <Property name="label">内容编号</Property>
+    </PropertyDef>
+    <PropertyDef name="description">
+      <Property></Property>
+      <Property name="label">内容描述</Property>
+    </PropertyDef>
+    <PropertyDef name="displaysize">
+      <Property></Property>
+      <Property name="label">显示大小</Property>
+    </PropertyDef>
+    <PropertyDef name="url">
+      <Property></Property>
+      <Property name="label">内容URL</Property>
+    </PropertyDef>
+    <PropertyDef name="line">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">行</Property>
+    </PropertyDef>
+    <PropertyDef name="col">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">列</Property>
+    </PropertyDef>
+    <PropertyDef name="orderid">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">序号</Property>
+    </PropertyDef>
+    <PropertyDef name="imgSrc">
+      <Property></Property>
+      <Property name="label">图片路径</Property>
+    </PropertyDef>
+    <PropertyDef name="dmId">
+      <Property></Property>
+      <Property name="label">模式编号</Property>
+    </PropertyDef>
+  </DataType>
+</Model>

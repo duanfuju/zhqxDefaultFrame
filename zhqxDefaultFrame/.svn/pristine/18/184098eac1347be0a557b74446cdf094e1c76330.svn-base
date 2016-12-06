@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dataTypeUrl" parent="global:$dataTypeUrl">
+      <PropertyDef name="children">
+        <Property name="dataType">[SELF]</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <ClientEvent name="onCreate">window.openUrlInFrameTab=function(url,caption,icon,double){&#xD;
+	if(!url){&#xD;
+		dorado.MessageBox.alert(&quot;Url不能空&quot;);&#xD;
+		return;&#xD;
+	}&#xD;
+	if(!caption){&#xD;
+		dorado.MessageBox.alert(&quot;caption不能空&quot;);&#xD;
+		return;&#xD;
+	}&#xD;
+	if(!icon){&#xD;
+		icon=&quot;url(skin>common/icons.gif) -40px -120px&quot;;&#xD;
+	}&#xD;
+	var tabControl=view.id(&quot;tabControlWorkarea&quot;);&#xD;
+	var tab=tabControl.getTab(url);&#xD;
+	if(!tab){&#xD;
+		tab=new dorado.widget.tab.IFrameTab({&#xD;
+			name:url,&#xD;
+			path:url,&#xD;
+			caption:caption,&#xD;
+			icon:icon,&#xD;
+			closeable:true&#xD;
+		});&#xD;
+		tabControl.addTab(tab);&#xD;
+	}else if(double){&#xD;
+		tab.set(&quot;path&quot;,url);&#xD;
+		if(caption){&#xD;
+			tab.set(&quot;caption&quot;,caption);&#xD;
+		}&#xD;
+	}&#xD;
+	tabControl.set(&quot;currentTab&quot;,tab);&#xD;
+}&#xD;
+</ClientEvent>
+    <ClientEvent name="onReady">var path=&quot;${configure.getString(&quot;bdf2.mainFrame.welcomePath&quot;)}&quot;;&#xD;
+var icon=&quot;${configure.getString(&quot;bdf2.mainFrame.welcomeIcon&quot;)}&quot;;&#xD;
+var title=&quot;${configure.getString(&quot;bdf2.mainFrame.welcomeTitle&quot;)}&quot;;&#xD;
+if(path){&#xD;
+	window.openUrlInFrameTab(path,title,icon,true);&#xD;
+}&#xD;
+</ClientEvent>
+    <Property name="title">子系统</Property>
+    <Property name="styleSheetFile">com/oking/core/frame/main/MainFrame.css</Property>
+    <Property name="packages">tree</Property>
+    <DataSet id="dataSetUrl">
+      <ClientEvent name="onReady">var myAccordion=view.id(&quot;MyAccordion&quot;);&#xD;
+var treeJson={};&#xD;
+var data=self.getData();&#xD;
+if(!data){&#xD;
+	return;&#xD;
+}&#xD;
+data.each(function(url){&#xD;
+	addAccordionEvent(myAccordion);&#xD;
+	var sections=[];&#xD;
+	var section=new dorado.widget.Section();&#xD;
+	section.set(&quot;caption&quot;,url.get(&quot;name&quot;));&#xD;
+	if(url.get(&quot;desc&quot;)){&#xD;
+		section.set(&quot;tip&quot;,url.get(&quot;desc&quot;));	&#xD;
+	}&#xD;
+	if(url.get(&quot;icon&quot;)){&#xD;
+		section.set(&quot;icon&quot;,url.get(&quot;icon&quot;));	&#xD;
+	}&#xD;
+	section.set(&quot;userData&quot;,url);&#xD;
+	section.set(&quot;name&quot;,url.get(&quot;id&quot;));&#xD;
+	sections.push(section);&#xD;
+	rebuildAccordion(sections);&#xD;
+	myAccordion.set(&quot;sections&quot;,sections);&#xD;
+});&#xD;
+&#xD;
+&#xD;
+function rebuildAccordion(sections){&#xD;
+	sections.each(function(section){&#xD;
+		var tree=new dorado.widget.Tree();&#xD;
+		section.set(&quot;control&quot;,tree);&#xD;
+	});&#xD;
+}&#xD;
+function addAccordionEvent(accordion){&#xD;
+	accordion.set(&quot;onCurrentSectionChange&quot;,function(accrodionObj,arg){&#xD;
+		var section=arg.newSection;&#xD;
+		var id=section.get(&quot;name&quot;);&#xD;
+		if(treeJson[id]){&#xD;
+			return;&#xD;
+		}&#xD;
+		treeJson[id]=&quot;tree&quot;;&#xD;
+		var url=section.get(&quot;userData&quot;);&#xD;
+		var cdata=url.get(&quot;children&quot;);&#xD;
+		if(!cdata){&#xD;
+			return;&#xD;
+		}&#xD;
+		var tree=section.get(&quot;control&quot;);&#xD;
+		tree.set(&quot;onDataRowClick&quot;,function(self,arg){&#xD;
+			var node=self.get(&quot;currentNode&quot;);&#xD;
+			var data=node.get(&quot;userData&quot;);&#xD;
+			if(data.get(&quot;url&quot;)){&#xD;
+				window.openUrlInFrameTab(data.get(&quot;url&quot;),data.get(&quot;name&quot;),data.get(&quot;icon&quot;));&#xD;
+			}&#xD;
+		});&#xD;
+		tree.set(&quot;onDataRowDoubleClick&quot;,function(self,arg){&#xD;
+			var node=self.get(&quot;currentNode&quot;);&#xD;
+			var data=node.get(&quot;userData&quot;);&#xD;
+			if(data.get(&quot;url&quot;)){&#xD;
+				window.openUrlInFrameTab(data.get(&quot;url&quot;),data.get(&quot;name&quot;),data.get(&quot;icon&quot;),true);&#xD;
+			}&#xD;
+		});			&#xD;
+		var rootNode=tree.get(&quot;root&quot;);&#xD;
+		cdata.each(function(d){&#xD;
+			buildTree(rootNode,d);&#xD;
+		});&#xD;
+	});&#xD;
+}&#xD;
+&#xD;
+function buildTree(topNode,url){&#xD;
+	var node=new dorado.widget.tree.Node();&#xD;
+	node.set(&quot;label&quot;,url.get(&quot;name&quot;));&#xD;
+	if(url.get(&quot;desc&quot;)){&#xD;
+		node.set(&quot;tip&quot;,url.get(&quot;desc&quot;));&#xD;
+	}&#xD;
+	if(url.get(&quot;icon&quot;)){&#xD;
+		node.set(&quot;icon&quot;,url.get(&quot;icon&quot;));&#xD;
+	}&#xD;
+	node.set(&quot;userData&quot;,url);&#xD;
+	topNode.addNode(node);&#xD;
+	var cdata=url.get(&quot;children&quot;);&#xD;
+	if(!cdata){&#xD;
+		return;&#xD;
+	}&#xD;
+	cdata.each(function(d){&#xD;
+		buildTree(node,d);&#xD;
+	});	&#xD;
+}&#xD;
+</ClientEvent>
+      <Property name="dataProvider">frame.SecFrame#loadMeunUrls</Property>
+      <Property name="dataType">[dataTypeUrl]</Property>
+      <Property name="loadMode">onReady</Property>
+      <Property name="parameter">
+        <Entity>
+          <Property name="parentId">${param.id}</Property>
+        </Entity>
+      </Property>
+    </DataSet>
+    <Container id="cMain" layout="anchor" layoutConstraint="top">
+      <Property name="contentOverflow">hidden</Property>
+      <Property name="height">75</Property>
+      <HtmlContainer id="hcTopHtml" layoutConstraint="top:0;left:0">
+        <Property name="content">&lt;div id=&quot;GZnashui_top&quot;>&#xD;
+		&lt;div class=&quot;logo&quot;>&lt;/div>&#xD;
+		&lt;div class=&quot;admin&quot;>&#xD;
+			&lt;div class=&quot;i01&quot;>&#xD;
+				&lt;img src=&quot;images/topico_01.png&quot; alt=&quot;&quot; width=&quot;19&quot; height=&quot;15&quot; />&#xD;
+			&lt;/div>&#xD;
+			&lt;div class=&quot;name&quot;>皮肤&lt;/div>&#xD;
+			&lt;div style=&quot;position: relative; float: left;&quot;>&#xD;
+				&lt;div class=&quot;skin&quot;>&#xD;
+					&lt;img src=&quot;images/skin_blue.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;skin&quot;>&#xD;
+					&lt;img src=&quot;images/skin_red.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;skin&quot;>&#xD;
+					&lt;img src=&quot;images/skin_green.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;gou01&quot; style=&quot;display: block;&quot;>&#xD;
+					&lt;img src=&quot;images/22.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;gou02&quot; style=&quot;display: none;&quot;>&#xD;
+					&lt;img src=&quot;images/22.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;gou03&quot; style=&quot;display: none;&quot;>&#xD;
+					&lt;img src=&quot;images/22.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+			&lt;/div>&#xD;
+			&lt;div class=&quot;i01&quot;>&#xD;
+				&lt;img src=&quot;images/topico_02.png&quot; alt=&quot;&quot; width=&quot;19&quot; height=&quot;16&quot; />&#xD;
+			&lt;/div>&#xD;
+			&lt;div class=&quot;name&quot;>${loginUser.getCname()}&amp;nbsp;|&amp;nbsp;${loginUser.getDepts().get(0).getName()}&lt;/div>&#xD;
+			&lt;div class=&quot;name01&quot;>&amp;nbsp;&lt;/div>&#xD;
+		&lt;/div>&#xD;
+	&lt;/div></Property>
+        <Property name="width">100%</Property>
+      </HtmlContainer>
+      <Container id="cbutton" layout="hbox align:top" listener="spring:bdf2.frameTopListener#onInit" layoutConstraint="anchorRight:container;anchorTop:container;top:5;right:5">
+        <Property name="contentOverflow">hidden</Property>
+        <Property name="height">30</Property>
+      </Container>
+    </Container>
+    <Menu id="menuForTab">
+      <MenuItem>
+        <ClientEvent name="onClick">setTimeout(function(){&#xD;
+	var panelWorkarea=view.id(&quot;panelWorkarea&quot;);&#xD;
+	var maximized=panelWorkarea.get(&quot;maximized&quot;);&#xD;
+	var maxIcon=&quot;>dorado/res/icons/max.png&quot;;&#xD;
+	var normalIcon=&quot;>dorado/res/icons/min.png&quot;;&#xD;
+	if(maximized){&#xD;
+		self.set(&quot;icon&quot;,maxIcon);&#xD;
+		self.set(&quot;caption&quot;,&quot;最大化&quot;);&#xD;
+		panelWorkarea.maximizeRestore();&#xD;
+	}else{&#xD;
+		self.set(&quot;icon&quot;,normalIcon);&#xD;
+		self.set(&quot;caption&quot;,&quot;还原&quot;);&#xD;
+		panelWorkarea.maximize();&#xD;
+	}&#xD;
+}, 600);&#xD;
+</ClientEvent>
+        <Property name="caption">最大化</Property>
+        <Property name="icon">>dorado/res/icons/max.png</Property>
+      </MenuItem>
+      <MenuItem>
+        <ClientEvent name="onClick">var tab = view.id(&quot;tabControlWorkarea&quot;).get(&quot;currentTab&quot;);&#xD;
+if(tab &amp;&amp; tab.get(&quot;path&quot;)!=&quot;homePage.jsp&quot;){&#xD;
+	tab.close();&#xD;
+}</ClientEvent>
+        <Property name="caption">关闭当前窗口</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -40px -0px</Property>
+      </MenuItem>
+      <MenuItem>
+        <ClientEvent name="onClick">view.id(&quot;tabControlWorkarea&quot;).closeAllTabs();&#xD;
+</ClientEvent>
+        <Property name="caption">关闭所有窗口</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -40px -0px</Property>
+      </MenuItem>
+      <MenuItem>
+        <ClientEvent name="onClick">var tab = view.id(&quot;tabControlWorkarea&quot;).get(&quot;currentTab&quot;);&#xD;
+view.id(&quot;tabControlWorkarea&quot;).closeOtherTabs(tab);</ClientEvent>
+        <Property name="caption">关闭其他窗口</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -40px -0px</Property>
+      </MenuItem>
+    </Menu>
+    <SplitPanel layoutConstraint="center">
+      <Property name="position">200</Property>
+      <MainControl>
+        <Panel id="panelWorkarea">
+          <Property name="border">none</Property>
+          <Property name="maximizeable">true</Property>
+          <Buttons/>
+          <Children>
+            <TabControl id="tabControlWorkarea">
+              <ClientEvent name="onTabContextMenu">view.id(&quot;menuForTab&quot;).show({&#xD;
+	position:{&#xD;
+		left:arg.event.pageX,&#xD;
+		top:arg.event.pageY&#xD;
+	}&#xD;
+});&#xD;
+</ClientEvent>
+              <Property name="showMenuButton">true</Property>
+            </TabControl>
+          </Children>
+          <Tools/>
+        </Panel>
+      </MainControl>
+      <SideControl>
+        <Container>
+          <Accordion id="MyAccordion"/>
+        </Container>
+      </SideControl>
+    </SplitPanel>
+  </View>
+</ViewConfig>

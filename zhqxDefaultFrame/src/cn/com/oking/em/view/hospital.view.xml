@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dtTree" parent="dtEmHospital">
+      <Reference name="emHospitals">
+        <Property name="parameter">
+          <Entity>
+            <Property name="id">$${this.id}</Property>
+          </Entity>
+        </Property>
+        <Property name="dataType">[SELF]</Property>
+        <Property name="dataProvider">emHospitalAction#getDataById</Property>
+      </Reference>
+    </DataType>
+  </Model>
+  <View>
+    <TabControl id="tab">
+      <Property name="renderTo">#tab</Property>
+      <ControlTab>
+        <Property name="caption">显示</Property>
+        <SplitPanel>
+          <Property name="position">17%</Property>
+          <Property name="direction">right</Property>
+          <MainControl>
+            <IFrame id="ifShow">
+              <Property name="path">em/Map.jsp</Property>
+            </IFrame>
+          </MainControl>
+          <SideControl>
+            <SplitPanel>
+              <Property name="position">50%</Property>
+              <Property name="direction">top</Property>
+              <MainControl>
+                <HtmlContainer id="htmlDetail"/>
+              </MainControl>
+              <SideControl>
+                <Container>
+                  <DataSet id="dsTree">
+                    <Property name="dataProvider">emHospitalAction#getDataById</Property>
+                    <Property name="dataType">[dtTree]</Property>
+                    <Property name="readOnly">false</Property>
+                  </DataSet>
+                  <Container layout="hbox align:center;stretch:true">
+                    <Button id="buttonCollapseAll">
+                      <Property name="caption">收缩</Property>
+                    </Button>
+                    <Button id="buttonExpandAll">
+                      <Property name="caption">展开</Property>
+                    </Button>
+                    <Button id="buttonSelectAll">
+                      <Property name="caption">全选</Property>
+                    </Button>
+                    <Button id="buttonUnselectAll">
+                      <Property name="caption">全不选</Property>
+                    </Button>
+                  </Container>
+                  <DataTreeGrid id="dtGrid">
+                    <Property name="dataSet">dsTree</Property>
+                    <Property name="treeColumn">placename</Property>
+                    <Property name="selectionMode">multiRows</Property>
+                    <Property name="readOnly">true</Property>
+                    <BindingConfigs>
+                      <BindingConfig>
+                        <Property name="checkable">true</Property>
+                        <Property name="recursive">true</Property>
+                        <Property name="labelProperty">placename</Property>
+                        <Property name="expandLevel">2</Property>
+                        <Property name="childrenProperty">emHospitals</Property>
+                      </BindingConfig>
+                    </BindingConfigs>
+                    <Columns>
+                      <DataColumn>
+                        <Property name="property">placename</Property>
+                        <Property name="readOnly">true</Property>
+                        <Editor/>
+                      </DataColumn>
+                    </Columns>
+                  </DataTreeGrid>
+                </Container>
+              </SideControl>
+            </SplitPanel>
+          </SideControl>
+        </SplitPanel>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">维护</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="itemCodes">+,-,x,pages</Property>
+              <Property name="dataSet">dsEmHospital</Property>
+            </DataPilot>
+            <Fill/>
+            <ToolBarButton id="btnAdd">
+              <Property name="caption">添加单个</Property>
+            </ToolBarButton>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">saveAction</Property>
+            </ToolBarButton>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsEmHospital</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="placename">
+              <Property name="property">placename</Property>
+            </DataColumn>
+            <DataColumn name="location">
+              <Property name="property">location</Property>
+            </DataColumn>
+            <DataColumn name="contraces">
+              <Property name="property">contraces</Property>
+            </DataColumn>
+            <DataColumn name="phone">
+              <Property name="property">phone</Property>
+            </DataColumn>
+            <DataColumn name="longitude">
+              <Property name="property">longitude</Property>
+            </DataColumn>
+            <DataColumn name="latitude">
+              <Property name="property">latitude</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+            <DataColumn name="id">
+              <Property name="property">id</Property>
+            </DataColumn>
+            <DataColumn name="parentid">
+              <Property name="property">parentid</Property>
+              <Property name="trigger">dsddParent</Property>
+            </DataColumn>
+          </DataGrid>
+          <Dialog id="dialogAdd">
+            <Property name="width">500</Property>
+            <Property name="caption">添加</Property>
+            <Buttons>
+              <Button>
+                <Property name="caption">保存</Property>
+                <Property name="action">updateAction1</Property>
+              </Button>
+              <Button id="btnPick">
+                <Property name="caption">坐标定位选择</Property>
+              </Button>
+            </Buttons>
+            <Children>
+              <DataSet id="dsAdd">
+                <Property name="dataType">dtEmHospital</Property>
+              </DataSet>
+              <AutoForm>
+                <Property name="dataSet">dsAdd</Property>
+                <AutoFormElement>
+                  <Property name="name">placename</Property>
+                  <Property name="property">placename</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">location</Property>
+                  <Property name="property">location</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">contraces</Property>
+                  <Property name="property">contraces</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">phone</Property>
+                  <Property name="property">phone</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">parentid</Property>
+                  <Property name="property">parentid</Property>
+                  <Property name="trigger">dsddParent</Property>
+                  <Property name="readOnly">false</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">longitude</Property>
+                  <Property name="property">longitude</Property>
+                  <Editor>
+                    <TextEditor id="afeX"/>
+                  </Editor>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">latitude</Property>
+                  <Property name="property">latitude</Property>
+                  <Editor>
+                    <TextEditor id="afeY"/>
+                  </Editor>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">remark</Property>
+                  <Property name="property">remark</Property>
+                  <Editor/>
+                </AutoFormElement>
+              </AutoForm>
+              <UpdateAction id="updateAction1">
+                <Property name="dataResolver">emHospitalAction#save1</Property>
+                <Property name="confirmMessage">是否保存</Property>
+                <Property name="successMessage">保存成功</Property>
+                <UpdateItem>
+                  <Property name="dataSet">dsAdd</Property>
+                </UpdateItem>
+              </UpdateAction>
+              <Dialog id="dialogPick">
+                <Property name="height">100%</Property>
+                <Property name="width">800</Property>
+                <Buttons>
+                  <Button>
+                    <ClientEvent name="onClick" signature="self,arg,dialogPick">dialogPick.close();&#xD;
+</ClientEvent>
+                    <Property name="caption">确定</Property>
+                  </Button>
+                </Buttons>
+                <Children>
+                  <IFrame>
+                    <Property name="path">em/Map3.jsp</Property>
+                  </IFrame>
+                </Children>
+                <Tools/>
+              </Dialog>
+              <Container>
+                <DataSet id="dsDropList">
+                  <Property name="dataProvider">emHospitalAction#getDataDropList</Property>
+                </DataSet>
+                <DataSetDropDown id="dsddParent">
+                  <Property name="dataSet">dsDropList</Property>
+                  <Property name="property">id</Property>
+                  <Property name="displayProperty">placename</Property>
+                </DataSetDropDown>
+              </Container>
+            </Children>
+            <Tools/>
+          </Dialog>
+        </Container>
+      </ControlTab>
+    </TabControl>
+    <DataSet id="dsEmHospital">
+      <Property name="dataProvider">emHospitalAction#getData</Property>
+      <Property name="pageSize">15</Property>
+      <Property name="dataType">[dtEmHospital]</Property>
+    </DataSet>
+    <AjaxAction id="autoAjaxAction">
+      <Property name="service">emHospitalAction#getCoordinates</Property>
+    </AjaxAction>
+    <UpdateAction id="saveAction">
+      <Property name="dataResolver">emHospitalAction#save</Property>
+      <Property name="successMessage">保存成功</Property>
+      <Property name="confirmMessage">是否保存</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsEmHospital</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <AjaxAction id="saveListAction">
+      <Property name="service">emHospitalAction#saveList</Property>
+    </AjaxAction>
+  </View>
+</ViewConfig>

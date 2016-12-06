@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab>
+        <Property name="caption">数据列表</Property>
+        <Container>
+          <ToolBar>
+            <Container layout="hbox align:center">
+              <Property name="height">30px</Property>
+              <Label layoutConstraint="align:center">
+                <Property name="text">灾害类型</Property>
+                <Property name="style">
+                  <Property name="line-height">30px</Property>
+                </Property>
+                <Property name="height">30px</Property>
+              </Label>
+              <TextEditor id="txtzhlx" layoutConstraint="align:center"/>
+              <Label layoutConstraint="align:center">
+                <Property name="text">命令编号</Property>
+                <Property name="style">
+                  <Property name="line-height">30px</Property>
+                </Property>
+                <Property name="height">30px</Property>
+              </Label>
+              <TextEditor id="txtorderNumber" layoutConstraint="align:center"/>
+              <SimpleIconButton id="btnLikeSearch">
+                <Property name="icon">url(>skin>common/icons.gif) -40px -100px</Property>
+              </SimpleIconButton>
+            </Container>
+            <DataPilot>
+              <Property name="dataSet">dsInformList</Property>
+              <Property name="itemCodes">pages,-,x</Property>
+            </DataPilot>
+            <Button>
+              <Property name="caption">保存</Property>
+              <Property name="action">deleteAction</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+            </Button>
+            <Fill/>
+          </ToolBar>
+          <DataGrid id="dgShow">
+            <Property name="dataSet">dsInformList</Property>
+            <Property name="readOnly">true</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="orderNumber">
+              <Property name="property">orderNumber</Property>
+            </DataColumn>
+            <DataColumn name="zhlx">
+              <Property name="property">zhlx</Property>
+            </DataColumn>
+            <DataColumn name="bzId">
+              <Property name="property">bzId</Property>
+            </DataColumn>
+            <DataColumn name="status">
+              <Property name="property">status</Property>
+            </DataColumn>
+            <DataColumn name="createby">
+              <Property name="property">createby</Property>
+            </DataColumn>
+            <DataColumn name="createdate">
+              <Property name="property">createdate</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsInformList">
+            <Property name="dataType">[dtEmCzfaJy]</Property>
+            <Property name="dataProvider">emCzfaJyAction#getData</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="deleteAction">
+            <Property name="dataResolver">emCzfaJyAction#save</Property>
+            <Property name="confirmMessage">是否确认？？？</Property>
+            <Property name="successMessage">删除成功</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsInformList</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctinfo">
+        <Property name="caption">详细信息</Property>
+        <Container>
+          <Container layout="hbox align:center">
+            <Button id="btnClear">
+              <Property name="caption">新增</Property>
+            </Button>
+            <Button id="btnAdd">
+              <Property name="caption">保存</Property>
+            </Button>
+            <Button id="btnCreate">
+              <Property name="caption">生成命令</Property>
+            </Button>
+          </Container>
+          <Container>
+            <DataSet id="dsInformSingle">
+              <Property name="dataType">dtEmCzfaJy</Property>
+              <Property name="dataProvider">emCzfaJyAction#getDataById</Property>
+              <Property name="loadMode">manual</Property>
+            </DataSet>
+            <AutoForm>
+              <Property name="dataSet">dsInformSingle</Property>
+              <Property name="cols">*,*</Property>
+              <Property name="labelWidth">120</Property>
+              <Property name="labelAlign">left</Property>
+              <Property name="stretchWidth">true</Property>
+              <AutoFormElement>
+                <Property name="name">jjtzId</Property>
+                <Property name="property">jjtzId</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">orderNumber</Property>
+                <Property name="property">orderNumber</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">zhlx</Property>
+                <Property name="property">zhlx</Property>
+                <Property name="trigger">lddZhlx</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">bzId</Property>
+                <Property name="property">bzId</Property>
+                <Property name="trigger">dsddbzid</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">createby</Property>
+                <Property name="property">createby</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">createdate</Property>
+                <Property name="property">createdate</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+              <AutoFormElement>
+                <Property name="name">status</Property>
+                <Property name="property">status</Property>
+                <Property name="readOnly">true</Property>
+                <Editor/>
+              </AutoFormElement>
+            </AutoForm>
+            <UpdateAction id="updateAction">
+              <Property name="dataResolver">emCzfaJyAction#save</Property>
+              <Property name="confirmMessage">是否确认？？？</Property>
+              <Property name="successMessage">更新成功！！！</Property>
+              <UpdateItem>
+                <Property name="dataSet">dsInformSingle</Property>
+              </UpdateItem>
+            </UpdateAction>
+            <UpdateAction id="doSomeThingAction">
+              <Property name="confirmMessage">是否确认？？？</Property>
+              <Property name="dataResolver">emCzfaMlAction#copy</Property>
+              <Property name="successMessage">生成通知成功！！！</Property>
+              <UpdateItem>
+                <Property name="dataSet">dsInformSingle</Property>
+              </UpdateItem>
+            </UpdateAction>
+            <ListDropDown id="lddZhlx">
+              <Property name="items">暴雨,台风,暴雪,强对流,大风,寒潮,高温,大雾,连阴雨,霜冻,干旱</Property>
+            </ListDropDown>
+            <DataSet id="dsbzid">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+              <Property name="loadMode">manual</Property>
+            </DataSet>
+            <DataSetDropDown id="dsddbzid">
+              <Property name="dataSet">dsbzid</Property>
+              <Property name="displayProperty">disastername</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+            <ListDropDown id="lddResponseLevel">
+              <Property name="items">Ⅰ级,Ⅱ级,Ⅲ级,Ⅳ级</Property>
+            </ListDropDown>
+            <GroupBox>
+              <Property name="caption">处置建议</Property>
+              <Buttons/>
+              <Children>
+                <Container>
+                  <DataSet id="dsJyShow">
+                    <Property name="dataType">[dtEmCzfaJyAdvice]</Property>
+                    <Property name="dataProvider">emCzfaJyAdviceAction#getData</Property>
+                    <Property name="loadMode">manual</Property>
+                  </DataSet>
+                  <DataGrid id="dgJyShow">
+                    <Property name="dataSet">dsJyShow</Property>
+                    <DataColumn name="dept">
+                      <Property name="property">dept</Property>
+                      <Property name="width">100px</Property>
+                    </DataColumn>
+                    <DataColumn name="responses">
+                      <Property name="property">responses</Property>
+                    </DataColumn>
+                  </DataGrid>
+                  <UpdateAction id="saveJyAction">
+                    <Property name="dataResolver">emCzfaJyAdviceAction#save</Property>
+                    <UpdateItem>
+                      <Property name="dataSet">dsJyShow</Property>
+                    </UpdateItem>
+                  </UpdateAction>
+                </Container>
+              </Children>
+            </GroupBox>
+          </Container>
+        </Container>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

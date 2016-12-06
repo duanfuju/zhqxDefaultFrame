@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container>
+      <ToolBar>
+        <DataPilot>
+          <Property name="itemCodes">+,-,x</Property>
+          <Property name="dataSet">dsDept</Property>
+        </DataPilot>
+        <ToolBarButton id="btnSave">
+          <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+          <Property name="caption">保存</Property>
+          <Property name="action">updateAction</Property>
+        </ToolBarButton>
+        <DataPilot>
+          <Property name="itemCodes">pages</Property>
+          <Property name="dataSet">dsDept</Property>
+        </DataPilot>
+      </ToolBar>
+      <DataSet id="dsDept">
+        <Property name="dataType">[dtMnylDeptdefinition]</Property>
+        <Property name="dataProvider">mnylDeptdefinitionAction#getAll</Property>
+        <Property name="pageSize">10</Property>
+      </DataSet>
+      <DataGrid id="dgDept">
+        <Property name="dataSet">dsDept</Property>
+        <DataColumn name="deptName">
+          <Property name="property">deptName</Property>
+        </DataColumn>
+        <DataColumn name="deptDescription">
+          <Property name="property">deptDescription</Property>
+        </DataColumn>
+      </DataGrid>
+      <UpdateAction id="updateAction">
+        <Property name="dataResolver">mnylDeptdefinitionAction#saveAll</Property>
+        <Property name="executingMessage">正在保存</Property>
+        <Property name="confirmMessage">是否保存结果</Property>
+        <Property name="successMessage">保存成功</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsDept</Property>
+        </UpdateItem>
+      </UpdateAction>
+    </Container>
+  </View>
+</ViewConfig>

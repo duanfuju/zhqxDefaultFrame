@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcMain">
+      <ControlTab id="ctFirst">
+        <Property name="caption">下拉框显示字段</Property>
+        <Container>
+          <ToolBar>
+            <ToolBarButton id="tbbInsertM">
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+              <Property name="caption">新增</Property>
+            </ToolBarButton>
+            <ToolBarButton id="tbbEditM">
+              <Property name="caption">修改</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -200px -0px</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="dataSet">dsMain</Property>
+              <Property name="itemCodes">-,x</Property>
+            </DataPilot>
+            <ToolBarButton id="tbbSaveM">
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="dataSet">dsMain</Property>
+              <Property name="itemCodes">pages</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataSet id="dsMain">
+            <Property name="pageSize">15</Property>
+            <Property name="dataProvider">dropDownManagermentAction#getMainData</Property>
+            <Property name="dataType">[dtDropdownMenuManageMain]</Property>
+          </DataSet>
+          <DataGrid id="dgMain">
+            <Property name="dataSet">dsMain</Property>
+            <Property name="readOnly">true</Property>
+            <DataColumn name="name">
+              <Property name="property">name</Property>
+            </DataColumn>
+            <DataColumn name="describe">
+              <Property name="property">describe</Property>
+            </DataColumn>
+            <DataColumn name="orderby">
+              <Property name="property">orderby</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+          </DataGrid>
+          <UpdateAction id="saveMainAction">
+            <Property name="dataResolver">dropDownManagermentAction#saveWithM</Property>
+            <Property name="confirmMessage">是否保存</Property>
+            <Property name="executingMessage">保存中</Property>
+            <Property name="successMessage">保存成功</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsMain</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctSecond">
+        <Property name="caption">下拉框中的值</Property>
+        <Container>
+          <ToolBar>
+            <ToolBarButton id="tbbInsert">
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+              <Property name="caption">新增</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="dataSet">dsBranch</Property>
+              <Property name="itemCodes">-,x</Property>
+            </DataPilot>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+              <Property name="action">saveBranchAction</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="dataSet">dsBranch</Property>
+              <Property name="itemCodes">pages</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataSet id="dsBranch">
+            <Property name="pageSize">15</Property>
+            <Property name="dataProvider">dropDownManagermentAction#getBranchData</Property>
+            <Property name="dataType">[dtDropdownMenuManageBranch]</Property>
+            <Property name="loadMode">manual</Property>
+          </DataSet>
+          <DataGrid id="dgBranch">
+            <Property name="dataSet">dsBranch</Property>
+            <DataColumn name="key">
+              <Property name="property">key</Property>
+            </DataColumn>
+            <DataColumn name="value">
+              <Property name="property">value</Property>
+            </DataColumn>
+            <DataColumn name="orderby">
+              <Property name="property">orderby</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+          </DataGrid>
+          <UpdateAction id="saveBranchAction">
+            <Property name="dataResolver">dropDownManagermentAction#saveWithB</Property>
+            <Property name="confirmMessage">是否保存</Property>
+            <Property name="executingMessage">保存中</Property>
+            <Property name="successMessage">保存成功</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsBranch</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

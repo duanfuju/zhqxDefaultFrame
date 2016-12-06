@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Property name="javaScriptFile">/js/echarts-all.js</Property>
+    <DataSet id="dsWaterData">
+      <Property name="dataType">[dtWaterData]</Property>
+      <Property name="dataProvider">waterDataAction#getData</Property>
+    </DataSet>
+    <DataSet id="dsConditions"/>
+    <TabControl>
+      <ControlTab>
+        <Property name="caption">实时监测</Property>
+        <SplitPanel>
+          <Property name="direction">left</Property>
+          <Property name="position">50%</Property>
+          <MainControl>
+            <HtmlContainer id="hcDashboard" layout="hbox stretch:true;padding:0">
+              <Property name="content">&lt;div id=&quot;icon&quot; style=&quot;height:80%;width:100%&quot;>&lt;/div>&#xD;
+&#xD;
+</Property>
+            </HtmlContainer>
+          </MainControl>
+          <SideControl>
+            <Container>
+              <DataSet id="dsWaterWithSS">
+                <Property name="dataProvider">waterStationManagerAction#findByIdWithSS</Property>
+                <Property name="loadMode">lazy</Property>
+              </DataSet>
+              <DataGrid id="dgWaterWithSS">
+                <Property name="dataSet">dsWaterWithSS</Property>
+                <Property name="readOnly">true</Property>
+                <Property name="height">60%</Property>
+                <DataColumn>
+                  <Property name="property">tm</Property>
+                  <Property name="name">时间</Property>
+                  <Editor/>
+                </DataColumn>
+                <DataColumn>
+                  <Property name="property">rz</Property>
+                  <Property name="name">积水深度(cm)</Property>
+                  <Editor/>
+                </DataColumn>
+              </DataGrid>
+            </Container>
+          </SideControl>
+        </SplitPanel>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

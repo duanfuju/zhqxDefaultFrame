@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dtPubTransLog">
+      <PropertyDef name="transtime">
+        <Property name="dataType">DateTime</Property>
+      </PropertyDef>
+      <PropertyDef name="datatime">
+        <Property name="dataType">DateTime</Property>
+      </PropertyDef>
+      <PropertyDef name="log">
+        <Property></Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="dtSelect">
+      <PropertyDef name="transtime">
+        <Property name="dataType">DateTime</Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="dtPage">
+      <PropertyDef name="allpage"/>
+      <PropertyDef name="allcount"/>
+      <PropertyDef name="pagesize"/>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="dsPage">
+      <Property name="dataType">dtPage</Property>
+      <Property name="dataProvider">pubDatatransLogAction#getPageInfo</Property>
+      <Property name="loadMode">onReady</Property>
+    </DataSet>
+    <DataSet id="dsSelect">
+      <Property name="dataType">dtSelect</Property>
+    </DataSet>
+    <DataSet id="dsPDL">
+      <Property name="dataType">[dtPubTransLog]</Property>
+      <Property name="dataProvider">pubDatatransLogAction#getList</Property>
+    </DataSet>
+    <FieldSet>
+      <Buttons/>
+      <Children>
+        <AutoForm id="afSelect">
+          <Property name="dataSet">dsSelect</Property>
+          <Property name="createPrivateDataSet">false</Property>
+          <Property name="cols">*,*,*,*</Property>
+          <AutoFormElement layoutConstraint="colSpan:2">
+            <Property name="name">transtime</Property>
+            <Property name="property">transtime</Property>
+            <Property name="label">转储时间：</Property>
+            <Editor>
+              <TextEditor id="teEt"/>
+            </Editor>
+          </AutoFormElement>
+          <Container layout="hbox">
+            <Button id="btQuery">
+              <Property name="caption">查询</Property>
+              <Property name="width">80</Property>
+              <Property name="icon"> url(>skin>common/icons.gif) -40px -100px</Property>
+            </Button>
+            <Button id="btReset">
+              <ClientEvent name="onClick" signature="self,arg,dsSelect">dsSelect.clear();&#xD;
+dsSelect.insert();&#xD;
+</ClientEvent>
+              <Property name="width">80</Property>
+              <Property name="caption">重置</Property>
+              <Property name="icon"> url(>skin>common/icons.gif) -280px -220px</Property>
+            </Button>
+          </Container>
+        </AutoForm>
+        <ToolBar>
+          <Button id="btUp">
+            <Property name="width">80</Property>
+            <Property name="caption">上一页</Property>
+          </Button>
+          <Button id="btDown">
+            <Property name="caption">下一页</Property>
+            <Property name="width">80</Property>
+          </Button>
+          <ToolBarLabel>
+            <Property name="text">跳转至：</Property>
+            <Property name="width">60</Property>
+          </ToolBarLabel>
+          <TextEditor id="tePage">
+            <Property name="width">60</Property>
+          </TextEditor>
+          <ToolBarLabel id="lPage">
+            <Property name="text">无数据</Property>
+            <Property name="width">300</Property>
+          </ToolBarLabel>
+        </ToolBar>
+        <DataGrid id="dgPDL">
+          <Property name="showFilterBar">false</Property>
+          <Property name="dataSet">dsPDL</Property>
+          <Property name="readOnly">true</Property>
+          <DataColumn name="transtime">
+            <Property name="property">transtime</Property>
+            <Property name="caption">转储时间</Property>
+            <Property name="align">center</Property>
+          </DataColumn>
+          <DataColumn name="datatime">
+            <Property name="property">datatime</Property>
+            <Property name="caption">数据时间</Property>
+            <Property name="align">center</Property>
+          </DataColumn>
+          <DataColumn name="log">
+            <Property name="property">log</Property>
+            <Property name="caption">转储日志</Property>
+            <Property name="align">center</Property>
+          </DataColumn>
+        </DataGrid>
+      </Children>
+    </FieldSet>
+  </View>
+</ViewConfig>

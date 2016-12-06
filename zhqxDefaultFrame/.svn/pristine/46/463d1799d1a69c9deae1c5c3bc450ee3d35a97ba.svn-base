@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dtCondition">
+      <PropertyDef name="startTime">
+        <Property name="label">开始时间</Property>
+        <Property name="dataType">DateTime</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="endTime">
+        <Property name="label">结束时间</Property>
+        <Property name="dataType">DateTime</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="type">
+        <Property name="label">要素</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <GroupBox>
+      <Property name="caption">要素选择</Property>
+      <Buttons/>
+      <Children>
+        <Container>
+          <DataSet id="dsCondition">
+            <Property name="dataType">dtCondition</Property>
+          </DataSet>
+          <AutoForm id="afCondition">
+            <Property name="dataSet">dsCondition</Property>
+            <Property name="cols">*,*</Property>
+            <AutoFormElement>
+              <Property name="name">startTime</Property>
+              <Property name="property">startTime</Property>
+              <Editor/>
+            </AutoFormElement>
+            <AutoFormElement>
+              <Property name="name">endTime</Property>
+              <Property name="property">endTime</Property>
+              <Editor/>
+            </AutoFormElement>
+            <AutoFormElement>
+              <Property name="name">type</Property>
+              <Property name="property">type</Property>
+              <Property name="trigger">lddType</Property>
+              <Editor/>
+            </AutoFormElement>
+            <Button id="btnSearch">
+              <Property name="caption">查询</Property>
+            </Button>
+          </AutoForm>
+        </Container>
+        <Container>
+          <ListDropDown id="lddType">
+            <Property name="items">最高温,最低温,雨量,极大风速</Property>
+          </ListDropDown>
+        </Container>
+      </Children>
+    </GroupBox>
+    <GroupBox>
+      <Property name="caption">图表展示</Property>
+      <Buttons/>
+      <Children>
+        <IFrame id="ifShow"/>
+      </Children>
+    </GroupBox>
+  </View>
+</ViewConfig>

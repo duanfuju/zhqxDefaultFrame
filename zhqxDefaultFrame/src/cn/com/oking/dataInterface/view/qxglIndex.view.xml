@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsMonitor">
+      <Property name="dataProvider">monitorVStatusAction#getErrorData</Property>
+    </DataSet>
+    <DataSet id="dsSysList">
+      <Property name="dataProvider">monitorSysListAction#getErrorData</Property>
+    </DataSet>
+    <HtmlContainer id="hcShow">
+      <Property name="content">&lt;meta charset=&quot;utf-8&quot;>&#xD;
+&lt;body style='margin: 0; overflow: hidden;  background=''>&#xD;
+&lt;table width=&quot;900px&quot; height=&quot;370px&quot; border='0' cellpadding='0' cellspacing='0' align=&quot;center&quot; style=&quot;font-size:11px;margin-top:40px;margin-left:40px&quot;>&#xD;
+  &lt;tr width=&quot;100%&quot; height=&quot;200px&quot;>&#xD;
+    &lt;td width=&quot;100%&quot; height=&quot;200px&quot;>&lt;table width=&quot;100%&quot; height=&quot;200px&quot; style=&quot;font-size:12px&quot; border='0'>&#xD;
+        &lt;tr width=&quot;100%&quot; height=&quot;200px&quot;>&#xD;
+          &#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a href='cn.com.oking.dataInterface.view.MonitorVStaus.d'>&#xD;
+              &lt;div id=&quot;img2&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：喻俊&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>18689269372&lt;/div>&#xD;
+            &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a href='http://218.2.99.66:4321/OCPS/control/terminal_control_show.jsp'>&#xD;
+              &lt;div id=&quot;img3&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：喻俊&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>18689269372&lt;/div>&#xD;
+            &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a href='cn.com.oking.dataInterface.view.SysList.d'>&#xD;
+              &lt;div id=&quot;img4&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：喻俊&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>18689269372&lt;/div>&#xD;
+            &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a href='http://218.2.99.66:8866/newzhqx/dbMonitoring/index.jsp?user=zhqx'>&#xD;
+              &lt;div id=&quot;img5&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：张磊&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>13905142472&lt;/div>&lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a>&#xD;
+              &lt;div id=&quot;img6&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：张磊&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>13905142472&lt;/div>&#xD;
+              &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a>&#xD;
+              &lt;div id=&quot;img7&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：刘庆昌&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>13851966691&lt;/div>&#xD;
+              &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a>&#xD;
+              &lt;div id=&quot;img8&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：刘庆昌&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>13851966691&lt;/div>&#xD;
+              &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a>&#xD;
+              &lt;div id=&quot;img9&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：刘庆昌&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>13851966691&lt;/div>&#xD;
+            &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot; height=&quot;200px&quot;>&lt;div class='images-wrapper'>&lt;a>&#xD;
+              &lt;div id=&quot;img10&quot; class=&quot;image&quot;>&lt;/div>&#xD;
+              &lt;/a>&#xD;
+              &lt;div class='images-contentsj'>责任人：刘庆昌&lt;/div>&#xD;
+              &lt;div class='images-contentsj2'>13851966691&lt;/div>&#xD;
+              &lt;/div>&lt;/td>&#xD;
+        &lt;/tr>&#xD;
+      &lt;/table>&lt;/td>&#xD;
+  &lt;/tr>&#xD;
+  &lt;tr width=&quot;100%&quot; height=&quot;20px&quot;>&#xD;
+    &lt;td>&lt;/td>&#xD;
+  &lt;/tr>&#xD;
+  &lt;tr width=&quot;100%&quot; height=&quot;30px&quot;>&#xD;
+    &lt;td width=&quot;100%&quot; height=&quot;30px&quot;>&lt;table width=&quot;100%&quot; height=&quot;30px&quot; style=&quot;color: #FFF; font-size:12px&quot; border='1'>&#xD;
+        &lt;tr width=&quot;100%&quot; height=&quot;100%&quot;>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 数据异常情况&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 终端发布异常情况&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 系统平台异常情况&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 数据库异常情况&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 终端监控异常情况&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 视频异常情况&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 网络异常情况&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 设备异常情况&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; height=&quot;40px&quot; align=&quot;center&quot; bgcolor='#0033FF'> 机房异常情况&lt;/td>&#xD;
+        &lt;/tr>&#xD;
+      &lt;/table>&lt;/td>&#xD;
+  &lt;/tr>&#xD;
+  &lt;tr width=&quot;100%&quot; height=&quot;120px&quot;>&#xD;
+    &lt;td width=&quot;100%&quot; height=&quot;120px&quot;>&lt;table width=&quot;100%&quot; height=&quot;120px&quot; style=&quot;font-size:12px&quot; border='0'>&#xD;
+        &lt;tr width=&quot;100%&quot; height=&quot;120px&quot;>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str2&quot;> +htmlTr2 &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str3&quot;> +htmlTr3 &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str4&quot;> +htmlTr4 &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str5&quot;> +htmlTr5 &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str6&quot;> +htmlTr6 &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str7&quot;> +htmlTr7 &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str8&quot;> +htmlTr8 &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str9&quot;> +htmlTr9 &lt;/div>&lt;/td>&#xD;
+          &lt;td width=&quot;100px&quot; align=&quot;center&quot;>&lt;div style='width:100%; color:#000000; font-size:12px' id=&quot;str10&quot;> +htmlTr10 &lt;/div>&lt;/td>&#xD;
+        &lt;/tr>&#xD;
+      &lt;/table>&lt;/td>&#xD;
+  &lt;/tr>&#xD;
+&lt;/table>&#xD;
+&lt;/body>&#xD;
+</Property>
+    </HtmlContainer>
+  </View>
+</ViewConfig>

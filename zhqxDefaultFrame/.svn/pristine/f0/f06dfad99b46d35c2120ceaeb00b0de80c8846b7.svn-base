@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+  <DataType name="dtMnylAnswer">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylAnswer</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="optionText">
+      <Property></Property>
+      <Property name="label">选项文本</Property>
+    </PropertyDef>
+    <PropertyDef name="optionIstrue">
+      <Property></Property>
+      <Property name="label">选项答案</Property>
+    </PropertyDef>
+    <PropertyDef name="answerId">
+      <Property></Property>
+      <Property name="label">选项所属问题(脚本主表)</Property>
+    </PropertyDef>
+    <PropertyDef name="optionType">
+      <Property></Property>
+      <Property name="label">选项类型</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMnylBaseinfo">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylBaseinfo</Property>
+    <PropertyDef name="ylId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="drillMode">
+      <Property></Property>
+      <Property name="label">演练模式</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="roleSelection">
+      <Property></Property>
+      <Property name="label">角色选择</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="zhCase">
+      <Property></Property>
+      <Property name="label">典型案例</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="zhLx">
+      <Property></Property>
+      <Property name="label">灾害类型</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="zhStartTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">灾害开始时间</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="zhEndTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">灾害结束时间</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="zhContinuedTime">
+      <Property></Property>
+      <Property name="label">持续时间</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="ylStartTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">演练开始时间</Property>
+      <Property name="required">false</Property>
+    </PropertyDef>
+    <PropertyDef name="ylEndTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">演练结束时间</Property>
+    </PropertyDef>
+    <PropertyDef name="ylPerson">
+      <Property></Property>
+      <Property name="label">演练人员</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="ylStatus">
+      <Property></Property>
+      <Property name="label">演练状态</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMnylCaselibrary">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylCaselibrary</Property>
+    <PropertyDef name="zhId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="zhCase">
+      <Property></Property>
+      <Property name="label">典型案例描述</Property>
+    </PropertyDef>
+    <PropertyDef name="zhLx">
+      <Property></Property>
+      <Property name="label">灾害类型</Property>
+    </PropertyDef>
+    <PropertyDef name="zhStartTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">开始时间</Property>
+    </PropertyDef>
+    <PropertyDef name="zhEndTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">结束时间</Property>
+    </PropertyDef>
+    <PropertyDef name="zhContinuedTime">
+      <Property></Property>
+      <Property name="label">持续时间</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMnylCommonlink">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylCommonlink</Property>
+    <PropertyDef name="linkId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="linkName">
+      <Property></Property>
+      <Property name="label">链接名称</Property>
+    </PropertyDef>
+    <PropertyDef name="linkDescription">
+      <Property></Property>
+      <Property name="label">链接描述</Property>
+    </PropertyDef>
+    <PropertyDef name="linkLocation">
+      <Property></Property>
+      <Property name="label">链接地址</Property>
+    </PropertyDef>
+    <PropertyDef name="roleId">
+      <Property></Property>
+      <Property name="label">角色分类</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMnylDeptdefinition">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylDeptdefinition</Property>
+    <PropertyDef name="deptId">
+      <Property></Property>
+      <Property name="label">部门编号</Property>
+    </PropertyDef>
+    <PropertyDef name="deptName">
+      <Property></Property>
+      <Property name="label">部门名称</Property>
+    </PropertyDef>
+    <PropertyDef name="deptDescription">
+      <Property></Property>
+      <Property name="label">部门描述</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMnylProblems">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylProblems</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="ptype">
+      <Property></Property>
+      <Property name="label">题目类型</Property>
+    </PropertyDef>
+    <PropertyDef name="title">
+      <Property></Property>
+      <Property name="label">题目简介</Property>
+    </PropertyDef>
+    <PropertyDef name="problem">
+      <Property></Property>
+      <Property name="label">题目的详细介绍</Property>
+    </PropertyDef>
+    <PropertyDef name="openTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">发生时间</Property>
+    </PropertyDef>
+    <PropertyDef name="caselibraryId">
+      <Property></Property>
+      <Property name="label">案例库的编号</Property>
+    </PropertyDef>
+    <PropertyDef name="drillMode">
+      <Property></Property>
+      <Property name="label">演练模式</Property>
+    </PropertyDef>
+    <PropertyDef name="roleSelection">
+      <Property></Property>
+      <Property name="label">角色选择</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="zhCase">
+      <Property></Property>
+      <Property name="label">典型案例</Property>
+    </PropertyDef>
+    <PropertyDef name="ylId">
+      <Property></Property>
+      <Property name="label">所属演练编号</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMnylResultrecord">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylResultrecord</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="ylId">
+      <Property></Property>
+      <Property name="label">基础信息编号</Property>
+    </PropertyDef>
+    <PropertyDef name="ptype">
+      <Property></Property>
+      <Property name="label">题目类型</Property>
+    </PropertyDef>
+    <PropertyDef name="answerId">
+      <Property></Property>
+      <Property name="label">选项所属问题（脚本主表）</Property>
+    </PropertyDef>
+    <PropertyDef name="title">
+      <Property></Property>
+      <Property name="label">题目简介</Property>
+    </PropertyDef>
+    <PropertyDef name="problem">
+      <Property></Property>
+      <Property name="label">题目的详细介绍</Property>
+    </PropertyDef>
+    <PropertyDef name="optionText">
+      <Property></Property>
+      <Property name="label">选项文本</Property>
+    </PropertyDef>
+    <PropertyDef name="optionChoose">
+      <Property></Property>
+      <Property name="label">选项选择记录</Property>
+    </PropertyDef>
+    <PropertyDef name="optionIstrue">
+      <Property></Property>
+      <Property name="label">选项答案</Property>
+    </PropertyDef>
+    <PropertyDef name="optionType">
+      <Property></Property>
+      <Property name="label">选项类型</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMnylRoledefinition">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylRoledefinition</Property>
+    <PropertyDef name="roleId">
+      <Property></Property>
+      <Property name="label">角色编号</Property>
+    </PropertyDef>
+    <PropertyDef name="roleName">
+      <Property></Property>
+      <Property name="label">角色名称</Property>
+    </PropertyDef>
+    <PropertyDef name="roleDescription">
+      <Property></Property>
+      <Property name="label">角色描述</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtMnylProblemsStandardLibrary">
+    <Property name="matchType">cn.com.oking.fzjz.entity.MnylProblemsStandardLibrary</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="ptype">
+      <Property></Property>
+      <Property name="label">题目类型</Property>
+    </PropertyDef>
+    <PropertyDef name="title">
+      <Property></Property>
+      <Property name="label">题目简介</Property>
+    </PropertyDef>
+    <PropertyDef name="problem">
+      <Property></Property>
+      <Property name="label">题目的详细介绍</Property>
+    </PropertyDef>
+    <PropertyDef name="openTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">发生时间</Property>
+    </PropertyDef>
+    <PropertyDef name="caselibraryId">
+      <Property></Property>
+      <Property name="label">案例库的编号</Property>
+    </PropertyDef>
+    <PropertyDef name="drillMode">
+      <Property></Property>
+      <Property name="label">演练模式</Property>
+    </PropertyDef>
+    <PropertyDef name="roleSelection">
+      <Property></Property>
+      <Property name="label">角色选择</Property>
+    </PropertyDef>
+    <PropertyDef name="dept">
+      <Property></Property>
+      <Property name="label">部门</Property>
+    </PropertyDef>
+    <PropertyDef name="zhCase">
+      <Property></Property>
+      <Property name="label">典型案例</Property>
+    </PropertyDef>
+  </DataType>
+</Model>

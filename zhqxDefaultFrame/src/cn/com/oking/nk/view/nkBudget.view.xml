@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Property name="javaScriptFile">/js/echarts-all.js</Property>
+    <TabControl id="tcShow">
+      <ControlTab id="ctFirst">
+        <Property name="caption">年度预算</Property>
+        <Container>
+          <ToolBar>
+            <ToolBarButton id="btnAdd">
+              <Property name="caption">新增</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">-,x</Property>
+              <Property name="dataSet">dsBudgetList</Property>
+            </DataPilot>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction2</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+            </ToolBarButton>
+          </ToolBar>
+          <DataSet id="dsBudgetList">
+            <Property name="dataType">[dtNkBudget]</Property>
+            <Property name="dataProvider">nkBudgetAction#getData</Property>
+            <Property name="loadMode">lazy</Property>
+          </DataSet>
+          <DataGrid id="dgShow">
+            <Property name="dataSet">dsBudgetList</Property>
+            <Property name="readOnly">true</Property>
+            <DataColumn name="content">
+              <Property name="property">content</Property>
+            </DataColumn>
+            <DataColumn name="revenueBudget">
+              <Property name="property">revenueBudget</Property>
+              <Property name="caption">收入预算(万元)</Property>
+            </DataColumn>
+            <DataColumn name="expendBudget">
+              <Property name="property">expendBudget</Property>
+              <Property name="caption">支出预算(万元)</Property>
+            </DataColumn>
+            <DataColumn name="realRevenue">
+              <Property name="property">realRevenue</Property>
+              <Property name="caption">实际收入(万元)</Property>
+            </DataColumn>
+            <DataColumn name="realExpend">
+              <Property name="property">realExpend</Property>
+              <Property name="caption">实际支出(万元)</Property>
+            </DataColumn>
+            <DataColumn name="status">
+              <Property name="property">status</Property>
+            </DataColumn>
+            <DataColumn name="updateTime">
+              <Property name="property">updateTime</Property>
+            </DataColumn>
+            <DataColumn name="updatePeople">
+              <Property name="property">updatePeople</Property>
+            </DataColumn>
+            <DataColumn name="details">
+              <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;ExcelServlet?id=&quot;+data.get('nkId'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+              <Property name="property">details</Property>
+              <Property name="readOnly">true</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+              <Property name="caption">查看</Property>
+              <Editor/>
+            </DataColumn>
+          </DataGrid>
+          <UpdateAction id="updateAction2">
+            <Property name="dataResolver">nkBudgetAction#save</Property>
+            <Property name="confirmMessage">是否保存</Property>
+            <Property name="successMessage">保存成功</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsBudgetList</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctSecond">
+        <Property name="caption">预算执行</Property>
+        <Container>
+          <DataSet id="dsBudgetSingle">
+            <Property name="dataType">dtNkBudget</Property>
+            <Property name="dataProvider">nkBudgetAction#findBynkId</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton id="btnSave">
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+            </ToolBarButton>
+          </ToolBar>
+          <FieldSet layout="padding:20" layoutConstraint="padding:10">
+            <Property name="width">90%</Property>
+            <Property name="caption">基本信息</Property>
+            <Buttons/>
+            <Children>
+              <AutoForm>
+                <Property name="dataSet">dsBudgetSingle</Property>
+                <Property name="cols">*,*</Property>
+                <Property name="labelWidth">150</Property>
+                <AutoFormElement>
+                  <Property name="name">content</Property>
+                  <Property name="property">content</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">status</Property>
+                  <Property name="property">status</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">revenueBudget</Property>
+                  <Property name="property">revenueBudget</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">realRevenue</Property>
+                  <Property name="property">realRevenue</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">expendBudget</Property>
+                  <Property name="property">expendBudget</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">realExpend</Property>
+                  <Property name="property">realExpend</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">updateTime</Property>
+                  <Property name="property">updateTime</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">updatePeople</Property>
+                  <Property name="property">updatePeople</Property>
+                  <Editor/>
+                </AutoFormElement>
+              </AutoForm>
+              <UpdateAction id="saveBudgetSingleAction">
+                <ClientEvent name="onSuccess">location.reload();&#xD;
+</ClientEvent>
+                <Property name="dataResolver">nkBudgetAction#save</Property>
+                <Property name="confirmMessage">是否保存</Property>
+                <Property name="successMessage">保存成功</Property>
+                <UpdateItem>
+                  <Property name="dataSet">dsBudgetSingle</Property>
+                </UpdateItem>
+              </UpdateAction>
+            </Children>
+          </FieldSet>
+          <TabControl>
+            <Property name="hideMode">visibility</Property>
+            <Property name="height">400</Property>
+            <ControlTab id="ctHtml">
+              <Property name="caption">完成情况</Property>
+              <HtmlContainer id="hcShow">
+                <Property name="content">&lt;div id=&quot;icon&quot; style=&quot;height:100%;width:100%;cursor:pointer&quot;>&lt;/div></Property>
+              </HtmlContainer>
+            </ControlTab>
+            <ControlTab>
+              <Property name="caption">执行记录</Property>
+              <Property name="visible">false</Property>
+              <Container>
+                <ToolBar>
+                  <DataPilot>
+                    <Property name="itemCodes">-,x</Property>
+                    <Property name="dataSet">dsRecord1</Property>
+                  </DataPilot>
+                  <ToolBarButton id="tbbAdd1">
+                    <Property name="caption">新增</Property>
+                    <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+                  </ToolBarButton>
+                  <ToolBarButton>
+                    <Property name="caption">保存</Property>
+                    <Property name="action">saveRecord1Action</Property>
+                    <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+                  </ToolBarButton>
+                  <Button id="btnFile" layoutConstraint="align:center;vAlign:center">
+                    <Property name="caption">上传文件</Property>
+                    <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+                  </Button>
+                </ToolBar>
+                <DataGrid id="dgRecord1">
+                  <Property name="dataSet">dsRecord1</Property>
+                  <DataColumn name="updateTime">
+                    <Property name="property">updateTime</Property>
+                  </DataColumn>
+                  <DataColumn name="nkName">
+                    <Property name="property">nkName</Property>
+                  </DataColumn>
+                  <DataColumn name="details">
+                    <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+if(!data.get('fileid')){&#xD;
+	return;&#xD;
+}&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;BalanceOfPaymentServlet?id=&quot;+data.get('fileid'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+                    <Property name="property">details</Property>
+                    <Property name="readOnly">true</Property>
+                    <Property name="width">80px</Property>
+                    <Property name="align">center</Property>
+                    <Property name="caption">查看</Property>
+                    <Editor/>
+                  </DataColumn>
+                </DataGrid>
+                <DataSet id="dsRecord1">
+                  <Property name="dataType">[dtNkRecord]</Property>
+                  <Property name="dataProvider">nkRecordAction#getData</Property>
+                </DataSet>
+                <UpdateAction id="saveRecord1Action">
+                  <Property name="dataResolver">nkRecordAction#save</Property>
+                  <Property name="confirmMessage">是否保存</Property>
+                  <Property name="successMessage">保存成功</Property>
+                  <UpdateItem>
+                    <Property name="dataSet">dsRecord1</Property>
+                  </UpdateItem>
+                </UpdateAction>
+              </Container>
+            </ControlTab>
+            <ControlTab>
+              <Property name="caption">调整记录</Property>
+              <Container>
+                <ToolBar>
+                  <DataPilot>
+                    <Property name="itemCodes">-,x</Property>
+                    <Property name="dataSet">dsRecord2</Property>
+                  </DataPilot>
+                  <ToolBarButton id="tbbAdd2">
+                    <Property name="caption">新增</Property>
+                    <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+                  </ToolBarButton>
+                  <ToolBarButton>
+                    <Property name="caption">保存</Property>
+                    <Property name="action">saveRecord2Action,Action</Property>
+                    <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+                  </ToolBarButton>
+                  <Button id="btnFile1" layoutConstraint="align:center;vAlign:center">
+                    <Property name="caption">上传文件</Property>
+                    <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+                  </Button>
+                </ToolBar>
+                <DataGrid id="dgRecord2">
+                  <Property name="dataSet">dsRecord2</Property>
+                  <DataColumn name="updateTime">
+                    <Property name="property">updateTime</Property>
+                  </DataColumn>
+                  <DataColumn name="nkName">
+                    <Property name="property">nkName</Property>
+                  </DataColumn>
+                  <DataColumn name="details">
+                    <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+if(!data.get('fileid')){&#xD;
+	return;&#xD;
+}&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;BalanceOfPaymentServlet?id=&quot;+data.get('fileid'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+                    <Property name="property">details</Property>
+                    <Property name="readOnly">true</Property>
+                    <Property name="width">80px</Property>
+                    <Property name="align">center</Property>
+                    <Property name="caption">查看</Property>
+                    <Editor/>
+                  </DataColumn>
+                </DataGrid>
+                <DataSet id="dsRecord2">
+                  <Property name="dataType">[dtNkRecord]</Property>
+                  <Property name="dataProvider">nkRecordAction#getData</Property>
+                </DataSet>
+                <UpdateAction id="saveRecord2Action">
+                  <Property name="dataResolver">nkRecordAction#save</Property>
+                  <Property name="confirmMessage">是否保存</Property>
+                  <Property name="successMessage">保存成功</Property>
+                  <UpdateItem>
+                    <Property name="dataSet">dsRecord2</Property>
+                  </UpdateItem>
+                </UpdateAction>
+              </Container>
+            </ControlTab>
+          </TabControl>
+          <Container>
+            <Dialog id="fileDialog">
+              <Property name="caption">文件上传</Property>
+              <Property name="width">480</Property>
+              <Property name="height">300</Property>
+              <Buttons/>
+              <Children>
+                <IFrame id="fileIFrame">
+                  <Property name="path">cn.com.oking.em.view.upload.upload.d</Property>
+                </IFrame>
+              </Children>
+              <Tools/>
+            </Dialog>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">政策文件</Property>
+        <Container>
+          <DataSet id="dsZcwj">
+            <Property name="dataProvider">nkAllZcwjAction#getData</Property>
+            <Property name="dataType">[dtNkAllZcwj]</Property>
+            <Property name="loadMode">onReady</Property>
+          </DataSet>
+          <ToolBar>
+            <ToolBarButton id="tbbZcwj">
+              <Property name="caption">新增</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+            </ToolBarButton>
+            <DataPilot>
+              <Property name="itemCodes">-,x,pages</Property>
+              <Property name="dataSet">dsZcwj</Property>
+            </DataPilot>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+              <Property name="action">updateAction1</Property>
+            </ToolBarButton>
+            <Button id="btnFileWithZcwj" layoutConstraint="align:center;vAlign:center">
+              <Property name="caption">上传文件</Property>
+              <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+            </Button>
+          </ToolBar>
+          <DataGrid id="dgZcwj">
+            <Property name="dataSet">dsZcwj</Property>
+            <DataColumn name="upDate">
+              <Property name="property">upDate</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+            <DataColumn name="content">
+              <Property name="property">content</Property>
+            </DataColumn>
+            <DataColumn name="details">
+              <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+if(!data.get('fileid')){&#xD;
+	return;&#xD;
+}&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;BalanceOfPaymentServlet?id=&quot;+data.get('fileid'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+              <Property name="property">details</Property>
+              <Property name="readOnly">true</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+              <Property name="caption">查看</Property>
+              <Editor/>
+            </DataColumn>
+          </DataGrid>
+          <UpdateAction id="updateAction1">
+            <Property name="dataResolver">nkAllZcwjAction#save</Property>
+            <Property name="confirmMessage">是否保存</Property>
+            <Property name="successMessage">保存成功</Property>
+            <Property name="executingMessage">保存中</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsZcwj</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">流程规定</Property>
+        <IFrame>
+          <Property name="path">images/nkgl/yskz.png</Property>
+        </IFrame>
+      </ControlTab>
+    </TabControl>
+    <DataSet id="dsNkBudgetExpend">
+      <Property name="dataType">[dtNkBudgetExpend]</Property>
+      <Property name="loadMode">lazy</Property>
+      <Property name="dataProvider">nkBudgetExpendAction#findById</Property>
+    </DataSet>
+    <DataSet id="dsParentId">
+      <Property name="dataProvider">nkBudgetExpendAction#findByParentId</Property>
+      <Property name="dataType">[dtNkBudgetExpend]</Property>
+    </DataSet>
+  </View>
+</ViewConfig>

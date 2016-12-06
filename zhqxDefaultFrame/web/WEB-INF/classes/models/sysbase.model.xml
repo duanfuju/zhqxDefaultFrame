@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+  <DataType name="dtDropdownMenuManageBranch">
+    <Property name="matchType">cn.com.oking.entity.DropdownMenuManageBranch</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="key">
+      <Property></Property>
+      <Property name="label">显示值</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="value">
+      <Property></Property>
+      <Property name="label">实际值</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="orderby">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">排序字段(请输入数字)</Property>
+    </PropertyDef>
+    <PropertyDef name="associationNumber">
+      <Property></Property>
+      <Property name="label">关联编号</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtDropdownMenuManageMain">
+    <Property name="matchType">cn.com.oking.entity.DropdownMenuManageMain</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="describe">
+      <Property></Property>
+      <Property name="label">描述</Property>
+    </PropertyDef>
+    <PropertyDef name="name">
+      <Property></Property>
+      <Property name="label">关键字段</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="orderby">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">排序字段(请输入数字)</Property>
+    </PropertyDef>
+  </DataType>
+</Model>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dataTypeUrl">
+      <PropertyDef name="id">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+      <PropertyDef name="name">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+      <PropertyDef name="url">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+      <PropertyDef name="icon">
+        <Property name="dataType">String</Property>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <ClientEvent name="onCreate">window.openUrlInFrameTab=function(id){&#xD;
+	var Entitys = view.get(&quot;#dsUrls&quot;).queryData (&quot;[@.get('id')=='&quot;+id +&quot;']&quot;);&#xD;
+	if(Entitys.length>0){&#xD;
+		var url = Entitys[0].get(&quot;url&quot;);&#xD;
+		var caption = Entitys[0].get(&quot;name&quot;);		&#xD;
+		var icon = Entitys[0].get(&quot;icon&quot;);&#xD;
+		if(!url||!caption){&#xD;
+			return;&#xD;
+		}&#xD;
+		if(!icon){&#xD;
+			icon=&quot;url(skin>common/icons.gif) -40px -120px&quot;;&#xD;
+		}&#xD;
+		var openMenuFrame = view.id(&quot;openMenuFrame&quot;);&#xD;
+		openMenuFrame.set(&quot;path&quot;,url);&#xD;
+		openMenuFrame.refresh(true);	&#xD;
+	}else{&#xD;
+		var openMenuFrame = view.id(&quot;openMenuFrame&quot;);&#xD;
+		openMenuFrame.set(&quot;path&quot;,'http://218.2.99.66/pkqx/dorado/caiyun/index.jsp'+id);&#xD;
+		openMenuFrame.refresh(true);	&#xD;
+	}&#xD;
+}</ClientEvent>
+    <ClientEvent name="onReady">//window.openUrlInFrameTab(&quot;homePage.jsp&quot;,&quot;首页&quot;,&quot;url(>skin>common/icons.gif) -0px -20px&quot;,true);&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+&#xD;
+</ClientEvent>
+    <DataSet id="pushAuto">
+      <Property name="dataProvider">caiYunPush#isExists</Property>
+      <Property name="loadMode">lazy</Property>
+    </DataSet>
+    <DataSet id="dsUrls">
+      <Property name="dataProvider">frame.MainFrame#loadDsUrls</Property>
+      <Property name="dataType">[dataTypeUrl]</Property>
+      <Property name="loadMode">preload</Property>
+    </DataSet>
+    <Container id="cMain" layout="anchor" layoutConstraint="top">
+      <Property name="contentOverflow">hidden</Property>
+      <Property name="height">75</Property>
+      <HtmlContainer id="hcTopHtml" layoutConstraint="top:0;left:0">
+        <Property name="content">&lt;div id=&quot;GZnashui_top&quot;>&#xD;
+		&lt;div class=&quot;logo&quot;>&lt;/div>&#xD;
+		&lt;div class=&quot;admin&quot;>&#xD;
+			&lt;!--&lt;div class=&quot;i01&quot;>&#xD;
+				&lt;img src=&quot;images/topico_01.png&quot; alt=&quot;&quot; width=&quot;19&quot; height=&quot;15&quot; />&#xD;
+			&lt;/div>&#xD;
+			&lt;div class=&quot;name&quot;>皮肤&lt;/div>&#xD;
+			&lt;div style=&quot;position: relative; float: left;&quot;>&#xD;
+				&lt;div class=&quot;skin&quot;>&#xD;
+					&lt;img src=&quot;images/skin_blue.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;skin&quot;>&#xD;
+					&lt;img src=&quot;images/skin_red.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;skin&quot;>&#xD;
+					&lt;img src=&quot;images/skin_green.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;gou01&quot; style=&quot;display: block;&quot;>&#xD;
+					&lt;img src=&quot;images/22.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;gou02&quot; style=&quot;display: none;&quot;>&#xD;
+					&lt;img src=&quot;images/22.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+				&lt;div class=&quot;gou03&quot; style=&quot;display: none;&quot;>&#xD;
+					&lt;img src=&quot;images/22.png&quot; alt=&quot;&quot; width=&quot;17&quot; height=&quot;17&quot; />&#xD;
+				&lt;/div>&#xD;
+			&lt;/div>-->&#xD;
+			&lt;div class=&quot;i01&quot;>&#xD;
+				&lt;img src=&quot;images/topico_02.png&quot; alt=&quot;&quot; width=&quot;19&quot; height=&quot;16&quot; />&#xD;
+			&lt;/div>&#xD;
+			&lt;div class=&quot;name&quot;>${loginUser.getCname()}&lt;/div>&#xD;
+			&lt;div class=&quot;name01&quot;>&amp;nbsp;&lt;/div>&#xD;
+		&lt;/div>&#xD;
+	&lt;/div></Property>
+        <Property name="width">100%</Property>
+      </HtmlContainer>
+      <Container id="cbutton" layout="hbox align:top" listener="spring:bdf2.frameTopListener#onInit" layoutConstraint="anchorRight:container;anchorTop:container;top:5;right:5">
+        <Property name="contentOverflow">hidden</Property>
+        <Property name="height">30</Property>
+      </Container>
+    </Container>
+    <Menu id="menuForTab">
+      <MenuItem>
+        <ClientEvent name="onClick">setTimeout(function(){&#xD;
+	var panelWorkarea=view.id(&quot;panelWorkarea&quot;);&#xD;
+	var maximized=panelWorkarea.get(&quot;maximized&quot;);&#xD;
+	var maxIcon=&quot;>dorado/res/icons/max.png&quot;;&#xD;
+	var normalIcon=&quot;>dorado/res/icons/min.png&quot;;&#xD;
+	if(maximized){&#xD;
+		self.set(&quot;icon&quot;,maxIcon);&#xD;
+		self.set(&quot;caption&quot;,&quot;最大化&quot;);&#xD;
+		panelWorkarea.maximizeRestore();&#xD;
+	}else{&#xD;
+		self.set(&quot;icon&quot;,normalIcon);&#xD;
+		self.set(&quot;caption&quot;,&quot;还原&quot;);&#xD;
+		panelWorkarea.maximize();&#xD;
+	}&#xD;
+}, 600);&#xD;
+</ClientEvent>
+        <Property name="caption">最大化</Property>
+        <Property name="icon">>dorado/res/icons/max.png</Property>
+      </MenuItem>
+      <MenuItem>
+        <ClientEvent name="onClick">var tab = view.id(&quot;tabControlWorkarea&quot;).get(&quot;currentTab&quot;);&#xD;
+if(tab &amp;&amp; tab.get(&quot;path&quot;)!=&quot;homePage.jsp&quot;){&#xD;
+	tab.close();&#xD;
+}</ClientEvent>
+        <Property name="caption">关闭当前窗口</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -40px -0px</Property>
+      </MenuItem>
+      <MenuItem>
+        <ClientEvent name="onClick">view.id(&quot;tabControlWorkarea&quot;).closeAllTabs();&#xD;
+</ClientEvent>
+        <Property name="caption">关闭所有窗口</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -40px -0px</Property>
+      </MenuItem>
+      <MenuItem>
+        <ClientEvent name="onClick">var tab = view.id(&quot;tabControlWorkarea&quot;).get(&quot;currentTab&quot;);&#xD;
+view.id(&quot;tabControlWorkarea&quot;).closeOtherTabs(tab);</ClientEvent>
+        <Property name="caption">关闭其他窗口</Property>
+        <Property name="icon">url(>skin>common/icons.gif) -40px -0px</Property>
+      </MenuItem>
+    </Menu>
+    <SplitPanel layoutConstraint="center">
+      <Property name="position">260</Property>
+      <MainControl>
+        <Panel id="panelWorkarea">
+          <Property name="border">none</Property>
+          <Property name="maximizeable">true</Property>
+          <Buttons/>
+          <Children>
+            <IFrame id="openMenuFrame"/>
+            <FloatPanel id="fpShows">
+              <Property name="width">220</Property>
+              <Property name="height">150</Property>
+              <Property name="caption">信息预警</Property>
+              <Property name="shadowMode">sides</Property>
+              <Property name="center">false</Property>
+              <Property name="animateType">slide</Property>
+              <Buttons/>
+              <Children>
+                <HtmlContainer id="hcShow" layoutConstraint="align:center">
+                  <Property name="content">&lt;iframe src=&quot;caiyun/index.jsp&quot; scrolling=&quot;no&quot; width=&quot;200px&quot; height=&quot;170px&quot;> </Property>
+                </HtmlContainer>
+              </Children>
+              <Tools>
+                <SimpleIconButton id="sibClose">
+                  <Property name="icon">url(>skin>common/icons.gif) -40px -0px</Property>
+                </SimpleIconButton>
+              </Tools>
+            </FloatPanel>
+            <DataSet id="dsCheckUser">
+              <Property name="dataProvider">portalAction#checkUser</Property>
+            </DataSet>
+          </Children>
+          <Tools/>
+        </Panel>
+      </MainControl>
+      <SideControl>
+        <Container>
+          <IFrame>
+            <Property name="path">main_left.jsp</Property>
+          </IFrame>
+        </Container>
+      </SideControl>
+    </SplitPanel>
+  </View>
+</ViewConfig>

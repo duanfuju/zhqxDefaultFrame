@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tab">
+      <Property name="renderTo">#tab</Property>
+      <ControlTab>
+        <Property name="caption">显示</Property>
+        <SplitPanel>
+          <Property name="position">15%</Property>
+          <Property name="direction">right</Property>
+          <MainControl>
+            <IFrame id="ifShow">
+              <Property name="path">em/Map.jsp</Property>
+            </IFrame>
+          </MainControl>
+          <SideControl>
+            <SplitPanel>
+              <Property name="position">50%</Property>
+              <Property name="direction">top</Property>
+              <MainControl>
+                <HtmlContainer id="htmlDetail"/>
+              </MainControl>
+              <SideControl>
+                <Container>
+                  <DataTreeGrid id="dtGrid">
+                    <Property name="dataSet">dsTree</Property>
+                    <Property name="treeColumn">storename</Property>
+                    <Property name="selectionMode">multiRows</Property>
+                    <BindingConfigs>
+                      <BindingConfig>
+                        <Property name="checkable">false</Property>
+                        <Property name="recursive">true</Property>
+                        <Property name="labelProperty">storename</Property>
+                      </BindingConfig>
+                    </BindingConfigs>
+                    <Columns>
+                      <RowSelectorColumn/>
+                      <DataColumn>
+                        <Property name="property">storename</Property>
+                        <Property name="readOnly">true</Property>
+                        <Editor/>
+                      </DataColumn>
+                    </Columns>
+                  </DataTreeGrid>
+                  <DataSet id="dsTree">
+                    <Property name="dataType">[dtEmStore]</Property>
+                    <Property name="dataProvider">emStoreAction#getDataTree</Property>
+                  </DataSet>
+                </Container>
+              </SideControl>
+            </SplitPanel>
+          </SideControl>
+        </SplitPanel>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">维护</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="itemCodes">+,-,x,pages</Property>
+              <Property name="dataSet">dsEmStore</Property>
+            </DataPilot>
+            <Fill/>
+            <ToolBarButton id="btnAdd">
+              <Property name="caption">添加单个</Property>
+            </ToolBarButton>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">saveAction</Property>
+            </ToolBarButton>
+          </ToolBar>
+          <DataSet id="dsEmStore">
+            <Property name="dataType">[dtEmStore]</Property>
+            <Property name="dataProvider">emStoreAction#getData</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <DataGrid id="dgShow">
+            <Property name="dataSet">dsEmStore</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="storename">
+              <Property name="property">storename</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+            </DataColumn>
+            <DataColumn name="contraces">
+              <Property name="property">contraces</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="phone">
+              <Property name="property">phone</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="location">
+              <Property name="property">location</Property>
+            </DataColumn>
+            <DataColumn name="longitude">
+              <Property name="property">longitude</Property>
+            </DataColumn>
+            <DataColumn name="latitude">
+              <Property name="property">latitude</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+            </DataColumn>
+            <DataColumn name="details">
+              <ClientEvent name="onRenderCell" signature="self,arg,dialogStore,ifStore">var data = arg.data;&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;javascript:;&quot;,&#xD;
+	onclick:function(){&#xD;
+		ifStore.set(&quot;path&quot;,'cn.com.oking.em.view.storeDetail.d?parameter='+data.get('storenum'));&#xD;
+		dialogStore.show();&#xD;
+	},&#xD;
+	content: &quot;物资明细&quot;&#xD;
+});&#xD;
+</ClientEvent>
+              <Property name="property">details</Property>
+              <Property name="readOnly">true</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+              <Editor/>
+            </DataColumn>
+          </DataGrid>
+          <Dialog id="dialogAdd">
+            <Property name="width">500</Property>
+            <Property name="caption">添加</Property>
+            <Buttons>
+              <Button>
+                <Property name="caption">保存</Property>
+                <Property name="action">updateAction1</Property>
+              </Button>
+              <Button id="btnPick">
+                <Property name="caption">坐标定位选择</Property>
+              </Button>
+            </Buttons>
+            <Children>
+              <DataSet id="dsAdd">
+                <Property name="dataType">dtEmStore</Property>
+              </DataSet>
+              <AutoForm>
+                <Property name="dataSet">dsAdd</Property>
+                <AutoFormElement>
+                  <Property name="name">storenum</Property>
+                  <Property name="property">storenum</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">storename</Property>
+                  <Property name="property">storename</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">details</Property>
+                  <Property name="property">details</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">dept</Property>
+                  <Property name="property">dept</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">contraces</Property>
+                  <Property name="property">contraces</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">phone</Property>
+                  <Property name="property">phone</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">longitude</Property>
+                  <Property name="property">longitude</Property>
+                  <Editor>
+                    <TextEditor id="afeX"/>
+                  </Editor>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">latitude</Property>
+                  <Property name="property">latitude</Property>
+                  <Editor>
+                    <TextEditor id="afeY"/>
+                  </Editor>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">location</Property>
+                  <Property name="property">location</Property>
+                  <Editor/>
+                </AutoFormElement>
+                <AutoFormElement>
+                  <Property name="name">remark</Property>
+                  <Property name="property">remark</Property>
+                  <Editor/>
+                </AutoFormElement>
+              </AutoForm>
+              <UpdateAction id="updateAction1">
+                <Property name="dataResolver">emStoreAction#save1</Property>
+                <Property name="successMessage">更新成功！！！</Property>
+                <Property name="confirmMessage">是否保存结果？</Property>
+                <UpdateItem>
+                  <Property name="dataSet">dsAdd</Property>
+                </UpdateItem>
+              </UpdateAction>
+              <Dialog id="dialogPick">
+                <Property name="height">100%</Property>
+                <Property name="width">800</Property>
+                <Buttons>
+                  <Button>
+                    <ClientEvent name="onClick" signature="self,arg,dialogPick">dialogPick.close();&#xD;
+</ClientEvent>
+                    <Property name="caption">确定</Property>
+                  </Button>
+                </Buttons>
+                <Children>
+                  <IFrame>
+                    <Property name="path">em/Map3.jsp</Property>
+                  </IFrame>
+                </Children>
+                <Tools/>
+              </Dialog>
+            </Children>
+            <Tools/>
+          </Dialog>
+          <Dialog id="dialogStore">
+            <Property name="width">800px</Property>
+            <Property name="height">500px</Property>
+            <Buttons/>
+            <Children>
+              <IFrame id="ifStore"/>
+            </Children>
+            <Tools/>
+          </Dialog>
+        </Container>
+      </ControlTab>
+    </TabControl>
+    <UpdateAction id="saveAction">
+      <Property name="dataResolver">emStoreAction#save</Property>
+      <Property name="confirmMessage">是否保存结果？</Property>
+      <Property name="successMessage">更新成功！！！</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsEmStore</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <AjaxAction id="saveListAction">
+      <Property name="service">emStoreAction#saveList</Property>
+    </AjaxAction>
+    <AjaxAction id="autoAjaxAction">
+      <Property name="service">emStoreAction#getCoordinates</Property>
+    </AjaxAction>
+  </View>
+</ViewConfig>

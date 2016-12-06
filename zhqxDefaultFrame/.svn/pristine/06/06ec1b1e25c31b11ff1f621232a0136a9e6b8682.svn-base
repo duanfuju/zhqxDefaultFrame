@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+  <title>Custom Layouts and Containers - Portal Sample</title>
+	<link rel="stylesheet" type="text/css" href="http://extjs.org.cn/extjs/resources/css/ext-all.css" />
+
+    <!-- GC -->
+ 	<!-- LIBS -->
+ 	<script type="text/javascript" src="http://extjs.org.cn/extjs/adapter/ext/ext-base.js"></script>
+ 	<!-- ENDLIBS -->
+
+    <script type="text/javascript" src="http://extjs.org.cn/extjs/ext-all.js"></script>
+
+      <script type="text/javascript" src="http://extjs.org.cn/extjs/examples/portal/Portal.js"></script>
+    <script type="text/javascript" src="http://extjs.org.cn/extjs/examples/portal/PortalColumn.js"></script>
+    <script type="text/javascript" src="http://extjs.org.cn/extjs/examples/portal/Portlet.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://extjs.org.cn/extjs/examples/portal/portal.css" />
+
+    <link rel="stylesheet" type="text/css" href="http://extjs.org.cn/extjs/examples/portal/sample.css" />
+	<script type="text/javascript" src="sample.js"></script>
+	<script type="text/javascript" src="http://extjs.org.cn/extjs/examples/portal/sample-grid.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="http://extjs.org.cn/extjs/examples/examples.js"></script><!-- EXAMPLES -->
+</body>
+</html>

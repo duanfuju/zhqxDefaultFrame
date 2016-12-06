@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container>
+      <Container>
+        <Dialog id="fileDialog">
+          <Property name="caption">文件上传</Property>
+          <Property name="width">480</Property>
+          <Property name="height">300</Property>
+          <Buttons/>
+          <Children>
+            <IFrame id="fileIFrame">
+              <Property name="path">cn.com.oking.em.view.upload.upload.d</Property>
+            </IFrame>
+          </Children>
+          <Tools/>
+        </Dialog>
+      </Container>
+      <TabControl id="tcShow">
+        <ControlTab>
+          <Property name="caption">收入管理</Property>
+          <Container>
+            <ToolBar>
+              <ToolBarButton id="tbbAdd0">
+                <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+                <Property name="caption">新增</Property>
+              </ToolBarButton>
+              <ToolBarButton id="tbbSave0">
+                <Property name="caption">保存</Property>
+                <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+                <Property name="action">Np0Action</Property>
+              </ToolBarButton>
+              <DataPilot>
+                <Property name="itemCodes">-,x</Property>
+                <Property name="dataSet">dsNp0</Property>
+              </DataPilot>
+              <Button id="btnFile0" layoutConstraint="align:center;vAlign:center">
+                <Property name="caption">上传文件</Property>
+                <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+              </Button>
+            </ToolBar>
+            <DataGrid id="dgNp0">
+              <Property name="dataSet">dsNp0</Property>
+              <Property name="height">800</Property>
+              <DataColumn name="updateTime">
+                <Property name="property">updateTime</Property>
+              </DataColumn>
+              <DataColumn name="nkName">
+                <Property name="property">nkName</Property>
+                <Editor/>
+              </DataColumn>
+              <DataColumn name="details">
+                <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+if(!data.get('fileid')){&#xD;
+	return;&#xD;
+}&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;BalanceOfPaymentServlet?id=&quot;+data.get('fileid'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+                <Property name="property">details</Property>
+                <Property name="readOnly">true</Property>
+                <Property name="width">80px</Property>
+                <Property name="align">center</Property>
+                <Property name="caption">查看</Property>
+                <Editor/>
+              </DataColumn>
+            </DataGrid>
+          </Container>
+        </ControlTab>
+        <ControlTab>
+          <Property name="caption">票据管理</Property>
+          <Container>
+            <ToolBar>
+              <ToolBarButton>
+                <Property name="caption">保存</Property>
+                <Property name="action">saveNotesAction</Property>
+                <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+              </ToolBarButton>
+              <DataPilot>
+                <Property name="itemCodes">+,-,x,pages</Property>
+                <Property name="dataSet">dsNotes</Property>
+              </DataPilot>
+              <Fill/>
+            </ToolBar>
+            <DataGrid id="dgNotes">
+              <Property name="dataSet">dsNotes</Property>
+              <DataColumn name="noteName">
+                <Property name="property">noteName</Property>
+              </DataColumn>
+              <DataColumn name="businessTypes">
+                <Property name="property">businessTypes</Property>
+                <Property name="trigger">listDropDownnote</Property>
+              </DataColumn>
+              <DataColumn name="invoiceCode">
+                <Property name="property">invoiceCode</Property>
+              </DataColumn>
+              <DataColumn name="allNumbers">
+                <Property name="property">allNumbers</Property>
+              </DataColumn>
+              <DataColumn name="noteNum">
+                <Property name="property">noteNum</Property>
+              </DataColumn>
+              <DataColumn name="remarks">
+                <Property name="property">remarks</Property>
+              </DataColumn>
+              <DataColumn name="dealTime">
+                <Property name="property">dealTime</Property>
+              </DataColumn>
+              <DataColumn name="dealPeople">
+                <Property name="property">dealPeople</Property>
+              </DataColumn>
+            </DataGrid>
+            <ListDropDown id="listDropDownnote">
+              <Property name="items">领购,作废</Property>
+            </ListDropDown>
+          </Container>
+        </ControlTab>
+        <ControlTab>
+          <Property name="caption">支出管理</Property>
+          <Container>
+            <ToolBar>
+              <ToolBarButton id="tbbAdd1">
+                <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+                <Property name="caption">新增</Property>
+              </ToolBarButton>
+              <ToolBarButton id="tbbSave1">
+                <Property name="caption">保存</Property>
+                <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+                <Property name="action">Np1Action</Property>
+              </ToolBarButton>
+              <DataPilot>
+                <Property name="itemCodes">-,x</Property>
+                <Property name="dataSet">dsNp1</Property>
+              </DataPilot>
+              <Button id="btnFile1" layoutConstraint="align:center;vAlign:center">
+                <Property name="caption">上传文件</Property>
+                <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+              </Button>
+            </ToolBar>
+            <DataGrid id="dgNp1">
+              <Property name="dataSet">dsNp1</Property>
+              <Property name="height">800</Property>
+              <DataColumn name="updateTime">
+                <Property name="property">updateTime</Property>
+              </DataColumn>
+              <DataColumn name="nkName">
+                <Property name="property">nkName</Property>
+              </DataColumn>
+              <DataColumn name="details">
+                <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+if(!data.get('fileid')){&#xD;
+	return;&#xD;
+}&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;BalanceOfPaymentServlet?id=&quot;+data.get('fileid'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+                <Property name="property">details</Property>
+                <Property name="readOnly">true</Property>
+                <Property name="width">80px</Property>
+                <Property name="align">center</Property>
+                <Property name="caption">查看</Property>
+                <Editor/>
+              </DataColumn>
+            </DataGrid>
+          </Container>
+        </ControlTab>
+        <ControlTab>
+          <Property name="caption">政策文件</Property>
+          <Container>
+            <ToolBar>
+              <ToolBarButton id="tbbAdd2">
+                <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+                <Property name="caption">新增</Property>
+              </ToolBarButton>
+              <ToolBarButton id="tbbSave2">
+                <Property name="caption">保存</Property>
+                <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+                <Property name="action">Np0Action</Property>
+              </ToolBarButton>
+              <DataPilot>
+                <Property name="itemCodes">-,x</Property>
+                <Property name="dataSet">dsNp2</Property>
+              </DataPilot>
+              <Button id="btnFile2" layoutConstraint="align:center;vAlign:center">
+                <Property name="caption">上传文件</Property>
+                <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+              </Button>
+            </ToolBar>
+            <DataGrid id="dgNp2">
+              <Property name="dataSet">dsNp2</Property>
+              <Property name="height">800</Property>
+              <DataColumn name="updateTime">
+                <Property name="property">updateTime</Property>
+              </DataColumn>
+              <DataColumn name="nkName">
+                <Property name="property">nkName</Property>
+              </DataColumn>
+              <DataColumn name="details">
+                <ClientEvent name="onRenderCell">var data = arg.data;&#xD;
+if(!data.get('fileid')){&#xD;
+	return;&#xD;
+}&#xD;
+$(arg.dom).empty().xCreate({&#xD;
+	tagName: &quot;A&quot;,&#xD;
+	href: &quot;BalanceOfPaymentServlet?id=&quot;+data.get('fileid'),&#xD;
+	content: &quot;查看&quot;&#xD;
+});&#xD;
+</ClientEvent>
+                <Property name="property">details</Property>
+                <Property name="readOnly">true</Property>
+                <Property name="width">80px</Property>
+                <Property name="align">center</Property>
+                <Property name="caption">查看</Property>
+                <Editor/>
+              </DataColumn>
+            </DataGrid>
+          </Container>
+        </ControlTab>
+        <ControlTab>
+          <Property name="caption">流程规定</Property>
+          <IFrame>
+            <Property name="path">images/nkgl/szkz.png</Property>
+          </IFrame>
+        </ControlTab>
+      </TabControl>
+    </Container>
+    <DataSet id="dsNotes">
+      <Property name="dataProvider">nkNotesAction#getData</Property>
+      <Property name="dataType">[dtNkNotes]</Property>
+      <Property name="pageSize">20</Property>
+    </DataSet>
+    <UpdateAction id="saveNotesAction">
+      <Property name="dataResolver">nkNotesAction#save</Property>
+      <Property name="confirmMessage">是否保存</Property>
+      <Property name="executingMessage">保存中</Property>
+      <Property name="successMessage">保存成功</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsNotes</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <DataSet id="dsNp0">
+      <Property name="dataProvider">nkBalanceOfPaymentAction#getData</Property>
+      <Property name="dataType">[dtNkBalanceOfPayment]</Property>
+      <Property name="loadMode">lazy</Property>
+      <Property name="parameter">0</Property>
+    </DataSet>
+    <UpdateAction id="Np0Action">
+      <Property name="dataResolver">nkBalanceOfPaymentAction#save</Property>
+      <Property name="confirmMessage">是否保存</Property>
+      <Property name="executingMessage">正在保存</Property>
+      <Property name="successMessage">保存成功</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsNp0</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <DataSet id="dsNp1">
+      <Property name="dataProvider">nkBalanceOfPaymentAction#getData</Property>
+      <Property name="dataType">[dtNkBalanceOfPayment]</Property>
+      <Property name="loadMode">manual</Property>
+    </DataSet>
+    <UpdateAction id="Np1Action">
+      <Property name="dataResolver">nkBalanceOfPaymentAction#save</Property>
+      <Property name="confirmMessage">是否保存</Property>
+      <Property name="executingMessage">正在保存</Property>
+      <Property name="successMessage">保存成功</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsNp1</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <DataSet id="dsNp2">
+      <Property name="dataProvider">nkBalanceOfPaymentAction#getData</Property>
+      <Property name="dataType">[dtNkBalanceOfPayment]</Property>
+      <Property name="loadMode">manual</Property>
+    </DataSet>
+    <UpdateAction id="Np2Action">
+      <Property name="dataResolver">nkBalanceOfPaymentAction#save</Property>
+      <Property name="confirmMessage">是否保存</Property>
+      <Property name="executingMessage">正在保存</Property>
+      <Property name="successMessage">保存成功</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsNp2</Property>
+      </UpdateItem>
+    </UpdateAction>
+  </View>
+</ViewConfig>

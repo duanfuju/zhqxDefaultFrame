@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container>
+      <AutoForm>
+        <Property name="dataSet">dsDoc</Property>
+        <Property name="cols">*,*,*,*</Property>
+        <AutoFormElement>
+          <Property name="name">docnum</Property>
+          <Property name="property">docnum</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">docname</Property>
+          <Property name="property">docname</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">status</Property>
+          <Property name="property">status</Property>
+          <Editor/>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">fileid</Property>
+          <Property name="property">fileid</Property>
+          <Editor>
+            <TextEditor id="resourceid"/>
+          </Editor>
+        </AutoFormElement>
+        <AutoFormElement>
+          <Property name="name">filename</Property>
+          <Property name="property">filename</Property>
+          <Editor/>
+        </AutoFormElement>
+        <Button id="btnFile" layoutConstraint="align:center;vAlign:center">
+          <Property name="caption">上传文件</Property>
+          <Property name="icon"> url(>skin>common/icons.gif) -140px -120px</Property>
+        </Button>
+        <Button id="btnFileLoad" layoutConstraint="align:center;vAlign:center">
+          <Property name="caption">文件下载</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -160px -120px</Property>
+        </Button>
+      </AutoForm>
+      <Dialog id="fileDialog">
+        <Property name="caption">文件上传</Property>
+        <Property name="width">480</Property>
+        <Property name="height">300</Property>
+        <Buttons/>
+        <Children>
+          <IFrame id="fileIFrame">
+            <Property name="path">cn.com.oking.em.view.upload.upload.d</Property>
+          </IFrame>
+        </Children>
+        <Tools/>
+      </Dialog>
+      <UpdateAction id="autoUpdateAction">
+        <Property name="dataResolver">emDocdemoAction#save</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsDoc</Property>
+        </UpdateItem>
+      </UpdateAction>
+      <DataSet id="dsDoc">
+        <Property name="dataType">dtEmDocdemo</Property>
+        <Property name="dataProvider">emDocdemoAction#getPlanById</Property>
+      </DataSet>
+    </Container>
+    <Container>
+      <ToolBar>
+        <DataPilot>
+          <Property name="itemCodes">+,-,x,pages</Property>
+          <Property name="dataSet">dsDocList</Property>
+        </DataPilot>
+        <Separator/>
+        <ToolBarButton>
+          <Property name="caption">保存</Property>
+          <Property name="action">saveAction</Property>
+        </ToolBarButton>
+        <Fill/>
+      </ToolBar>
+      <DataGrid id="dgShow">
+        <Property name="dataSet">dsDocList</Property>
+        <Property name="showFilterBar">true</Property>
+        <DataColumn name="docnum">
+          <Property name="property">docnum</Property>
+        </DataColumn>
+        <DataColumn name="docname">
+          <Property name="property">docname</Property>
+        </DataColumn>
+        <DataColumn name="status">
+          <Property name="property">status</Property>
+          <Property name="trigger">lddStatus</Property>
+        </DataColumn>
+        <DataColumn name="fileid">
+          <Property name="property">fileid</Property>
+        </DataColumn>
+        <DataColumn name="filename">
+          <Property name="property">filename</Property>
+        </DataColumn>
+      </DataGrid>
+      <DataSet id="dsDocList">
+        <Property name="dataProvider">emDocdemoAction#getData</Property>
+        <Property name="dataType">[dtEmDocdemo]</Property>
+        <Property name="pageSize">15</Property>
+      </DataSet>
+      <UpdateAction id="saveAction">
+        <Property name="dataResolver">emDocdemoAction#save</Property>
+        <Property name="confirmMessage">是否保存？？？</Property>
+        <Property name="successMessage">保存成功！！！</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsDocList</Property>
+        </UpdateItem>
+      </UpdateAction>
+      <ListDropDown id="lddStatus">
+        <Property name="items">有效,无效</Property>
+      </ListDropDown>
+    </Container>
+  </View>
+</ViewConfig>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsMonitorList">
+      <Property name="dataProvider">monitorListAction#method</Property>
+      <Property name="pageSize">15</Property>
+      <Property name="dataType">[dtMonitorList]</Property>
+    </DataSet>
+    <ToolBar>
+      <DataPilot>
+        <Property name="dataSet">dsMonitorList</Property>
+        <Property name="itemCodes">pages,+,-,x</Property>
+      </DataPilot>
+      <ToolBarButton>
+        <Property name="caption">保存</Property>
+        <Property name="action">actionUpdate1</Property>
+        <Property name="icon"> url(>skin>common/icons.gif) -140px -20px</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <DataGrid>
+      <Property name="dataSet">dsMonitorList</Property>
+      <Property name="showFilterBar">true</Property>
+      <DataColumn name="dataid">
+        <Property name="property">dataid</Property>
+        <Property name="caption">数据ID</Property>
+        <Property name="align">center</Property>
+        <Property name="width">60px</Property>
+      </DataColumn>
+      <DataColumn name="dataname">
+        <Property name="property">dataname</Property>
+        <Property name="caption">数据名称</Property>
+        <Property name="align">center</Property>
+      </DataColumn>
+      <DataColumn name="datasource">
+        <Property name="property">datasource</Property>
+        <Property name="caption">数据来源</Property>
+        <Property name="align">center</Property>
+        <Property name="width">60px</Property>
+      </DataColumn>
+      <DataColumn name="owneruser">
+        <Property name="property">owneruser</Property>
+        <Property name="caption">用户</Property>
+        <Property name="align">center</Property>
+        <Property name="width">100px</Property>
+      </DataColumn>
+      <DataColumn name="objectname">
+        <Property name="property">objectname</Property>
+        <Property name="caption">对象名称</Property>
+        <Property name="align">center</Property>
+        <Property name="width">200px</Property>
+      </DataColumn>
+      <DataColumn name="objattribute">
+        <Property name="property">objattribute</Property>
+        <Property name="caption">对象属性</Property>
+        <Property name="align">center</Property>
+        <Property name="width">250px</Property>
+      </DataColumn>
+      <DataColumn name="datatype">
+        <Property name="property">datatype</Property>
+        <Property name="caption">属性类型</Property>
+        <Property name="align">center</Property>
+        <Property name="width">60px</Property>
+      </DataColumn>
+      <DataColumn name="period">
+        <Property name="property">period</Property>
+        <Property name="caption">采集频率（分钟）</Property>
+        <Property name="align">center</Property>
+      </DataColumn>
+      <DataColumn name="overtime">
+        <Property name="property">overtime</Property>
+        <Property name="caption">超时预警（分钟）</Property>
+        <Property name="align">center</Property>
+      </DataColumn>
+      <DataColumn name="status">
+        <Property name="property">status</Property>
+        <Property name="caption">状态</Property>
+        <Property name="align">center</Property>
+        <Property name="trigger">listDropDown1</Property>
+        <Property name="width">50px</Property>
+      </DataColumn>
+      <DataColumn name="lastdate">
+        <Property name="property">lastdate</Property>
+        <Property name="caption">最后更新时间</Property>
+        <Property name="align">center</Property>
+      </DataColumn>
+      <DataColumn name="wheresql">
+        <Property name="property">wheresql</Property>
+        <Property name="caption">条件</Property>
+        <Property name="align">center</Property>
+        <Property name="width">50px</Property>
+      </DataColumn>
+    </DataGrid>
+    <UpdateAction id="actionUpdate1">
+      <Property name="executingMessage">正在保存。。。。</Property>
+      <Property name="successMessage">保存成功。。。。</Property>
+      <Property name="dataResolver">monitorListAction#saveAll</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsMonitorList</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <ListDropDown id="listDropDown1">
+      <Property name="items">有效,无效</Property>
+    </ListDropDown>
+  </View>
+</ViewConfig>

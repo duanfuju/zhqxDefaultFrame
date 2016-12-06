@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container>
+      <ToolBar>
+        <DataPilot>
+          <Property name="itemCodes">+,-,x</Property>
+          <Property name="dataSet">dsRole</Property>
+        </DataPilot>
+        <ToolBarButton id="btSave">
+          <Property name="action">updateAction1</Property>
+          <Property name="caption">保存</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+        </ToolBarButton>
+        <DataPilot>
+          <Property name="dataSet">dsRole</Property>
+          <Property name="itemCodes">pages</Property>
+        </DataPilot>
+      </ToolBar>
+      <DataSet id="dsRole">
+        <Property name="dataType">[dtMnylRoledefinition]</Property>
+        <Property name="dataProvider">mnylRoledefinitionAction#getAll</Property>
+        <Property name="pageSize">10</Property>
+      </DataSet>
+      <DataGrid id="dgRole">
+        <Property name="dataSet">dsRole</Property>
+        <DataColumn name="roleName">
+          <Property name="property">roleName</Property>
+        </DataColumn>
+        <DataColumn name="roleDescription">
+          <Property name="property">roleDescription</Property>
+        </DataColumn>
+      </DataGrid>
+      <UpdateAction id="updateAction1">
+        <Property name="dataResolver">mnylRoledefinitionAction#saveAll</Property>
+        <Property name="confirmMessage">是否保存结果</Property>
+        <Property name="executingMessage">被保存中</Property>
+        <Property name="successMessage">保存成功</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsRole</Property>
+        </UpdateItem>
+      </UpdateAction>
+    </Container>
+  </View>
+</ViewConfig>

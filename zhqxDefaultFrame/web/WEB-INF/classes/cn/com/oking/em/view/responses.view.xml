@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab>
+        <Property name="caption">暴雨</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsRainStorm</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction1</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsRainStorm</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn>
+              <Property name="property">disasterlevel</Property>
+              <Property name="name">disasterlevel</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+              <Property name="trigger">levellist1</Property>
+              <Editor/>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsRainStorm">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">暴雨</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction1">
+            <Property name="dataResolver">emResponsesAction#save1</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsRainStorm</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <DataSet id="dsList1">
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+            <Property name="parameter">暴雨</Property>
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+          </DataSet>
+          <DataSetDropDown id="levellist1">
+            <Property name="dataSet">dsList1</Property>
+            <Property name="displayProperty">disasterlevel</Property>
+            <Property name="property">anumber</Property>
+          </DataSetDropDown>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">台风</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsWindStorm</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction2</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsWindStorm</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist2</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsWindStorm">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">台风</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction2">
+            <Property name="dataResolver">emResponsesAction#save2</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsWindStorm</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList2">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">台风</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist2">
+              <Property name="dataSet">dsList2</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">暴雪</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsSnowStorm</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction3</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsSnowStorm</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist3</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsSnowStorm">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">暴雪</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction3">
+            <Property name="dataResolver">emResponsesAction#save3</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsSnowStorm</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList3">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">暴雪</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist3">
+              <Property name="dataSet">dsList3</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">强对流</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsStrongConvective</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction4</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsStrongConvective</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist4</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsStrongConvective">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">强对流</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction4">
+            <Property name="dataResolver">emResponsesAction#save4</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsStrongConvective</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList4">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">强对流</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist4">
+              <Property name="dataSet">dsList4</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">大风</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsBigWind</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction5</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsBigWind</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist5</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsBigWind">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">大风</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction5">
+            <Property name="dataResolver">emResponsesAction#save5</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsBigWind</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList5">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">大风</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist5">
+              <Property name="dataSet">dsList5</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">寒潮</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsColdWave</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction6</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsColdWave</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist6</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsColdWave">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">寒潮</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction6">
+            <Property name="dataResolver">emResponsesAction#save6</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsColdWave</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList6">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">寒潮</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist6">
+              <Property name="dataSet">dsList6</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">高温</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsHighTemperature</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction7</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsHighTemperature</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist7</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsHighTemperature">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">高温</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction7">
+            <Property name="dataResolver">emResponsesAction#save7</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsHighTemperature</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList7">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">高温</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist7">
+              <Property name="dataSet">dsList7</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">大雾（霾）</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsBigFog</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction8</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsBigFog</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist8</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsBigFog">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">大雾</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction8">
+            <Property name="dataResolver">emResponsesAction#save8</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsBigFog</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList8">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">大雾</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist8">
+              <Property name="dataSet">dsList8</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">连阴雨（雪）</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsContinuousRain</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction9</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsContinuousRain</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist9</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+              <Editor/>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsContinuousRain">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">连阴雨</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction9">
+            <Property name="dataResolver">emResponsesAction#save9</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsContinuousRain</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList9">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">连阴雨</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist9">
+              <Property name="dataSet">dsList9</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">霜冻</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsFrost</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction10</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsFrost</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist10</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsFrost">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">霜冻</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction10">
+            <Property name="dataResolver">emResponsesAction#save10</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsFrost</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList10">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">霜冻</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist10">
+              <Property name="dataSet">dsList10</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">干旱</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsDrought</Property>
+              <Property name="itemCodes">+,-,x,pages</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction11</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsDrought</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="trigger">levellist11</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="response">
+              <Property name="property">response</Property>
+            </DataColumn>
+            <DataColumn name="relevantplans">
+              <Property name="property">relevantplans</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsDrought">
+            <Property name="dataType">[dtEmResponses]</Property>
+            <Property name="parameter">干旱</Property>
+            <Property name="dataProvider">emResponsesAction#getDataByName</Property>
+            <Property name="pageSize">15</Property>
+          </DataSet>
+          <UpdateAction id="updateAction11">
+            <Property name="dataResolver">emResponsesAction#save11</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsDrought</Property>
+            </UpdateItem>
+          </UpdateAction>
+          <Container>
+            <DataSet id="dsList11">
+              <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+              <Property name="parameter">干旱</Property>
+              <Property name="dataType">[dtEmAlarmstandard]</Property>
+            </DataSet>
+            <DataSetDropDown id="levellist11">
+              <Property name="dataSet">dsList11</Property>
+              <Property name="displayProperty">disasterlevel</Property>
+              <Property name="property">anumber</Property>
+            </DataSetDropDown>
+          </Container>
+        </Container>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

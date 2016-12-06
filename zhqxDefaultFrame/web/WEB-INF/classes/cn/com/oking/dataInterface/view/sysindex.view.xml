@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Property name="styleSheetFile">/css/control.css</Property>
+    <DataSet id="dsSysList">
+      <Property name="dataProvider">monitorSysListAction#getData</Property>
+    </DataSet>
+    <HtmlContainer id="hcShow"/>
+  </View>
+</ViewConfig>

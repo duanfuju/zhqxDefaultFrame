@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container>
+      <ToolBar>
+        <DataPilot>
+          <Property name="dataSet">dsCommonLink</Property>
+          <Property name="itemCodes">pages,+,-,x</Property>
+        </DataPilot>
+        <ToolBarButton id="tbSave">
+          <Property name="caption">保存</Property>
+          <Property name="action">updateAction1</Property>
+          <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+        </ToolBarButton>
+      </ToolBar>
+      <DataSet id="dsCommonLink">
+        <Property name="dataType">[dtMnylCommonlink]</Property>
+        <Property name="dataProvider">mnylCommonlinkAction#getAll</Property>
+        <Property name="pageSize">12</Property>
+      </DataSet>
+      <DataGrid id="dgCommonLink">
+        <Property name="dataSet">dsCommonLink</Property>
+        <DataColumn name="linkName">
+          <Property name="property">linkName</Property>
+        </DataColumn>
+        <DataColumn name="linkDescription">
+          <Property name="property">linkDescription</Property>
+        </DataColumn>
+        <DataColumn name="linkLocation">
+          <Property name="property">linkLocation</Property>
+        </DataColumn>
+        <DataColumn name="roleId">
+          <Property name="property">roleId</Property>
+        </DataColumn>
+      </DataGrid>
+      <UpdateAction id="updateAction1">
+        <Property name="dataResolver">mnylCommonlinkAction#saveAll</Property>
+        <Property name="confirmMessage">是否保存结果</Property>
+        <Property name="executingMessage">被保存中</Property>
+        <Property name="successMessage">保存成功</Property>
+        <UpdateItem>
+          <Property name="dataSet">dsCommonLink</Property>
+        </UpdateItem>
+      </UpdateAction>
+    </Container>
+  </View>
+</ViewConfig>

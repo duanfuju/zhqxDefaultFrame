@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Property name="javaScriptFile">/js/echarts-all.js</Property>
+    <HtmlContainer id="hcLineChart">
+      <Property name="content">&lt;div id=&quot;icon&quot; style=&quot;height:420px&quot;>&lt;/div></Property>
+    </HtmlContainer>
+    <DataSet id="dsWaterData">
+      <Property name="dataType">[dtWaterData]</Property>
+      <Property name="dataProvider">waterDataAction#getData1</Property>
+    </DataSet>
+    <DataSet id="dsRain">
+      <Property name="dataType">[dtRain]</Property>
+      <Property name="dataProvider">waterDataAction#getData2</Property>
+    </DataSet>
+  </View>
+</ViewConfig>

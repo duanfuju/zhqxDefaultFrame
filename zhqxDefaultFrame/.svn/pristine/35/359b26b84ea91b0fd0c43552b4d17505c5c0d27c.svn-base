@@ -1,0 +1,59 @@
+package cs;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.com.oking.util.Document;
+
+class person{
+	private int age;
+	private String name;
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+}
+
+
+public class test {
+	public static void main(String[] args) {
+		/*Document doc;
+		try {
+			doc = new Document();
+			doc.wordToPDF("f:\\年终总结_段福举.docx", "f:\\年终总结_段福举.pdf");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+		/*
+		String str="年终总结_段福举.docx";
+		String  strs=str.substring(0,str.indexOf("."));
+		System.out.println(strs);
+		*/
+		
+		String str = "{name=张三 , age = 18}" ;
+		String str1 = "{name=张死 , age = 16}" ;
+		List<Object> B = new ArrayList();
+		List<person> A =new ArrayList<person>();	
+		B.add(str);
+		B.add(str1);
+		System.out.println( B);
+		for (int i = 0; i < B.size(); i++) {
+			String s=(String) B.get(i);
+			String ss[]=s.split(",");
+			
+			String[] s1=ss[0].split("=");
+			System.out.println(s1[1]);
+		}
+	}
+}

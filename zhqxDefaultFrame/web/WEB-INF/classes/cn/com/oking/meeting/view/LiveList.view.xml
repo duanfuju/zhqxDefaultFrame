@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="LiveListEntity">
+      <Property name="creationType">cn.com.oking.meeting.entity.LiveListEntity</Property>
+      <PropertyDef name="confKey">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="subject">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="hostName">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="startTime">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="endTime">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="status">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="duringTime">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="confType">
+        <Property/>
+      </PropertyDef>
+      <PropertyDef name="token">
+        <Property/>
+      </PropertyDef>
+    </DataType>
+  </Model>
+  <View>
+    <DataSet id="LiveSumList">
+      <Property name="dataProvider">liveListAction#getLiveSumList</Property>
+      <Property name="dataType">[LiveListEntity]</Property>
+    </DataSet>
+    <FieldSet>
+      <Buttons>
+        <Button>
+          <Property name="caption">安排视频直播</Property>
+        </Button>
+      </Buttons>
+      <Children/>
+    </FieldSet>
+    <FieldSet>
+      <Property name="caption">视频直播列表</Property>
+      <Buttons/>
+      <Children>
+        <DataGrid>
+          <Property name="dataSet">LiveSumList</Property>
+          <Property name="readOnly">true</Property>
+          <DataColumn name="confKey">
+            <Property name="property">confKey</Property>
+            <Property name="caption">会议号</Property>
+          </DataColumn>
+          <DataColumn name="subject">
+            <Property name="property">subject</Property>
+            <Property name="caption">主题</Property>
+          </DataColumn>
+          <DataColumn name="hostName">
+            <Property name="property">hostName</Property>
+            <Property name="caption">主持人</Property>
+          </DataColumn>
+          <DataColumn name="startTime">
+            <Property name="property">startTime</Property>
+            <Property name="caption">开始时间</Property>
+          </DataColumn>
+          <DataColumn name="endTime">
+            <Property name="property">endTime</Property>
+            <Property name="caption">结束时间</Property>
+          </DataColumn>
+          <DataColumn name="status">
+            <Property name="property">status</Property>
+            <Property name="caption">状态</Property>
+          </DataColumn>
+          <DataColumn>
+            <ClientEvent name="onRenderCell">//获取当前行的&#xD;
+var entity = arg.data;&#xD;
+$(arg.dom).empty().xCreate(&#xD;
+			{				&#xD;
+				tagName : &quot;IMG&quot;,&#xD;
+				src : $url(&quot;images/meeting/start.png&quot;),&#xD;
+				style : &quot;margin: 2px;height:20px;width:50px&quot;,&#xD;
+				onclick:function(self,arg){&#xD;
+					//将当前行给LiveEntity&#xD;
+&#xD;
+					var LiveEntity = view.get(&quot;#LiveEntity&quot;);&#xD;
+					LiveEntity.setData(entity);&#xD;
+					var subEntity = LiveEntity.getData();&#xD;
+					subEntity.setState(dorado.Entity.STATE_MODIFIED);							&#xD;
+					//未开始&#xD;
+					if(LiveEntity.getData(&quot;status&quot;)==&quot;未开始&quot;){&#xD;
+						var startAction = view.get(&quot;#startAction&quot;);&#xD;
+						startAction.execute(function(rv){&#xD;
+						if(rv!=&quot;FFAILURE&quot;)&#xD;
+							window.location = &quot;startLive.jsp?rv=&quot;+rv;&#xD;
+						});&#xD;
+					}&#xD;
+					//已开始&#xD;
+					if(LiveEntity.getData(&quot;status&quot;)==&quot;已开始&quot;){&#xD;
+						var joinAction = view.get(&quot;#joinAction&quot;);&#xD;
+						joinAction.execute(function(rv){&#xD;
+						if(rv!=&quot;FFAILURE&quot;)&#xD;
+							window.location = &quot;startLive.jsp?rv=&quot;+rv;&#xD;
+						});&#xD;
+					}				&#xD;
+				}&#xD;
+			});&#xD;
+			&#xD;
+</ClientEvent>
+            <Property name="property">token</Property>
+            <Property name="caption">操作</Property>
+            <Property name="width">80</Property>
+            <Property name="align">center</Property>
+            <Property name="name">操作</Property>
+            <Editor/>
+          </DataColumn>
+        </DataGrid>
+        <DataSet id="LiveEntity">
+          <Property name="dataType">LiveListEntity</Property>
+        </DataSet>
+        <UpdateAction id="startAction">
+          <Property name="dataResolver">liveListAction#startLive</Property>
+          <UpdateItem>
+            <Property name="dataSet">LiveEntity</Property>
+          </UpdateItem>
+        </UpdateAction>
+        <UpdateAction id="joinAction">
+          <Property name="dataResolver">liveListAction#joinLive</Property>
+          <UpdateItem>
+            <Property name="dataSet">LiveEntity</Property>
+          </UpdateItem>
+        </UpdateAction>
+      </Children>
+    </FieldSet>
+  </View>
+</ViewConfig>

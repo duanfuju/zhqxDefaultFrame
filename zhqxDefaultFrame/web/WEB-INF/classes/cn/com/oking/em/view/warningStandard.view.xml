@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab>
+        <Property name="caption">暴雨</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsRainStorm</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction1</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsRainStorm</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsRainStorm">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">暴雨</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction1">
+            <Property name="dataResolver">emAlarmstandardAction#save1</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsRainStorm</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">台风</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsWindStorm</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction2</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsWindStorm</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsWindStorm">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">台风</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction2">
+            <Property name="dataResolver">emAlarmstandardAction#save2</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsWindStorm</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">暴雪</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsSnowStorm</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction3</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsSnowStorm</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsSnowStorm">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">暴雪</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction3">
+            <Property name="dataResolver">emAlarmstandardAction#save3</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsSnowStorm</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">强对流</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsStrongConvective</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction4</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsStrongConvective</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsStrongConvective">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">强对流</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction4">
+            <Property name="dataResolver">emAlarmstandardAction#save4</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsStrongConvective</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">大风</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsBigWind</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction5</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsBigWind</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsBigWind">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">大风</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction5">
+            <Property name="dataResolver">emAlarmstandardAction#save5</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsBigWind</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">寒潮</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsColdWave</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction6</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsColdWave</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsColdWave">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">寒潮</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction6">
+            <Property name="dataResolver">emAlarmstandardAction#save6</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsColdWave</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">高温</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsHighTemperature</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction7</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsHighTemperature</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsHighTemperature">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">高温</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction7">
+            <Property name="dataResolver">emAlarmstandardAction#save7</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsHighTemperature</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">大雾（霾）</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsBigFog</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction8</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsBigFog</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsBigFog">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">大雾</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction8">
+            <Property name="dataResolver">emAlarmstandardAction#save8</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsBigFog</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">连阴雨（雪）</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsContinuousRain</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction9</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsContinuousRain</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsContinuousRain">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">连阴雨</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction9">
+            <Property name="dataResolver">emAlarmstandardAction#save9</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsContinuousRain</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">霜冻</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsFrost</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction10</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsFrost</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsFrost">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">霜冻</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction10">
+            <Property name="dataResolver">emAlarmstandardAction#save10</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsFrost</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab>
+        <Property name="caption">干旱</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsDrought</Property>
+              <Property name="itemCodes">+,-,x</Property>
+            </DataPilot>
+            <Separator/>
+            <ToolBarButton>
+              <Property name="caption">保存</Property>
+              <Property name="action">updateAction11</Property>
+            </ToolBarButton>
+            <Fill/>
+          </ToolBar>
+          <DataGrid>
+            <Property name="dataSet">dsDrought</Property>
+            <Property name="showFilterBar">true</Property>
+            <DataColumn name="disasterlevel">
+              <Property name="property">disasterlevel</Property>
+              <Property name="required">false</Property>
+              <Property name="width">80px</Property>
+              <Property name="align">center</Property>
+            </DataColumn>
+            <DataColumn name="disastername">
+              <Property name="property">disastername</Property>
+              <Property name="align">center</Property>
+              <Property name="width">80px</Property>
+            </DataColumn>
+            <DataColumn name="alarmstandard">
+              <Property name="property">alarmstandard</Property>
+            </DataColumn>
+            <DataColumn name="condition">
+              <Property name="property">condition</Property>
+              <Property name="width">300px</Property>
+            </DataColumn>
+            <DataColumn name="remark">
+              <Property name="property">remark</Property>
+              <Property name="width">100px</Property>
+            </DataColumn>
+          </DataGrid>
+          <DataSet id="dsDrought">
+            <Property name="dataType">[dtEmAlarmstandard]</Property>
+            <Property name="parameter">干旱</Property>
+            <Property name="dataProvider">emAlarmstandardAction#getDataByName</Property>
+          </DataSet>
+          <UpdateAction id="updateAction11">
+            <Property name="dataResolver">emAlarmstandardAction#save11</Property>
+            <Property name="successMessage">更新成功！！！</Property>
+            <Property name="confirmMessage">是否保存结果？</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsDrought</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

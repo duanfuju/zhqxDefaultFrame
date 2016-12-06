@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab id="ctStandardLibrary">
+        <Property name="caption">标准库</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsStandardLibrary</Property>
+              <Property name="itemCodes">pages,-,x</Property>
+            </DataPilot>
+            <ToolBarButton id="tbAdd1">
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+              <Property name="caption">添加</Property>
+            </ToolBarButton>
+            <ToolBarButton id="tbPreUpdate1">
+              <Property name="icon">url(>skin>common/icons.gif) -200px -0px</Property>
+              <Property name="caption">修改</Property>
+            </ToolBarButton>
+            <ToolBarButton id="tbUpdate1">
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+              <Property name="caption">保存</Property>
+            </ToolBarButton>
+          </ToolBar>
+          <DataSet id="dsStandardLibrary">
+            <Property name="dataType">[dtMnylProblemsStandardLibrary]</Property>
+            <Property name="pageSize">12</Property>
+            <Property name="readOnly">false</Property>
+            <Property name="dataProvider">mnylProblemsStandardLibraryAction#getAll</Property>
+          </DataSet>
+          <DataGrid id="dgStandardLibrary">
+            <Property name="dataSet">dsStandardLibrary</Property>
+            <Property name="readOnly">true</Property>
+            <DataColumn name="ptype">
+              <Property name="property">ptype</Property>
+            </DataColumn>
+            <DataColumn name="title">
+              <Property name="property">title</Property>
+            </DataColumn>
+            <DataColumn name="problem">
+              <Property name="property">problem</Property>
+            </DataColumn>
+            <DataColumn name="openTime">
+              <Property name="property">openTime</Property>
+            </DataColumn>
+            <DataColumn name="caselibraryId">
+              <Property name="property">caselibraryId</Property>
+            </DataColumn>
+            <DataColumn name="drillMode">
+              <Property name="property">drillMode</Property>
+            </DataColumn>
+            <DataColumn name="roleSelection">
+              <Property name="property">roleSelection</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+            </DataColumn>
+            <DataColumn name="zhCase">
+              <Property name="property">zhCase</Property>
+            </DataColumn>
+          </DataGrid>
+          <UpdateAction id="updateAction1">
+            <Property name="confirmMessage">是否保存结果</Property>
+            <Property name="executingMessage">被保存中</Property>
+            <Property name="successMessage">保存成功</Property>
+            <Property name="dataResolver">mnylProblemsStandardLibraryAction#saveAll</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsStandardLibrary</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctAnswer">
+        <Property name="caption">答案</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="itemCodes">pages,-,x</Property>
+              <Property name="dataSet">dsAnswer</Property>
+            </DataPilot>
+            <ToolBarButton id="tbAdd2">
+              <Property name="caption">添加</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -120px -0px</Property>
+            </ToolBarButton>
+            <ToolBarButton id="tbUpdate2">
+              <Property name="caption">保存</Property>
+              <Property name="icon">url(>skin>common/icons.gif) -140px -20px</Property>
+              <Property name="action">updateAction2</Property>
+            </ToolBarButton>
+          </ToolBar>
+          <DataSet id="dsAnswer">
+            <Property name="pageSize">12</Property>
+            <Property name="dataType">[dtMnylAnswer]</Property>
+            <Property name="loadMode">manual</Property>
+            <Property name="dataProvider">mnylAnswerAction#findData</Property>
+          </DataSet>
+          <DataGrid id="dgAnswer">
+            <Property name="dataSet">dsAnswer</Property>
+            <DataColumn name="optionText">
+              <Property name="property">optionText</Property>
+            </DataColumn>
+            <DataColumn name="optionIstrue">
+              <Property name="property">optionIstrue</Property>
+            </DataColumn>
+            <DataColumn name="answerId">
+              <Property name="property">answerId</Property>
+            </DataColumn>
+            <DataColumn name="optionType">
+              <Property name="property">optionType</Property>
+            </DataColumn>
+          </DataGrid>
+          <UpdateAction id="updateAction2">
+            <Property name="dataResolver">mnylAnswerAction#saveAll</Property>
+            <Property name="confirmMessage">是否保存结果</Property>
+            <Property name="executingMessage">被保存中</Property>
+            <Property name="successMessage">保存成功</Property>
+            <UpdateItem>
+              <Property name="dataSet">dsAnswer</Property>
+            </UpdateItem>
+          </UpdateAction>
+        </Container>
+      </ControlTab>
+    </TabControl>
+  </View>
+</ViewConfig>

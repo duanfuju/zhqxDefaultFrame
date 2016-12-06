@@ -1,0 +1,29 @@
+package cn.com.oking.fzjz.action;
+
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.bstek.dorado.annotation.DataResolver;
+
+import cn.com.oking.fzjz.dao.MnylResultrecordDao;
+import cn.com.oking.fzjz.entity.MnylResultrecord;
+import cn.com.oking.util.KeyUtil;
+import cn.com.oking.util.StringUtil;
+
+@Component
+public class MnylResultrecordAction {
+	@Resource
+	private MnylResultrecordDao dao;
+	
+	@DataResolver
+	@Transactional
+	public void save(MnylResultrecord info){
+		if (!StringUtil.isNotEmpty(info.getId())) {
+			info.setId(KeyUtil.getKey());
+		}
+		dao.save(info);
+	}
+}

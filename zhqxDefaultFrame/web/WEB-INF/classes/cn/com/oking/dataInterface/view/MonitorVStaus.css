@@ -1,0 +1,23 @@
+#info_main{width:800px;height:100%;margin: 0 auto;margin-top:30px;}
+
+#info_head{color:red;text-align:center;font-size:32px;font-weight: blod;margin:0;}
+
+#info_time{font-size:12px;text-align:center; margin:0;}
+
+#info_com {width:100%; font-size:14px;}
+#info_com table{ width:100%;}
+
+#info_dept{text-align:left;}
+
+#info_by{text-align:right;}
+#info_span{size:15px;}
+
+#info_content{font-size:14px;}
+ 
+#info_control{width:100%;}
+#info_control tr td{text-align:center;background-color:white;line-height:24px;}
+#info_control_title td{background-color:blue;}
+
+.cred{color:red;}
+.cgreen{color:green;}
+a:link{ text-decoration:none;}

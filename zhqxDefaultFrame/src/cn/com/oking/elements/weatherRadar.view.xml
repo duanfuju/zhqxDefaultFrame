@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Container layout="hbox align:center;stretch:true">
+      <Button id="btnHefeiStation">
+        <Property name="caption">合肥站</Property>
+      </Button>
+      <Button id="btnAlert">
+        <Property name="caption">江苏省警戒区雷达拼图</Property>
+      </Button>
+      <Button id="btnNanjingStation">
+        <Property name="caption">南京站</Property>
+      </Button>
+      <Button id="btnFine">
+        <Property name="caption">精细化雷达</Property>
+      </Button>
+    </Container>
+    <IFrame id="ifShow">
+      <Property name="path">NanjingStation.jsp</Property>
+    </IFrame>
+  </View>
+</ViewConfig>

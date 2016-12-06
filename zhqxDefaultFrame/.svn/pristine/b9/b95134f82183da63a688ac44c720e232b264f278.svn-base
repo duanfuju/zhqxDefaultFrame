@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <HtmlContainer>
+      <Property name="style">
+        <Property name="background-image">url(${configure.getString(&quot;bdf2.mainFrameBanner&quot;)})</Property>
+        <Property name="background-repeat"> no-repeat</Property>
+        <Property name="background-color">${configure.getString(&quot;bdf2.mainFrameBackgroundColor&quot;)}</Property>
+      </Property>
+      <Property name="height">79</Property>
+      <Property name="width">100%</Property>
+      <Property name="userData"></Property>
+      <Container layout="hbox align:top" listener="spring:bdf2.frameTopListener#onInit" layoutConstraint="right">
+        <Property name="contentOverflow">hidden</Property>
+        <IFrame/>
+      </Container>
+    </HtmlContainer>
+  </View>
+</ViewConfig>

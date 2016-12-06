@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <DataSet id="dsMonitorSysList">
+      <Property name="dataType">[MonitorSysList]</Property>
+      <Property name="dataProvider">sysListAction#method</Property>
+      <Property name="pageSize">10</Property>
+    </DataSet>
+    <ToolBar>
+      <DataPilot>
+        <Property name="itemCodes">pages,+,-,x</Property>
+        <Property name="dataSet">dsMonitorSysList</Property>
+      </DataPilot>
+      <ToolBarButton>
+        <Property name="caption">保存</Property>
+        <Property name="action">actionUpdate1</Property>
+        <Property name="icon"> url(>skin>common/icons.gif) -140px -20px</Property>
+      </ToolBarButton>
+    </ToolBar>
+    <DataGrid>
+      <Property name="dataSet">dsMonitorSysList</Property>
+      <Property name="showFilterBar">true</Property>
+      <DataColumn name="dataid">
+        <Property name="property">dataid</Property>
+        <Property name="caption">系统ID</Property>
+        <Property name="align">center</Property>
+        <Property name="width">60px</Property>
+      </DataColumn>
+      <DataColumn name="dataname">
+        <Property name="property">dataname</Property>
+        <Property name="caption">系统名称</Property>
+        <Property name="align">center</Property>
+      </DataColumn>
+      <DataColumn name="ipaddress">
+        <Property name="property">ipaddress</Property>
+        <Property name="caption">服务器地址</Property>
+        <Property name="align">center</Property>
+        <Property name="width">250px</Property>
+      </DataColumn>
+      <DataColumn name="port">
+        <Property name="property">port</Property>
+        <Property name="caption">端口</Property>
+        <Property name="align">center</Property>
+        <Property name="width">90px</Property>
+      </DataColumn>
+      <DataColumn name="loginurl">
+        <Property name="property">loginurl</Property>
+        <Property name="caption">访问地址</Property>
+        <Property name="align">center</Property>
+        <Property name="width">250px</Property>
+      </DataColumn>
+      <DataColumn name="period">
+        <Property name="property">period</Property>
+        <Property name="caption">监控频率</Property>
+        <Property name="align">center</Property>
+      </DataColumn>
+      <DataColumn name="overtime">
+        <Property name="property">overtime</Property>
+        <Property name="caption">超时预警(分钟)</Property>
+        <Property name="align">center</Property>
+      </DataColumn>
+      <DataColumn name="lastdate">
+        <Property name="property">lastdate</Property>
+        <Property name="caption">最后正常运行时间</Property>
+        <Property name="align">center</Property>
+      </DataColumn>
+      <DataColumn name="status">
+        <Property name="property">status</Property>
+        <Property name="caption">状态</Property>
+        <Property name="align">center</Property>
+        <Property name="width">100px</Property>
+        <Property name="trigger">listDropDown1</Property>
+      </DataColumn>
+    </DataGrid>
+    <UpdateAction id="actionUpdate1">
+      <Property name="executingMessage">正在保存。。。。</Property>
+      <Property name="successMessage">保存成功。。。。</Property>
+      <Property name="dataResolver">sysListAction#saveAll</Property>
+      <UpdateItem>
+        <Property name="dataSet">dsMonitorSysList</Property>
+      </UpdateItem>
+    </UpdateAction>
+    <ListDropDown id="listDropDown1">
+      <Property name="items">有效,无效</Property>
+    </ListDropDown>
+  </View>
+</ViewConfig>

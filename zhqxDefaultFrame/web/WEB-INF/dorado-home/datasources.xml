@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bdf="http://www.bstek.com/bdf/schema"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.bstek.com/bdf/schema
+	http://www.bstek.com/dorado/schema/bdf2.0.xsd">
+	
+	
+	
+	<bean id="bdf2.jdbcTransactionManager"
+		class="com.bstek.bdf2.core.orm.transaction.JdbcTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven proxy-target-class="true"
+		transaction-manager="bdf2.jdbcTransactionManager" />
+	
+	
+	
+	
+		
+		
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="username" value="zhqx" />
+		<property name="password" value="123456" />
+		<property name="minIdle" value="10" />
+		<property name="maxActive" value="20" />
+		<property name="maxWait" value="1000" />
+		<property name="removeAbandonedTimeout" value="60" />
+		<property name="removeAbandoned" value="true" />
+		<property name="logAbandoned" value="true" />
+	</bean>
+	
+	<bean parent="bdf2.dataSourceRegister">
+		<property name="dataSource" ref="dataSource" />
+		<property name="name" value="oracleLocal" />
+		<property name="asDefault" value="true" />
+	</bean>
+	
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	
+	
+	
+	<bean id="dataSourceSpring"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
+		<property name="username" value="zhqx" />
+		<property name="password" value="123456" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		abstract="false" lazy-init="false" autowire="default">
+		<property name="dataSource">
+			<ref bean="dataSourceSpring" />
+		</property>
+	</bean>
+	
+	
+	<bean id="dataSourceSpring_Pub_svc"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
+		<property name="username" value="pub_svc" />
+		<property name="password" value="pub_svc" />
+	</bean>
+
+	<bean id="jdbcPub_svc" class="org.springframework.jdbc.core.JdbcTemplate"
+		abstract="false" lazy-init="false" autowire="default">
+		<property name="dataSource">
+			<ref bean="dataSourceSpring_Pub_svc" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	<bean id="dataSourceSpring_sqpt"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
+		<property name="username" value="sqpt" />
+		<property name="password" value="123456" />
+	</bean>
+
+	<bean id="jdbcSqpt" class="org.springframework.jdbc.core.JdbcTemplate"
+		abstract="false" lazy-init="false" autowire="default">
+		<property name="dataSource">
+			<ref bean="dataSourceSpring_sqpt" />
+		</property>
+	</bean>
+	
+	
+	<bean id="dataSourceSpring_phone"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
+		<property name="username" value="phone" />
+		<property name="password" value="123456" />
+	</bean>
+
+	<bean id="jdbcPhone" class="org.springframework.jdbc.core.JdbcTemplate"
+		abstract="false" lazy-init="false" autowire="default">
+		<property name="dataSource">
+			<ref bean="dataSourceSpring_phone" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<bean id="dataSourceSpring_sqlserver"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.jdbc.sqlserver.SQLServerDriver" />
+		<property name="url" value="jdbc:sqlserver://192.168.0.7:1433;databaseName=CQ_Res" />
+		<property name="username" value="sa" />
+		<property name="password" value="123456" />
+	</bean>
+
+	<bean id="jdbcsqlserver" class="org.springframework.jdbc.core.JdbcTemplate"
+		abstract="false" lazy-init="false" autowire="default">
+		<property name="dataSource">
+			<ref bean="dataSourceSpring_sqlserver" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<bean id="jgswfwzx.TransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="jgswfwzx.NamedParameterJdbcTemplate"
+		class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+		<constructor-arg name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="jgswfwzx.jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bdf:anonymous-url urlPattern="/index.jsp"/>
+	<bdf:anonymous-url urlPattern="/images/*.*"/>
+	<bdf:anonymous-url urlPattern="/favicon.ico"/>
+	<bdf:anonymous-url urlPattern="/textConn.jsp"/>
+	
+	<bdf:anonymous-url urlPattern="/Login.jsp"/>
+	<bdf:anonymous-url urlPattern="/Login1.jsp"/>
+	
+	
+	
+	<bdf:anonymous-url urlPattern="/showPic.jsp"/>
+	<bdf:anonymous-url urlPattern="/waterTable.jsp"/>
+	
+	
+	
+	<bdf:anonymous-url urlPattern="/cn.com.oking.*.*"/>
+	<bdf:anonymous-url urlPattern="/em/*.*"/>
+	<bdf:anonymous-url urlPattern="/em/map/*.*"/>
+	<bdf:anonymous-url urlPattern="/nrfb/*.*"/>
+	<bdf:anonymous-url urlPattern="/css/*.*"/>
+	<bdf:anonymous-url urlPattern="/js/*.*"/>
+	<bdf:anonymous-url urlPattern="/echarts/*.*"/>
+	
+	
+	<bdf:anonymous-url urlPattern="/zqsc/*.*"/>
+	<bdf:anonymous-url urlPattern="/pageoffice/pdf/*.*"/>
+	<bdf:anonymous-url urlPattern="/em/commandAssistant/*.*"/>
+	
+	<bdf:anonymous-url urlPattern="/images/login/login-bg1.png"/>
+	<bdf:anonymous-url urlPattern="/images/login/login-bg2.png"/>
+	<bdf:anonymous-url urlPattern="/images/login/login-bg3.png"/>
+	<bdf:anonymous-url urlPattern="/images/login/login-bg4.png"/>
+	<bdf:anonymous-url urlPattern="/images/logo/logo.png"/>
+</beans>

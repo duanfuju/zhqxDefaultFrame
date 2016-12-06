@@ -1,0 +1,39 @@
+/* ul li以横排显示 */
+
+
+ul{
+	 list-style:none;
+}
+/* 所有class为menu的div中的ul样式 */
+div.menu ul
+{
+    list-style:none; /* 去掉ul前面的符号 */
+    margin: 0px; /* 与外界元素的距离为0 */
+    padding: 0px; /* 与内部元素的距离为0 */
+}
+/* 所有class为menu的div中的ul中的li样式 */
+div.menu ul li
+{
+    float:left; /* 向左漂移，将竖排变为横排 */
+    width: 60px;
+    text-align: center;
+}
+/* 所有class为menu的div中的ul中的a样式(包括尚未点击的和点击过的样式) */
+div.menu ul li a, div.menu ul li a:visited
+{
+    text-decoration: none; /* 不显示超链接下划线 */
+}
+table.list
+{
+	width: 70%;
+}
+table.list td
+{
+	text-align: center;
+	font-size: 16px
+}
+div.menu ul li.page_li
+{
+	text-align:center;
+	width: 120px	
+}

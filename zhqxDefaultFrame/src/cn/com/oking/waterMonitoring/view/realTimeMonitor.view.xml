@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Property name="javaScriptFile">/js/echarts-all.js</Property>
+    <DataSet id="dsWaterData">
+      <Property name="dataType">[dtWaterData]</Property>
+      <Property name="dataProvider">waterDataAction#getData</Property>
+    </DataSet>
+    <DataSetDropDown id="dataSetDropDown1">
+      <ClientEvent name="onValueSelect">arg.selectedValue=date(arg.selectedValue);</ClientEvent>
+      <Property name="dataSet">dsWaterPicture</Property>
+      <Property name="property">filetime</Property>
+      <Property name="displayProperty">filetime</Property>
+    </DataSetDropDown>
+    <DataSet id="dsConditions"/>
+    <DataSet id="dsWaterStationManager">
+      <Property name="dataProvider">waterStationManagerAction#findAll</Property>
+      <Property name="dataType">[dtWaterStationManager]</Property>
+    </DataSet>
+    <SplitPanel>
+      <Property name="position">20%</Property>
+      <MainControl>
+        <TabControl>
+          <ControlTab>
+            <Property name="caption">实时监测</Property>
+            <SplitPanel>
+              <Property name="position">10%</Property>
+              <Property name="direction">top</Property>
+              <MainControl>
+                <SplitPanel>
+                  <Property name="direction">left</Property>
+                  <Property name="position">50%</Property>
+                  <MainControl>
+                    <HtmlContainer id="hcDashboard" layout="hbox stretch:true;padding:0">
+                      <Property name="content">&lt;div id=&quot;icon&quot; style=&quot;height:60%;width:70%&quot;>&lt;/div>&#xD;
+&#xD;
+</Property>
+                    </HtmlContainer>
+                  </MainControl>
+                  <SideControl>
+                    <Container>
+                      <DataSet id="dsWaterWithSS">
+                        <Property name="dataProvider">waterStationManagerAction#findByIdWithSS</Property>
+                        <Property name="loadMode">lazy</Property>
+                      </DataSet>
+                      <DataGrid id="dgWaterWithSS">
+                        <Property name="dataSet">dsWaterWithSS</Property>
+                        <Property name="readOnly">true</Property>
+                        <Property name="height">60%</Property>
+                        <DataColumn>
+                          <Property name="property">tm</Property>
+                          <Property name="name">时间</Property>
+                          <Editor/>
+                        </DataColumn>
+                        <DataColumn>
+                          <Property name="property">rz</Property>
+                          <Property name="name">积水深度(cm)</Property>
+                          <Editor/>
+                        </DataColumn>
+                      </DataGrid>
+                    </Container>
+                  </SideControl>
+                </SplitPanel>
+              </MainControl>
+              <SideControl>
+                <HtmlContainer id="html1"/>
+              </SideControl>
+            </SplitPanel>
+          </ControlTab>
+          <ControlTab>
+            <Property name="caption">监控图像</Property>
+            <SplitPanel>
+              <Property name="position">10%</Property>
+              <Property name="direction">top</Property>
+              <MainControl>
+                <SplitPanel>
+                  <Property name="position">30%</Property>
+                  <MainControl>
+                    <IFrame id="ifShowPic"/>
+                  </MainControl>
+                  <SideControl>
+                    <Container>
+                      <DataGrid id="dgPicWithSS">
+                        <Property name="dataSet">dsPicWithSS</Property>
+                        <Property name="readOnly">true</Property>
+                        <DataColumn>
+                          <Property name="property">DT</Property>
+                          <Property name="name">时间</Property>
+                          <Editor/>
+                        </DataColumn>
+                        <DataColumn>
+                          <Property name="property">Scanid</Property>
+                          <Property name="name">设备编号</Property>
+                          <Editor/>
+                        </DataColumn>
+                      </DataGrid>
+                      <DataSet id="dsPicWithSS">
+                        <Property name="dataProvider">waterStationManagerAction#findPicWithSS</Property>
+                        <Property name="loadMode">preload</Property>
+                      </DataSet>
+                    </Container>
+                  </SideControl>
+                </SplitPanel>
+              </MainControl>
+              <SideControl>
+                <HtmlContainer id="html2"/>
+              </SideControl>
+            </SplitPanel>
+          </ControlTab>
+          <ControlTab>
+            <Property name="caption">历史记录</Property>
+            <SplitPanel>
+              <Property name="position">10%</Property>
+              <Property name="direction">top</Property>
+              <MainControl>
+                <SplitPanel>
+                  <Property name="position">55%</Property>
+                  <Property name="direction">bottom</Property>
+                  <MainControl>
+                    <IFrame id="ifWaterShow"/>
+                  </MainControl>
+                  <SideControl>
+                    <Container>
+                      <DataSet id="dsWaterDatashow">
+                        <Property name="dataProvider">waterDataAction#findByStartDateAndEndDate</Property>
+                        <Property name="loadMode">manual</Property>
+                      </DataSet>
+                      <Container layout="hbox align:center">
+                        <Property name="height">30px</Property>
+                        <Property name="style">
+                          <Property name="background-color">#ededed</Property>
+                        </Property>
+                        <Label layoutConstraint="align:center">
+                          <Property name="text">开始时间</Property>
+                          <Property name="style">
+                            <Property name="line-height">30px</Property>
+                          </Property>
+                          <Property name="height">30px</Property>
+                        </Label>
+                        <TextEditor id="txtStart" layoutConstraint="align:center">
+                          <Property name="dataType">Date</Property>
+                        </TextEditor>
+                        <Label layoutConstraint="align:center">
+                          <Property name="text">结束时间</Property>
+                          <Property name="style">
+                            <Property name="line-height">30px</Property>
+                          </Property>
+                          <Property name="height">30px</Property>
+                        </Label>
+                        <TextEditor id="txtEnd" layoutConstraint="align:center">
+                          <Property name="dataType">Date</Property>
+                        </TextEditor>
+                        <SimpleIconButton id="btnLikeSearch">
+                          <Property name="icon">url(>skin>common/icons.gif) -40px -100px</Property>
+                        </SimpleIconButton>
+                      </Container>
+                      <DataGrid id="dgShow">
+                        <Property name="dataSet">dsWaterDatashow</Property>
+                        <Property name="height">80%</Property>
+                        <Property name="readOnly">true</Property>
+                        <DataColumn>
+                          <Property name="property">tm</Property>
+                          <Property name="align">center</Property>
+                          <Property name="name">tm</Property>
+                          <Property name="caption">日期</Property>
+                        </DataColumn>
+                        <DataColumn>
+                          <Property name="property">rz</Property>
+                          <Property name="align">center</Property>
+                          <Property name="caption">深度(CM)</Property>
+                          <Property name="name">rz</Property>
+                        </DataColumn>
+                      </DataGrid>
+                    </Container>
+                  </SideControl>
+                </SplitPanel>
+              </MainControl>
+              <SideControl>
+                <HtmlContainer id="html3"/>
+              </SideControl>
+            </SplitPanel>
+          </ControlTab>
+        </TabControl>
+      </MainControl>
+      <SideControl>
+        <DataGrid id="dgSelectStation">
+          <Property name="dataSet">dsWaterStationManager</Property>
+          <Property name="readOnly">true</Property>
+          <DataColumn name="stationNum">
+            <Property name="property">stationNum</Property>
+            <Property name="width">60px</Property>
+            <Property name="align">center</Property>
+          </DataColumn>
+          <DataColumn name="place">
+            <Property name="property">place</Property>
+          </DataColumn>
+        </DataGrid>
+      </SideControl>
+    </SplitPanel>
+  </View>
+</ViewConfig>

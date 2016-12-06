@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>自然地理信息</title>
+<script type="text/javascript" src="js/jQuery1.7.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>		
+<script type="text/javascript" src="js/custominput.js"></script>	
+<script type="text/javascript">
+$(function(){
+	
+	$('input').customInput();
+	
+	$('.toggle').each(function(){
+		$('div:first',this).addClass('first');
+		$('div:last',this).addClass('last');	
+	}); 
+});
+</script>	
+<script type="text/javascript">
+$(document).ready(function(){
+	var $tab_li = $('#tab ul li');
+	$tab_li.click(function(){
+		$(this).addClass('selected').siblings().removeClass('selected');
+		var index = $tab_li.index(this);
+		$('div.tab_box > div').eq(index).show().siblings().hide();
+	});	
+	$('#lifirst').addClass('selected');
+	$('div.tab_box > div').eq(0).show().siblings().hide();
+});
+</script>
+<style>
+	a{
+text-decoration:none;
+}
+a:link {color: white;} /* 未访问的链接 */
+a:visited {} /* 已访问的链接 */
+a:hover{} /* 鼠标在链接上 */ 
+a:active {color:white;}
+ul{
+margin:0 auto; }
+	li{
+	float:left;
+	
+	list-style-type:none;
+	  
+	 }
+	 .bf li{
+	 height:40px; line-height:40px;
+	 	margin-left:15px;
+	 
+	 }
+	 
+	 .tab_menu{width:100%;float:left; margin-left:-30px; }
+ .tab_menu li{float:left;width:102px;height:35px;line-height:40px;cursor:pointer;text-align:center;margin:0 0 0 -10px; border-bottom:0px solid #357efb;
+ background-image:url(images/ss2.png);
+
+ color:white; font-size:15px;
+}
+.tab_menu li a{
+color:white;}
+ .tab_menu .selected{cursor:pointer;
+ background-image:url(images/ss1.png);
+ color:black;}
+ .tab_menu .selected a{
+ color:black;}
+.hide{display:none;}
+.tab_box div{padding:10px;} 
+	 }
+</style>
+</head>
+
+<body style="text-align:center">
+	<div style="width:1080px;  margin:0 auto;">
+			<div style="width:100%; height:35px;" id="tab">
+				<ul class="tab_menu">
+				  <li id="lifirst"><a href="diligaishu.html" target="hla">地理概况</a></li>
+					<li><a target="hla" href="qihougaishu.html">气候概况</a></li>
+					<li><a href="ziranshentai.html" target="hla">自然生态</a></li>
+				</ul>
+			</div>
+			<div style="border:1px solid #CCCCCC; width:100%; height:615px;" >
+				<iframe src="diligaishu.html" name="hla" width="100%" height="100%" scrolling="no" frameborder="0"></iframe>
+			</div>
+	
+	
+	</div>
+</body>
+</html>

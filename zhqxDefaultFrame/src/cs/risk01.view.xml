@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <Property name="title">dorado7 快速入门</Property>
+    <SplitPanel>
+      <Property name="position">200</Property>
+      <MainControl>
+        <TabControl id="tabControl">
+          <Property name="style">
+            <Property name="background-color">#eff8ff</Property>
+          </Property>
+        </TabControl>
+      </MainControl>
+      <SideControl>
+        <Accordion>
+          <Section>
+            <Property name="caption">风险管理</Property>
+            <Property name="icon"> url(>skin>common/icons.gif) -160px -120px</Property>
+            <Tree>
+              <ClientEvent name="onDataRowClick">var tab = {};&#xD;
+with(self.get(&quot;currentNode&quot;)){&#xD;
+	tab.$type = &quot;IFrame&quot;;&#xD;
+	tab.caption = get(&quot;label&quot;);&#xD;
+	tab.path = get(&quot;userData&quot;);&#xD;
+	tab.name = get(&quot;label&quot;);&#xD;
+	tab.closeable = true;&#xD;
+}&#xD;
+if(tab.path){&#xD;
+	with(this.get(&quot;#tabControl&quot;)){&#xD;
+		var currentTab = getTab(tab.name);&#xD;
+		if(currentTab){&#xD;
+			tab = currentTab;&#xD;
+		}&#xD;
+		else{&#xD;
+			tab = addTab(tab);&#xD;
+		}&#xD;
+		set(&quot;currentTab&quot;,tab);&#xD;
+	}&#xD;
+}&#xD;
+</ClientEvent>
+              <Property name="height">70</Property>
+              <Property name="showLines">false</Property>
+              <Node>
+                <Property name="label">自然地理信息</Property>
+                <Node>
+                  <Property name="label">地理概况</Property>
+                  <Property name="icon"> url(>skin>common/icons.gif) -260px -20px</Property>
+                  <Property name="userData">http://218.2.99.66/pkqx/dorado/newbumencs/xiangxi/dlgkwz.html</Property>
+                  <Property name="expandedIcon"> url(>skin>common/icons.gif) -0px -300px</Property>
+                </Node>
+                <Node>
+                  <Property name="label">气候概况</Property>
+                  <Property name="icon"> url(>skin>common/icons.gif) -260px -20px</Property>
+                  <Property name="userData">http://218.2.99.66/pkqx/dorado/newbumencs/xiangxi/gk.html</Property>
+                  <Property name="expandedIcon"> url(>skin>common/icons.gif) -0px -300px</Property>
+                </Node>
+                <Node>
+                  <Property name="icon"> url(>skin>common/icons.gif) -260px -20px</Property>
+                  <Property name="label">自然生态</Property>
+                  <Property name="userData">http://218.2.99.66/pkqx/dorado/newbumencs/xiangxi/zrst.html</Property>
+                  <Property name="expandedIcon"> url(>skin>common/icons.gif) -0px -300px</Property>
+                </Node>
+              </Node>
+            </Tree>
+          </Section>
+        </Accordion>
+      </SideControl>
+    </SplitPanel>
+  </View>
+</ViewConfig>

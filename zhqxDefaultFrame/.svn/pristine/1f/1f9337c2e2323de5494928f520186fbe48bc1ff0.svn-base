@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model/>
+  <View>
+    <TabControl id="tcShow">
+      <ControlTab>
+        <Property name="caption">演练记录</Property>
+        <Container>
+          <ToolBar>
+            <DataPilot>
+              <Property name="dataSet">dsAllBaseInfo</Property>
+              <Property name="itemCodes">pages</Property>
+            </DataPilot>
+          </ToolBar>
+          <DataSet id="dsAllBaseInfo">
+            <Property name="dataType">[dtMnylBaseinfo]</Property>
+            <Property name="dataProvider">mnylBaseinfoAction#getAll</Property>
+            <Property name="pageSize">12</Property>
+          </DataSet>
+          <DataGrid id="dgAllBaseInfo">
+            <Property name="dataSet">dsAllBaseInfo</Property>
+            <Property name="readOnly">true</Property>
+            <DataColumn name="drillMode">
+              <Property name="property">drillMode</Property>
+            </DataColumn>
+            <DataColumn name="roleSelection">
+              <Property name="property">roleSelection</Property>
+            </DataColumn>
+            <DataColumn name="dept">
+              <Property name="property">dept</Property>
+            </DataColumn>
+            <DataColumn name="zhCase">
+              <Property name="property">zhCase</Property>
+            </DataColumn>
+            <DataColumn name="zhLx">
+              <Property name="property">zhLx</Property>
+            </DataColumn>
+            <DataColumn name="ylStartTime">
+              <Property name="property">ylStartTime</Property>
+            </DataColumn>
+            <DataColumn name="ylEndTime">
+              <Property name="property">ylEndTime</Property>
+            </DataColumn>
+            <DataColumn name="ylPerson">
+              <Property name="property">ylPerson</Property>
+            </DataColumn>
+            <DataColumn name="ylStatus">
+              <Property name="property">ylStatus</Property>
+            </DataColumn>
+          </DataGrid>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctFirst">
+        <Property name="caption">模拟演练</Property>
+        <Container>
+          <ToolBar>
+            <ToolBarButton id="tbbAddSingle">
+              <Property name="caption">开始新的演练</Property>
+            </ToolBarButton>
+            <Button id="btnStart">
+              <Property name="caption">启动演练</Property>
+            </Button>
+            <Button id="btnEnd">
+              <Property name="caption">结束演练</Property>
+            </Button>
+            <ToolBarButton id="tbbLook">
+              <Property name="caption">查看流程</Property>
+            </ToolBarButton>
+          </ToolBar>
+          <SplitPanel>
+            <Property name="position">20%</Property>
+            <Property name="direction">right</Property>
+            <MainControl>
+              <Container>
+                <GroupBox id="gbYl">
+                  <Property name="caption">演练设置</Property>
+                  <Buttons/>
+                  <Children>
+                    <Container>
+                      <DataSet id="dsBaseInfo">
+                        <Property name="dataType">dtMnylBaseinfo</Property>
+                        <Property name="dataProvider">mnylBaseinfoAction#findById</Property>
+                      </DataSet>
+                      <AutoForm>
+                        <Property name="dataSet">dsBaseInfo</Property>
+                        <Property name="cols">*,*</Property>
+                        <Property name="labelWidth">120</Property>
+                        <AutoFormElement>
+                          <Property name="name">drillMode</Property>
+                          <Property name="property">drillMode</Property>
+                          <Property name="trigger">lddMode</Property>
+                          <Editor>
+                            <TextEditor id="txtdrillMode"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">roleSelection</Property>
+                          <Property name="property">roleSelection</Property>
+                          <Property name="trigger">dsddRole</Property>
+                          <Editor>
+                            <TextEditor id="txtroleSelection"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">dept</Property>
+                          <Property name="property">dept</Property>
+                          <Property name="trigger">dsddDept</Property>
+                          <Editor>
+                            <TextEditor id="txtdept">
+                              <Property name="readOnly">true</Property>
+                            </TextEditor>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">zhCase</Property>
+                          <Property name="property">zhCase</Property>
+                          <Editor>
+                            <TextEditor id="txtSelection"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">zhLx</Property>
+                          <Property name="property">zhLx</Property>
+                          <Property name="readOnly">true</Property>
+                          <Editor>
+                            <TextEditor id="txtZhlx"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">zhStartTime</Property>
+                          <Property name="property">zhStartTime</Property>
+                          <Property name="readOnly">true</Property>
+                          <Editor>
+                            <TextEditor id="txtZhStartTime"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">zhEndTime</Property>
+                          <Property name="property">zhEndTime</Property>
+                          <Property name="readOnly">true</Property>
+                          <Editor>
+                            <TextEditor id="txtZhEndTime"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">zhContinuedTime</Property>
+                          <Property name="property">zhContinuedTime</Property>
+                          <Property name="readOnly">true</Property>
+                          <Editor>
+                            <TextEditor id="txtZhContinuedTime"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">ylStartTime</Property>
+                          <Property name="property">ylStartTime</Property>
+                          <Property name="readOnly">true</Property>
+                          <Editor>
+                            <TextEditor id="txtylStartTime"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">ylEndTime</Property>
+                          <Property name="property">ylEndTime</Property>
+                          <Property name="readOnly">true</Property>
+                          <Editor>
+                            <TextEditor id="txtylEndTime"/>
+                          </Editor>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">ylPerson</Property>
+                          <Property name="property">ylPerson</Property>
+                          <Editor/>
+                        </AutoFormElement>
+                        <AutoFormElement>
+                          <Property name="name">ylStatus</Property>
+                          <Property name="property">ylStatus</Property>
+                          <Property name="readOnly">true</Property>
+                          <Editor>
+                            <TextEditor id="txtylStatus"/>
+                          </Editor>
+                        </AutoFormElement>
+                      </AutoForm>
+                      <UpdateAction id="saveBaseInfoAction">
+                        <Property name="executingMessage">保存中</Property>
+                        <Property name="confirmMessage">是否确认当前操作</Property>
+                        <Property name="successMessage">操作成功</Property>
+                        <Property name="dataResolver">mnylBaseinfoAction#save</Property>
+                        <UpdateItem>
+                          <Property name="dataSet">dsBaseInfo</Property>
+                        </UpdateItem>
+                      </UpdateAction>
+                      <Container>
+                        <DataSet id="dsDept">
+                          <Property name="dataProvider">mnylDeptdefinitionAction#getAll</Property>
+                          <Property name="dataType">[dtMnylDeptdefinition]</Property>
+                        </DataSet>
+                        <DataSetDropDown id="dsddDept">
+                          <Property name="dataSet">dsDept</Property>
+                          <Property name="property">deptName</Property>
+                        </DataSetDropDown>
+                        <DataSet id="dsRole">
+                          <Property name="dataProvider">mnylRoledefinitionAction#getAll</Property>
+                          <Property name="dataType">[dtMnylRoledefinition]</Property>
+                        </DataSet>
+                        <DataSetDropDown id="dsddRole">
+                          <Property name="dataSet">dsRole</Property>
+                          <Property name="property">roleName</Property>
+                        </DataSetDropDown>
+                        <ListDropDown id="lddMode">
+                          <Property name="items">单人演练,联动演练</Property>
+                        </ListDropDown>
+                      </Container>
+                    </Container>
+                  </Children>
+                </GroupBox>
+                <IFrame id="iframeProblem"/>
+              </Container>
+            </MainControl>
+            <SideControl>
+              <GroupBox>
+                <Property name="caption">常用操作</Property>
+                <Buttons/>
+                <Children>
+                  <IFrame id="ifShow">
+                    <Property name="style">
+                      <Property name="frameborder">no</Property>
+                      <Property name="border">0</Property>
+                    </Property>
+                  </IFrame>
+                </Children>
+              </GroupBox>
+            </SideControl>
+          </SplitPanel>
+        </Container>
+      </ControlTab>
+      <ControlTab id="ctSecond">
+        <Property name="caption">演练流程</Property>
+        <Property name="visible">false</Property>
+        <IFrame>
+          <Property name="path">images/fzjz/u191.png</Property>
+        </IFrame>
+      </ControlTab>
+      <ControlTab id="ctThird">
+        <Property name="caption">演练结果</Property>
+        <IFrame id="iframeRecord"/>
+      </ControlTab>
+    </TabControl>
+    <Dialog id="dialogSelection">
+      <Property name="width">500</Property>
+      <Property name="height">300</Property>
+      <Buttons>
+        <Button id="btnConfirm">
+          <Property name="caption">确定</Property>
+        </Button>
+        <Button id="btnCancel">
+          <Property name="caption">取消</Property>
+        </Button>
+      </Buttons>
+      <Children>
+        <Container>
+          <DataSet id="dsSelection">
+            <Property name="dataType">[dtMnylCaselibrary]</Property>
+            <Property name="dataProvider">mnylCaselibraryAction#getAll</Property>
+          </DataSet>
+          <DataGrid id="dgSelection">
+            <Property name="dataSet">dsSelection</Property>
+            <Property name="readOnly">true</Property>
+            <DataColumn name="zhCase">
+              <Property name="property">zhCase</Property>
+            </DataColumn>
+            <DataColumn name="zhLx">
+              <Property name="property">zhLx</Property>
+            </DataColumn>
+            <DataColumn name="zhStartTime">
+              <Property name="property">zhStartTime</Property>
+            </DataColumn>
+            <DataColumn name="zhEndTime">
+              <Property name="property">zhEndTime</Property>
+            </DataColumn>
+            <DataColumn name="zhContinuedTime">
+              <Property name="property">zhContinuedTime</Property>
+            </DataColumn>
+          </DataGrid>
+        </Container>
+      </Children>
+      <Tools/>
+    </Dialog>
+    <Dialog id="dialogLook">
+      <Property name="width">1024</Property>
+      <Property name="height">800</Property>
+      <Buttons/>
+      <Children>
+        <IFrame>
+          <Property name="path">images/fzjz/u191.png</Property>
+        </IFrame>
+      </Children>
+      <Tools/>
+    </Dialog>
+  </View>
+</ViewConfig>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model>
+  <DataType name="dtNkBudget">
+    <Property name="matchType">cn.com.oking.nk.entity.NkBudget</Property>
+    <PropertyDef name="nkId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">内容</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="revenueBudget">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">收入预算</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="expendBudget">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">支出预算</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="realRevenue">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">实际收入</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="realExpend">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">实际支出</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="updateTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">更新时间</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="updatePeople">
+      <Property></Property>
+      <Property name="label">更新人员</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="fieldNum">
+      <Property></Property>
+      <Property name="label">文件关联编号</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkRecord">
+    <Property name="matchType">cn.com.oking.nk.entity.NkRecord</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="nkName">
+      <Property></Property>
+      <Property name="label">文件名称</Property>
+    </PropertyDef>
+    <PropertyDef name="updateTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">更新时间</Property>
+    </PropertyDef>
+    <PropertyDef name="nkType">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="fileid">
+      <Property></Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkNotes">
+    <Property name="matchType">cn.com.oking.nk.entity.NkNotes</Property>
+    <PropertyDef name="nkId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="noteName">
+      <Property></Property>
+      <Property name="label">票据名称</Property>
+    </PropertyDef>
+    <PropertyDef name="businessTypes">
+      <Property></Property>
+      <Property name="label">业务类型</Property>
+    </PropertyDef>
+    <PropertyDef name="invoiceCode">
+      <Property></Property>
+      <Property name="label">发票代码</Property>
+    </PropertyDef>
+    <PropertyDef name="allNumbers">
+      <Property></Property>
+      <Property name="label">起讫编号</Property>
+    </PropertyDef>
+    <PropertyDef name="noteNum">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">票据份数</Property>
+    </PropertyDef>
+    <PropertyDef name="remarks">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+    <PropertyDef name="dealTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">办理时间</Property>
+    </PropertyDef>
+    <PropertyDef name="dealPeople">
+      <Property></Property>
+      <Property name="label">经办人</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkBalanceOfPayment">
+    <Property name="matchType">cn.com.oking.nk.entity.NkBalanceOfPayment</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+      <Property name="label">文件编号</Property>
+    </PropertyDef>
+    <PropertyDef name="nkName">
+      <Property></Property>
+      <Property name="label">文档名称</Property>
+    </PropertyDef>
+    <PropertyDef name="updateTime">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">更新时间</Property>
+    </PropertyDef>
+    <PropertyDef name="nkType">
+      <Property></Property>
+      <Property name="label">状态</Property>
+    </PropertyDef>
+    <PropertyDef name="fileid">
+      <Property></Property>
+      <Property name="label">文件编号</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkAllZcwj">
+    <Property name="matchType">cn.com.oking.nk.entity.NkAllZcwj</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">内容</Property>
+    </PropertyDef>
+    <PropertyDef name="upDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">日期</Property>
+    </PropertyDef>
+    <PropertyDef name="zcwjType">
+      <Property></Property>
+      <Property name="label">类型</Property>
+    </PropertyDef>
+    <PropertyDef name="fileid">
+      <Property></Property>
+      <Property name="label">文件关联编号</Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkCgkzGckz">
+    <Property name="matchType">cn.com.oking.nk.entity.NkCgkzGckz</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+      <Property name="label">文件编号</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">内容</Property>
+    </PropertyDef>
+    <PropertyDef name="upDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">日期</Property>
+    </PropertyDef>
+    <PropertyDef name="gcType">
+      <Property></Property>
+      <Property name="label">类型</Property>
+    </PropertyDef>
+    <PropertyDef name="fileid">
+      <Property></Property>
+      <Property name="label">文件关联编号</Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkCgkzRecord">
+    <Property name="matchType">cn.com.oking.nk.entity.NkCgkzRecord</Property>
+    <PropertyDef name="nkId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+      <Property name="label">文件编号</Property>
+    </PropertyDef>
+    <PropertyDef name="cgExplain">
+      <Property></Property>
+      <Property name="label">采购说明</Property>
+    </PropertyDef>
+    <PropertyDef name="cgType">
+      <Property></Property>
+      <Property name="label">类型</Property>
+    </PropertyDef>
+    <PropertyDef name="cgMoney">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">采购金额</Property>
+    </PropertyDef>
+    <PropertyDef name="cgDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">采购时间</Property>
+    </PropertyDef>
+    <PropertyDef name="agent">
+      <Property></Property>
+      <Property name="label">经办人</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkXmkzRecord">
+    <Property name="matchType">cn.com.oking.nk.entity.NkXmkzRecord</Property>
+    <PropertyDef name="nkId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="xmCode">
+      <Property></Property>
+      <Property name="label">项目编码</Property>
+    </PropertyDef>
+    <PropertyDef name="xmName">
+      <Property></Property>
+      <Property name="label">项目名称</Property>
+    </PropertyDef>
+    <PropertyDef name="startDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">开始日期</Property>
+    </PropertyDef>
+    <PropertyDef name="endDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">结束日期</Property>
+    </PropertyDef>
+    <PropertyDef name="xmState">
+      <Property></Property>
+      <Property name="label">项目状态</Property>
+    </PropertyDef>
+    <PropertyDef name="xmPeople">
+      <Property></Property>
+      <Property name="label">项目负责人</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkXmkzGckz">
+    <Property name="matchType">cn.com.oking.nk.entity.NkXmkzGckz</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+      <Property name="label">文件编号</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">内容</Property>
+    </PropertyDef>
+    <PropertyDef name="upDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">日期</Property>
+    </PropertyDef>
+    <PropertyDef name="gcType">
+      <Property></Property>
+      <Property name="label">类型</Property>
+    </PropertyDef>
+    <PropertyDef name="fileid">
+      <Property></Property>
+      <Property name="label">文件关联编号</Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkHtkzRecord">
+    <Property name="matchType">cn.com.oking.nk.entity.NkHtkzRecord</Property>
+    <PropertyDef name="nkId">
+      <Property></Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+      <Property name="label">合同编号</Property>
+    </PropertyDef>
+    <PropertyDef name="htExplain">
+      <Property></Property>
+      <Property name="label">合同说明</Property>
+    </PropertyDef>
+    <PropertyDef name="htType">
+      <Property></Property>
+      <Property name="label">类型</Property>
+    </PropertyDef>
+    <PropertyDef name="htMoney">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">合同金额</Property>
+    </PropertyDef>
+    <PropertyDef name="htDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">合同时间</Property>
+    </PropertyDef>
+    <PropertyDef name="agent">
+      <Property></Property>
+      <Property name="label">经办人</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkHtkzGckz">
+    <Property name="matchType">cn.com.oking.nk.entity.NkHtkzGckz</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="nkNum">
+      <Property></Property>
+      <Property name="label">文件编号</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">内容</Property>
+    </PropertyDef>
+    <PropertyDef name="upDate">
+      <Property name="dataType">DateTime</Property>
+      <Property name="label">日期</Property>
+    </PropertyDef>
+    <PropertyDef name="gcType">
+      <Property></Property>
+      <Property name="label">类型</Property>
+    </PropertyDef>
+    <PropertyDef name="fileid">
+      <Property></Property>
+      <Property name="label">文件关联编号</Property>
+    </PropertyDef>
+    <PropertyDef name="remark">
+      <Property></Property>
+      <Property name="label">备注</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtNkBudgetExpend">
+    <Property name="matchType">cn.com.oking.nk.entity.NkBudgetExpend</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="content">
+      <Property></Property>
+      <Property name="label">内容</Property>
+    </PropertyDef>
+    <PropertyDef name="revenueBudget">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">收入预算</Property>
+    </PropertyDef>
+    <PropertyDef name="realRevenue">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">实际收入</Property>
+    </PropertyDef>
+    <PropertyDef name="expendBudget">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">支出预算</Property>
+    </PropertyDef>
+    <PropertyDef name="realExpend">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">实际支出</Property>
+    </PropertyDef>
+    <PropertyDef name="status">
+      <Property></Property>
+      <Property name="label">状态</Property>
+    </PropertyDef>
+    <PropertyDef name="parentId">
+      <Property></Property>
+      <Property name="label">父编号</Property>
+    </PropertyDef>
+    <PropertyDef name="associateId">
+      <Property></Property>
+      <Property name="label">关联编号</Property>
+    </PropertyDef>
+  </DataType>
+  <DataType name="dtTabControl">
+    <Property name="matchType">cn.com.oking.nk.entity.TabControl</Property>
+    <PropertyDef name="id">
+      <Property></Property>
+      <Property name="label">主键</Property>
+    </PropertyDef>
+    <PropertyDef name="associateId">
+      <Property></Property>
+      <Property name="label">关联编号</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="link">
+      <Property></Property>
+      <Property name="label">关联JSP</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="params">
+      <Property></Property>
+      <Property name="label">关联JSP参数</Property>
+    </PropertyDef>
+    <PropertyDef name="tabName">
+      <Property></Property>
+      <Property name="label">TAB名称</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+    <PropertyDef name="orderNum">
+      <Property name="dataType">BigDecimal</Property>
+      <Property name="label">序列号</Property>
+      <Property name="required">true</Property>
+    </PropertyDef>
+  </DataType>
+</Model>

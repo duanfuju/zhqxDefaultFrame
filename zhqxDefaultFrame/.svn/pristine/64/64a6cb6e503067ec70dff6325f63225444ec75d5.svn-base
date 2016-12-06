@@ -1,0 +1,162 @@
+*{
+	margin: 0 auto;
+}
+body{
+    margin: 0 10px;
+}
+a{
+    text-decoration:none;
+}
+a:link {color: white;} /* 未访问的链接 */
+a:visited {} /* 已访问的链接 */
+a:hover{} /* 鼠标在链接上 */
+a:active {color:white;}
+ul{
+    margin:0 auto; }
+li{
+    float:left;
+
+    list-style-type:none;
+
+}
+
+#tab{
+    width:100%;
+    text-align:left;
+    height:35px;
+    float: left;
+}
+
+.tab_menu{width:100%;float:left; margin-left:-30px; }
+.tab_menu li{float:left;width:102px;height:35px;line-height:40px;cursor:pointer;text-align:center;margin:0 0 0 -10px; border-bottom:0px solid #357efb;
+    background-image:url(../../images/nrfb/ss2.png);
+    color:white; font-size:15px;
+}
+
+
+
+.tab_menu li a{
+    color:white;}
+.tab_menu .selected{cursor:pointer;
+    background-image:url(../../images/nrfb/ss1.png);
+    color:black;}
+.tab_menu .selected a{
+    color:black;}
+.hide{display:none;}
+.tab_box div{padding:10px;}
+
+#all_div{
+    width:100%
+}
+
+#all_div .province{
+    height: 35px;
+}
+
+#all_div .second_div{
+    width:100%;
+    border:1px solid #CCCCCC;
+    height:615px;
+}
+
+.border{
+    width:100%;
+    height:40px;
+    line-height: 6px;
+}
+
+.country{
+    float:left;
+    width:830px;
+    height:615px;
+}
+
+.control{
+    width:100%;
+    height:40px;
+    line-height:40px;
+}
+
+#input {
+    float: left;
+    height: 30px;
+    margin-left: 28px;
+    border: 3px solid #13a3e2;
+    margin-top: 8px;
+}
+
+#input input{
+    font-size:17px;
+    height:26px;
+    width:160px
+}
+
+.operation{
+    float:left;
+    height:25px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.button{
+    height:35px;
+    margin-top: 10px;
+    cursor : pointer;
+}
+
+.xxx{
+    float:left;
+    width:168px;
+    height:40px;
+    margin-top:5px;
+    background-image:url(../../images/nrfb/bfbj.png);
+    margin-left: 250px
+}
+.xxx li{
+    height:40px; line-height:40px;
+    margin-left:15px;
+
+}
+.xxx ul{
+    margin-left:-40px;
+    margin-top:5px;
+}
+
+.map{
+    margin:0 15px 0 25px;
+    width: 780px;
+    height: 565px;
+}
+
+.choose{
+    float:left;
+    width:250px;
+    height:615px;
+    background-image:url(../../images/nrfb/checkbg1.png)
+}
+
+.chooseStyle{
+    float:left;
+    width:250px;
+    height:45px;
+    line-height:45px;
+}
+
+.backgroundeStyle {
+    margin-top: 5px;
+    background-image: url(../../images/nrfb/ck1.png);
+    height: 38px;
+	line-height: 10px;
+    width: 197px
+}
+
+.radioStyle{
+    margin-left:-100px;
+    margin-top:15px
+}
+
+.timeStyle{
+    margin-top:-15px;
+    margin-left:20px;
+    font-weight:bold
+}

@@ -1,0 +1,24 @@
+#info_main{width:800px;height:100%;margin: 0 auto;padding-top: 30px;}
+#info_head{color:red;text-align:center;font-size:32px;font-weight: blod;margin:0;}
+#info_time{font-size:12px;text-align:center; margin:0;}
+#info_com {width:100%; font-size:14px;}
+#info_com table{ width:100%;}
+#info_dept{text-align:left;}
+#info_by{text-align:right;}
+#info_span{size:15px;}
+#info_content{font-size:14px;}
+#info_control{width:100%;}
+#info_control tr td{text-align:center;background-color:white;line-height:24px;}
+#info_control_title td{background-color:blue;}
+.cred{color:red;}
+.cgreen{color:green;}
+
+*{margin:0;padding:0; }
+a{text-decoration:none;}
+ul,li{list-style:none;margin:0;}
+.tab_body{text-align:center;text-shadow:1px 0px 0px #000;font-family:Microsoft Yahei; font-size:15px;}
+.tab_body li{  width:106px; height:36px; line-height:36px; float:left;margin:0 0 0 -10px; background: url(../../images/nrfb/ss2.png) no-repeat;}
+.tab_body li a{ color:white;}
+.tab_body .cur{ display:block;width:106px; height:36px; line-height:36px;color:#000;font-weight:bold;background: url(../../images/nrfb/ss1.png) no-repeat;text-shadow:1px 1px 1px #FFF;}
+
+

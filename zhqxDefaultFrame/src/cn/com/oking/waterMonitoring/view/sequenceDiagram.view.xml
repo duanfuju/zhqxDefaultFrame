@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewConfig>
+  <Arguments/>
+  <Context/>
+  <Model>
+    <DataType name="dtCondition">
+      <PropertyDef name="stationName">
+        <Property name="label">站点</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="time">
+        <Property name="label">时间点</Property>
+        <Property name="dataType">DateTime</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="part">
+        <Property name="label">要素</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="type">
+        <Property name="label">图表</Property>
+        <Property name="required">true</Property>
+      </PropertyDef>
+      <PropertyDef name="num">
+        <Property name="label">站点编号</Property>
+      </PropertyDef>
+    </DataType>
+    <DataType name="dtStation">
+      <PropertyDef name="num"/>
+      <PropertyDef name="name"/>
+    </DataType>
+  </Model>
+  <View>
+    <Property name="javaScriptFile">/js/echarts-all.js</Property>
+    <GroupBox>
+      <Property name="caption">要素选择</Property>
+      <Buttons/>
+      <Children>
+        <Container>
+          <DataSet id="dsCondition">
+            <Property name="dataType">dtCondition</Property>
+          </DataSet>
+          <AutoForm id="afCondition">
+            <Property name="dataSet">dsCondition</Property>
+            <Property name="cols">*,*,*</Property>
+            <AutoFormElement>
+              <Property name="name">stationName</Property>
+              <Property name="property">stationName</Property>
+              <Property name="trigger">dsddStation</Property>
+              <Editor/>
+            </AutoFormElement>
+            <AutoFormElement>
+              <Property name="name">time</Property>
+              <Property name="property">time</Property>
+              <Editor/>
+            </AutoFormElement>
+            <AutoFormElement>
+              <Property name="name">part</Property>
+              <Property name="property">part</Property>
+              <Property name="trigger">lddpart</Property>
+              <Editor/>
+            </AutoFormElement>
+            <AutoFormElement>
+              <Property name="name">type</Property>
+              <Property name="property">type</Property>
+              <Property name="trigger">lddType</Property>
+              <Editor/>
+            </AutoFormElement>
+            <Button id="btnSearch">
+              <Property name="caption">查询</Property>
+            </Button>
+            <AutoFormElement>
+              <Property name="name">num</Property>
+              <Property name="property">num</Property>
+              <Property name="visible">false</Property>
+              <Editor/>
+            </AutoFormElement>
+          </AutoForm>
+        </Container>
+        <Container>
+          <DataSet id="dsStation">
+            <Property name="dataProvider">weatherStation#getStationData</Property>
+            <Property name="dataType">[dtStation]</Property>
+          </DataSet>
+          <DataSetDropDown id="dsddStation">
+            <Property name="dataSet">dsStation</Property>
+            <Property name="property">name</Property>
+            <Property name="displayProperty">name</Property>
+            <Property name="assignmentMap">num=num</Property>
+          </DataSetDropDown>
+          <ListDropDown id="lddpart">
+            <Property name="items">雨量,温度,风速</Property>
+          </ListDropDown>
+          <ListDropDown id="lddType">
+            <Property name="items">折线图,柱状图</Property>
+          </ListDropDown>
+        </Container>
+      </Children>
+    </GroupBox>
+    <GroupBox>
+      <Property name="caption">图表展示</Property>
+      <Buttons/>
+      <Children>
+        <IFrame id="ifShow"/>
+      </Children>
+    </GroupBox>
+  </View>
+</ViewConfig>
